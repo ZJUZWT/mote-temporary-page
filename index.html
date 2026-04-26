@@ -184,7 +184,7 @@
         <label>ambient <input data-control="ambient" type="range" min="0.18" max="0.52" step="0.01" value="0.30"></label>
         <label>window <input data-control="window" type="range" min="0" max="1.25" step="0.01" value="1.00"></label>
         <label>monitor <input data-control="monitor" type="range" min="0" max="1.15" step="0.01" value="0.86"></label>
-        <label>lamps <input data-control="lamps" type="range" min="0" max="1.40" step="0.01" value="0.95"></label>
+        <label>lamps <input data-control="lamps" type="range" min="0" max="1.80" step="0.01" value="1.20"></label>
         <label>view
           <select data-control="view">
             <option value="final">final</option>
@@ -313,10 +313,10 @@
           const monitorLight = data.monitor[offset] / 255 * monitorWeight * monitorPulse;
           const lampLight = data.lamps[offset] / 255 * lampWeight * lampPulse;
           const scan = Math.max(0, 1 - Math.abs(y - scanY) / scanBand) * (data.monitor[offset] / 255) * 0.12;
-          const light = windowLight * 0.78 + monitorLight * 0.62 + lampLight * 0.22 + scan;
+          const light = windowLight * 0.78 + monitorLight * 0.62 + lampLight * 0.55 + scan;
           const exposure = clamp(ambient * (1 - shadow * 0.32) + light, 0.04, 1.22);
 
-          const sourceLift = windowLight * 16 + monitorLight * 14 + lampLight * 10;
+          const sourceLift = windowLight * 16 + monitorLight * 14 + lampLight * 28;
           const luminance = data.base[offset] * 0.299 + data.base[offset + 1] * 0.587 + data.base[offset + 2] * 0.114;
           const value = level(clamp(luminance * exposure + sourceLift, 0, 255));
 
