@@ -359,6 +359,7 @@
       });
 
       const params = new URLSearchParams(window.location.search);
+      let nextFrameRequest = 0;
       const requestedView = params.get("view");
       if (requestedView && [...controls.view.options].some((option) => option.value === requestedView)) {
         controls.view.value = requestedView;
@@ -533,9 +534,19 @@
           renderLayer(context, view, data, state);
         }
 
-        if (!reducedMotion) {
-          requestAnimationFrame((next) => renderFrame(data, startTime, next));
+        const shouldAnimate = view === "final" && controls.candidate.value === "current";
+        if (!reducedMotion && shouldAnimate) {
+          nextFrameRequest = requestAnimationFrame((next) => renderFrame(data, startTime, next));
         }
+      }
+
+      function renderFromControls(data) {
+        if (nextFrameRequest) {
+          cancelAnimationFrame(nextFrameRequest);
+          nextFrameRequest = 0;
+        }
+        const time = performance.now();
+        renderFrame(data, time, time);
       }
 
       const layerEntries = Object.entries(layerSources).map(async ([key, source]) => (
@@ -555,24 +566,15 @@
             layers: Object.fromEntries(loadedLayers),
             candidates: Object.fromEntries(loadedCandidates),
           };
-          if (reducedMotion) {
-            renderFrame(data, performance.now(), performance.now());
-            Object.values(controls).forEach((control) => {
-              control.addEventListener("input", () => {
-                updateUrl();
-                renderFrame(data, performance.now(), performance.now());
-              });
-              control.addEventListener("change", () => {
-                updateUrl();
-                renderFrame(data, performance.now(), performance.now());
-              });
-            });
-          } else {
-            Object.values(controls).forEach((control) => {
-              control.addEventListener("change", updateUrl);
-            });
-            requestAnimationFrame((time) => renderFrame(data, time, time));
-          }
+          Object.values(controls).forEach((control) => {
+            const rerender = () => {
+              updateUrl();
+              renderFromControls(data);
+            };
+            control.addEventListener("input", rerender);
+            control.addEventListener("change", rerender);
+          });
+          requestAnimationFrame((time) => renderFrame(data, time, time));
         })
         .catch((error) => {
           const box = document.createElement("div");
