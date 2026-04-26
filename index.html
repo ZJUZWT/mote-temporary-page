@@ -47,6 +47,7 @@
       }
 
       .scene > canvas,
+      .scene > img,
       .hotspot {
         position: absolute;
         inset: 0;
@@ -57,6 +58,17 @@
       canvas {
         display: block;
         image-rendering: pixelated;
+      }
+
+      img {
+        display: block;
+        image-rendering: pixelated;
+        object-fit: cover;
+      }
+
+      canvas[hidden],
+      img[hidden] {
+        display: none;
       }
 
       .scene[hidden],
@@ -157,7 +169,8 @@
         min-width: 0;
       }
 
-      .quad-cell canvas {
+      .quad-cell canvas,
+      .quad-cell img {
         width: 100%;
         aspect-ratio: 1;
         background: #020202;
@@ -209,25 +222,30 @@
   <body>
     <main>
       <section class="scene" aria-label="旧勘测站动态 lightmap 实验">
-        <canvas id="main-canvas" width="1024" height="1024"></canvas>
+        <canvas id="main-canvas" width="512" height="512"></canvas>
+        <img id="main-image" alt="" hidden>
         <button class="hotspot terminal-hotspot" aria-label="旧勘测主机"></button>
         <button class="hotspot window-hotspot" aria-label="盐盆观察窗"></button>
       </section>
       <section class="quad-panel" aria-label="layer comparison grid" hidden>
         <figure class="quad-cell">
-          <canvas data-quad-cell="0" width="1024" height="1024"></canvas>
+          <canvas data-quad-cell="0" width="512" height="512"></canvas>
+          <img data-quad-img="0" alt="" hidden>
           <figcaption data-quad-label="0"></figcaption>
         </figure>
         <figure class="quad-cell">
-          <canvas data-quad-cell="1" width="1024" height="1024"></canvas>
+          <canvas data-quad-cell="1" width="512" height="512"></canvas>
+          <img data-quad-img="1" alt="" hidden>
           <figcaption data-quad-label="1"></figcaption>
         </figure>
         <figure class="quad-cell">
-          <canvas data-quad-cell="2" width="1024" height="1024"></canvas>
+          <canvas data-quad-cell="2" width="512" height="512"></canvas>
+          <img data-quad-img="2" alt="" hidden>
           <figcaption data-quad-label="2"></figcaption>
         </figure>
         <figure class="quad-cell">
-          <canvas data-quad-cell="3" width="1024" height="1024"></canvas>
+          <canvas data-quad-cell="3" width="512" height="512"></canvas>
+          <img data-quad-img="3" alt="" hidden>
           <figcaption data-quad-label="3"></figcaption>
         </figure>
       </section>
@@ -274,10 +292,12 @@
 
     <script>
       const canvas = document.querySelector("#main-canvas");
+      const mainImage = document.querySelector("#main-image");
       const scene = document.querySelector(".scene");
       const quadPanel = document.querySelector(".quad-panel");
       const quadCells = [...document.querySelectorAll("[data-quad-cell]")].map((quadCanvas, index) => ({
         canvas: quadCanvas,
+        img: document.querySelector(`[data-quad-img="${index}"]`),
         context: quadCanvas.getContext("2d", { willReadFrequently: true }),
         label: document.querySelector(`[data-quad-label="${index}"]`),
       }));
@@ -352,6 +372,7 @@
         lightmaps: ["final", "window", "monitor", "lamps"],
         candidateReview: ["final", "candidate", "monitor", "aiTerminalMask"],
       };
+      const compositeLayerKeys = ["base", "window", "monitor", "lamps", "shadow"];
 
       Object.entries(candidateSources).forEach(([key, candidate]) => {
         const option = document.createElement("option");
@@ -430,31 +451,6 @@
         };
       }
 
-      function putExactLayer(targetContext, source) {
-        const output = targetContext.createImageData(width, height);
-        output.data.set(source);
-        targetContext.putImageData(output, 0, 0);
-      }
-
-      function putGrayLayer(targetContext, source, mode) {
-        const output = targetContext.createImageData(width, height);
-        const out = output.data;
-
-        for (let i = 0; i < pixelCount; i += 1) {
-          const offset = i * 4;
-          const value = mode === "luminance"
-            ? level(source[offset] * 0.299 + source[offset + 1] * 0.587 + source[offset + 2] * 0.114)
-            : level(source[offset]);
-
-          out[offset] = value;
-          out[offset + 1] = value;
-          out[offset + 2] = value;
-          out[offset + 3] = 255;
-        }
-
-        targetContext.putImageData(output, 0, 0);
-      }
-
       function renderComposite(targetContext, data, state) {
         const output = targetContext.createImageData(width, height);
         const out = output.data;
@@ -488,40 +484,87 @@
         renderComposite(targetContext, data, state);
       }
 
+      function staticLayer(layerKey) {
+        if (layerKey === "candidate") {
+          const candidateKey = controls.candidate.value;
+          if (candidateKey === "current") {
+            return null;
+          }
+          return {
+            label: `candidate / ${candidateSources[candidateKey].label}`,
+            src: candidateSources[candidateKey].src,
+          };
+        }
+        const layer = layerSources[layerKey];
+        return {
+          label: layer.label,
+          src: layer.src,
+        };
+      }
+
+      function showMainCanvas() {
+        canvas.hidden = false;
+        mainImage.hidden = true;
+      }
+
+      function showMainImage(layer) {
+        canvas.hidden = true;
+        mainImage.hidden = false;
+        mainImage.src = layer.src;
+        mainImage.alt = layer.label;
+      }
+
+      function renderMainLayer(layerKey, data, state) {
+        if (layerKey === "final") {
+          showMainCanvas();
+          renderFinal(context, data, state);
+          return;
+        }
+        if (layerKey === "candidate" && controls.candidate.value === "current") {
+          showMainCanvas();
+          renderFinal(context, data, state);
+          return;
+        }
+        showMainImage(staticLayer(layerKey));
+      }
+
+      function renderQuadLayer(cell, layerKey, data, state) {
+        if (layerKey === "final") {
+          cell.canvas.hidden = false;
+          cell.img.hidden = true;
+          renderFinal(cell.context, data, state);
+          cell.label.textContent = "runtime final";
+          return;
+        }
+        if (layerKey === "candidate" && controls.candidate.value === "current") {
+          cell.canvas.hidden = false;
+          cell.img.hidden = true;
+          renderFinal(cell.context, data, state);
+          cell.label.textContent = "candidate / current composite";
+          return;
+        }
+        const layer = staticLayer(layerKey);
+        cell.canvas.hidden = true;
+        cell.img.hidden = false;
+        cell.img.src = layer.src;
+        cell.img.alt = layer.label;
+        cell.label.textContent = layer.label;
+      }
+
       function renderCandidate(targetContext, data, state) {
         const candidateKey = controls.candidate.value;
         if (candidateKey === "current") {
           renderComposite(targetContext, data, state);
           return;
         }
-        putExactLayer(targetContext, data.candidates[candidateKey]);
-      }
-
-      function renderLayer(targetContext, layerKey, data, state) {
-        if (layerKey === "final") {
-          renderFinal(targetContext, data, state);
-          return;
-        }
-        if (layerKey === "candidate") {
-          renderCandidate(targetContext, data, state);
-          return;
-        }
-
-        const layer = layerSources[layerKey];
-        putGrayLayer(targetContext, data.layers[layerKey], layer.mode);
+        showMainImage(staticLayer("candidate"));
       }
 
       function renderQuad(data, state) {
         const layerKeys = quadLayerSets[controls.layers.value];
         quadCells.forEach((cell, index) => {
           const layerKey = layerKeys[index];
-          renderLayer(cell.context, layerKey, data, state);
-          const label = layerKey === "final"
-            ? "runtime final"
-            : layerKey === "candidate"
-              ? `candidate / ${candidateSources[controls.candidate.value].label}`
-              : layerSources[layerKey].label;
-          cell.label.textContent = label;
+          renderQuadLayer(cell, layerKey, data, state);
         });
       }
 
@@ -543,7 +586,7 @@
         if (view === "quad") {
           renderQuad(data, state);
         } else {
-          renderLayer(context, view, data, state);
+          renderMainLayer(view, data, state);
         }
 
         const shouldAnimate = view === "final";
@@ -561,22 +604,14 @@
         renderFrame(data, time, time);
       }
 
-      const layerEntries = Object.entries(layerSources).map(async ([key, source]) => (
-        [key, imageData(await loadImage(source.src))]
+      const layerEntries = compositeLayerKeys.map(async (key) => (
+        [key, imageData(await loadImage(layerSources[key].src))]
       ));
-      const candidateEntries = Object.entries(candidateSources)
-        .filter(([, candidate]) => candidate.src)
-        .map(async ([key, candidate]) => [key, imageData(await loadImage(candidate.src))]);
 
-      Promise.all([
-        Promise.all(layerEntries),
-        Promise.all(candidateEntries),
-      ])
+      Promise.all(layerEntries)
         .then((entries) => {
-          const [loadedLayers, loadedCandidates] = entries;
           const data = {
-            layers: Object.fromEntries(loadedLayers),
-            candidates: Object.fromEntries(loadedCandidates),
+            layers: Object.fromEntries(entries),
           };
           Object.values(controls).forEach((control) => {
             const rerender = () => {
