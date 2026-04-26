@@ -46,8 +46,7 @@
         outline: 1px solid color-mix(in srgb, var(--line), transparent 10%);
       }
 
-      canvas,
-      .fallback,
+      .scene > canvas,
       .hotspot {
         position: absolute;
         inset: 0;
@@ -55,15 +54,14 @@
         height: 100%;
       }
 
-      .fallback {
-        object-fit: contain;
-        image-rendering: pixelated;
-        opacity: 1;
-      }
-
       canvas {
         display: block;
         image-rendering: pixelated;
+      }
+
+      .scene[hidden],
+      .quad-panel[hidden] {
+        display: none;
       }
 
       .hotspot {
@@ -101,7 +99,7 @@
 
       .panel {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(7, minmax(0, 1fr));
         gap: 10px;
         color: var(--muted);
         font-size: 12px;
@@ -144,6 +142,36 @@
         font-weight: 500;
       }
 
+      .quad-panel {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        width: min(92vw, 1024px);
+        margin-inline: auto;
+      }
+
+      .quad-cell {
+        margin: 0;
+        display: grid;
+        gap: 6px;
+        min-width: 0;
+      }
+
+      .quad-cell canvas {
+        width: 100%;
+        aspect-ratio: 1;
+        background: #020202;
+        outline: 1px solid color-mix(in srgb, var(--line), transparent 10%);
+      }
+
+      .quad-cell figcaption {
+        min-height: 18px;
+        color: var(--muted);
+        font-size: 11px;
+        line-height: 1.5;
+        letter-spacing: 0;
+      }
+
       .error {
         position: absolute;
         inset: 0;
@@ -158,9 +186,15 @@
       }
 
       @media (max-width: 760px) {
-        .panel,
-        .caption {
+        .panel {
           grid-template-columns: 1fr 1fr;
+        }
+
+        .quad-panel {
+          gap: 8px;
+        }
+
+        .caption {
           flex-direction: column;
         }
       }
@@ -175,41 +209,78 @@
   <body>
     <main>
       <section class="scene" aria-label="旧勘测站动态 lightmap 实验">
-        <img class="fallback" src="base.png" alt="">
-        <canvas width="1024" height="1024"></canvas>
+        <canvas id="main-canvas" width="1024" height="1024"></canvas>
         <button class="hotspot terminal-hotspot" aria-label="旧勘测主机"></button>
         <button class="hotspot window-hotspot" aria-label="盐盆观察窗"></button>
+      </section>
+      <section class="quad-panel" aria-label="layer comparison grid" hidden>
+        <figure class="quad-cell">
+          <canvas data-quad-cell="0" width="1024" height="1024"></canvas>
+          <figcaption data-quad-label="0"></figcaption>
+        </figure>
+        <figure class="quad-cell">
+          <canvas data-quad-cell="1" width="1024" height="1024"></canvas>
+          <figcaption data-quad-label="1"></figcaption>
+        </figure>
+        <figure class="quad-cell">
+          <canvas data-quad-cell="2" width="1024" height="1024"></canvas>
+          <figcaption data-quad-label="2"></figcaption>
+        </figure>
+        <figure class="quad-cell">
+          <canvas data-quad-cell="3" width="1024" height="1024"></canvas>
+          <figcaption data-quad-label="3"></figcaption>
+        </figure>
       </section>
       <div class="panel" aria-label="lightmap weights">
         <label>ambient <input data-control="ambient" type="range" min="0.18" max="0.52" step="0.01" value="0.30"></label>
         <label>window <input data-control="window" type="range" min="0" max="1.25" step="0.01" value="1.00"></label>
         <label>monitor <input data-control="monitor" type="range" min="0" max="1.15" step="0.01" value="0.86"></label>
         <label>lamps <input data-control="lamps" type="range" min="0" max="1.80" step="0.01" value="1.20"></label>
+        <label>candidate
+          <select data-control="candidate"></select>
+        </label>
         <label>view
           <select data-control="view">
             <option value="final">final</option>
+            <option value="quad">2x2 layers</option>
+            <option value="candidate">candidate image</option>
             <option value="base">base</option>
             <option value="window">window map</option>
             <option value="monitor">monitor map</option>
             <option value="lamps">lamp map</option>
             <option value="shadow">shadow map</option>
+            <option value="terminalMask">terminal mask</option>
+            <option value="windowMask">window mask</option>
+            <option value="statusLampsMask">status lamps mask</option>
+            <option value="aiTerminalMask">AI terminal mask</option>
+            <option value="aiWindowMask">AI window mask</option>
+            <option value="aiLampsMask">AI lamps mask</option>
+          </select>
+        </label>
+        <label>layers
+          <select data-control="layers">
+            <option value="masks">final + hand masks</option>
+            <option value="aiMasks">final + AI masks</option>
+            <option value="lightmaps">final + lightmaps</option>
           </select>
         </label>
       </div>
       <div class="caption">
-        <span><strong>Lightmap demo</strong> / 每帧按 base、ambient、shadow、window、monitor、lamps 合成；view 可单独检查影响图。</span>
+        <span><strong>Lightmap demo</strong> / 可切换 AI 候选图、单层检查，或用 2x2 同时看 final 与 mask/map。</span>
         <span>Scene: CH01 old survey station</span>
       </div>
     </main>
 
     <script>
-      const canvas = document.querySelector("canvas");
+      const canvas = document.querySelector("#main-canvas");
       const scene = document.querySelector(".scene");
+      const quadPanel = document.querySelector(".quad-panel");
+      const quadCells = [...document.querySelectorAll("[data-quad-cell]")].map((quadCanvas, index) => ({
+        canvas: quadCanvas,
+        context: quadCanvas.getContext("2d", { willReadFrequently: true }),
+        label: document.querySelector(`[data-quad-label="${index}"]`),
+      }));
       const context = canvas.getContext("2d", { willReadFrequently: true });
-      const mobileRender = window.matchMedia("(max-width: 820px), (pointer: coarse)").matches;
-      const renderSize = mobileRender ? 512 : 1024;
-      canvas.width = renderSize;
-      canvas.height = renderSize;
       const width = canvas.width;
       const height = canvas.height;
       const pixelCount = width * height;
@@ -218,21 +289,87 @@
         window: document.querySelector('[data-control="window"]'),
         monitor: document.querySelector('[data-control="monitor"]'),
         lamps: document.querySelector('[data-control="lamps"]'),
+        candidate: document.querySelector('[data-control="candidate"]'),
         view: document.querySelector('[data-control="view"]'),
+        layers: document.querySelector('[data-control="layers"]'),
       };
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      const sources = {
-        base: "base.png",
-        window: "lightmaps/window-influence.png",
-        monitor: "lightmaps/monitor-influence.png",
-        lamps: "lightmaps/lamp-influence.png",
-        shadow: "lightmaps/shadow-occlusion.png",
+      const layerSources = {
+        base: { label: "base", src: "base.png", mode: "luminance" },
+        window: { label: "window influence", src: "lightmaps/window-influence.png", mode: "gray" },
+        monitor: { label: "monitor influence", src: "lightmaps/monitor-influence.png", mode: "gray" },
+        lamps: { label: "lamp influence", src: "lightmaps/lamp-influence.png", mode: "gray" },
+        shadow: { label: "shadow occlusion", src: "lightmaps/shadow-occlusion.png", mode: "gray" },
+        terminalMask: { label: "hand terminal mask", src: "masks/terminal-mask.png", mode: "gray" },
+        windowMask: { label: "hand window mask", src: "masks/window-mask.png", mode: "gray" },
+        statusLampsMask: { label: "hand status lamps mask", src: "masks/status-lamps.png", mode: "gray" },
+        aiTerminalMask: { label: "AI terminal mask", src: "best-hybrid-segmentation/ai-terminal-screen-mask.png", mode: "gray" },
+        aiWindowMask: { label: "AI window mask", src: "best-hybrid-segmentation/ai-round-window-mask.png", mode: "gray" },
+        aiLampsMask: { label: "AI status lamps mask", src: "best-hybrid-segmentation/ai-small-lights-mask.png", mode: "gray" },
       };
+
+      const candidateSources = {
+        current: { label: "current composite", src: null },
+        qwenPlainD035: {
+          label: "Qwen Edit plain d0.35",
+          src: "ai-influence-audition/qwen-edit2509-plain-denoise035/mote_qwen_edit2509_plain_d035_00001_.png",
+        },
+        qwenRelight: {
+          label: "Qwen Edit + Relight LoRA",
+          src: "ai-influence-audition/qwen-edit2509-relight/mote_qwen_edit2509_relight_00001_.png",
+        },
+        qwenSmoke: {
+          label: "Qwen smoke",
+          src: "ai-influence-audition/qwen-smoke/mote_qwen_lightmap_smoke_00001_.png",
+        },
+        qwenDirectMask: {
+          label: "Qwen direct mask",
+          src: "ai-influence-audition/qwen-edit2509-direct-mask/mote_qwen_edit2509_monitor_mask_00001_.png",
+        },
+        iclightCfg5: {
+          label: "IC-Light cfg5",
+          src: "ai-influence-audition/iclight/monitor-iclight.png",
+        },
+        iclightCfg2: {
+          label: "IC-Light cfg2",
+          src: "ai-influence-audition/iclight/monitor-iclight-cfg2.png",
+        },
+        iclightCfg1: {
+          label: "IC-Light cfg1",
+          src: "ai-influence-audition/iclight/monitor-iclight-cfg1.png",
+        },
+        syntheticMonitor: {
+          label: "synthetic monitor",
+          src: "ai-influence-audition/synthetic-monitor/synthetic-monitor-lit.png",
+        },
+      };
+
+      const quadLayerSets = {
+        masks: ["final", "terminalMask", "windowMask", "statusLampsMask"],
+        aiMasks: ["final", "aiTerminalMask", "aiWindowMask", "aiLampsMask"],
+        lightmaps: ["final", "window", "monitor", "lamps"],
+      };
+
+      Object.entries(candidateSources).forEach(([key, candidate]) => {
+        const option = document.createElement("option");
+        option.value = key;
+        option.textContent = candidate.label;
+        controls.candidate.append(option);
+      });
+
       const params = new URLSearchParams(window.location.search);
       const requestedView = params.get("view");
-      if (requestedView && Array.prototype.some.call(controls.view.options, (option) => option.value === requestedView)) {
+      if (requestedView && [...controls.view.options].some((option) => option.value === requestedView)) {
         controls.view.value = requestedView;
+      }
+      const requestedCandidate = params.get("candidate");
+      if (requestedCandidate && candidateSources[requestedCandidate]) {
+        controls.candidate.value = requestedCandidate;
+      }
+      const requestedLayers = params.get("layers");
+      if (requestedLayers && quadLayerSets[requestedLayers]) {
+        controls.layers.value = requestedLayers;
       }
 
       const loadImage = (src) => new Promise((resolve, reject) => {
@@ -270,54 +407,69 @@
         return Math.max(min, Math.min(max, value));
       }
 
-      function renderFrame(data, startTime, now) {
+      function controlState(startTime, now) {
         const elapsed = reducedMotion ? 0 : (now - startTime) / 1000;
-        const view = controls.view.value;
-        const ambient = Number(controls.ambient.value);
-        const windowWeight = Number(controls.window.value);
-        const monitorWeight = Number(controls.monitor.value);
-        const lampWeight = Number(controls.lamps.value);
+        return {
+          ambient: Number(controls.ambient.value),
+          windowWeight: Number(controls.window.value),
+          monitorWeight: Number(controls.monitor.value),
+          lampWeight: Number(controls.lamps.value),
+          windowPulse: reducedMotion
+            ? 0.72
+            : 0.58 + 0.24 * Math.sin(elapsed * 0.82) + 0.08 * Math.sin(elapsed * 1.73),
+          monitorPulse: reducedMotion
+            ? 0.72
+            : 0.62 + 0.17 * Math.sin(elapsed * 2.4) + (Math.sin(elapsed * 11.0) > 0.96 ? -0.28 : 0),
+          lampPulse: reducedMotion
+            ? 0.5
+            : (Math.sin(elapsed * 7.0) > 0.72 ? 1.0 : 0.24) + (Math.sin(elapsed * 17.0) > 0.91 ? 0.55 : 0),
+          scanY: Math.floor(((elapsed * 74) % 430) + 250),
+        };
+      }
 
-        const windowPulse = reducedMotion
-          ? 0.72
-          : 0.58 + 0.24 * Math.sin(elapsed * 0.82) + 0.08 * Math.sin(elapsed * 1.73);
-        const monitorPulse = reducedMotion
-          ? 0.72
-          : 0.62 + 0.17 * Math.sin(elapsed * 2.4) + (Math.sin(elapsed * 11.0) > 0.96 ? -0.28 : 0);
-        const lampPulse = reducedMotion
-          ? 0.5
-          : (Math.sin(elapsed * 7.0) > 0.72 ? 1.0 : 0.24) + (Math.sin(elapsed * 17.0) > 0.91 ? 0.55 : 0);
-        const scanY = Math.floor((((elapsed * 74) % 430) + 250) * height / 1024);
-        const scanBand = 8 * height / 1024;
+      function putExactLayer(targetContext, source) {
+        const output = targetContext.createImageData(width, height);
+        output.data.set(source);
+        targetContext.putImageData(output, 0, 0);
+      }
 
-        const output = context.createImageData(width, height);
+      function putGrayLayer(targetContext, source, mode) {
+        const output = targetContext.createImageData(width, height);
+        const out = output.data;
+
+        for (let i = 0; i < pixelCount; i += 1) {
+          const offset = i * 4;
+          const value = mode === "luminance"
+            ? level(source[offset] * 0.299 + source[offset + 1] * 0.587 + source[offset + 2] * 0.114)
+            : level(source[offset]);
+
+          out[offset] = value;
+          out[offset + 1] = value;
+          out[offset + 2] = value;
+          out[offset + 3] = 255;
+        }
+
+        targetContext.putImageData(output, 0, 0);
+      }
+
+      function renderComposite(targetContext, data, state) {
+        const output = targetContext.createImageData(width, height);
         const out = output.data;
 
         for (let i = 0; i < pixelCount; i += 1) {
           const offset = i * 4;
           const y = Math.floor(i / width);
-          if (view !== "final") {
-            const source = view === "base" ? data.base : data[view];
-            const value = view === "base"
-              ? level(source[offset] * 0.299 + source[offset + 1] * 0.587 + source[offset + 2] * 0.114)
-              : level(source[offset]);
-            out[offset] = value;
-            out[offset + 1] = value;
-            out[offset + 2] = value;
-            out[offset + 3] = 255;
-            continue;
-          }
-
-          const shadow = data.shadow[offset] / 255;
-          const windowLight = data.window[offset] / 255 * windowWeight * windowPulse;
-          const monitorLight = data.monitor[offset] / 255 * monitorWeight * monitorPulse;
-          const lampLight = data.lamps[offset] / 255 * lampWeight * lampPulse;
-          const scan = Math.max(0, 1 - Math.abs(y - scanY) / scanBand) * (data.monitor[offset] / 255) * 0.12;
+          const shadow = data.layers.shadow[offset] / 255;
+          const windowLight = data.layers.window[offset] / 255 * state.windowWeight * state.windowPulse;
+          const monitorLight = data.layers.monitor[offset] / 255 * state.monitorWeight * state.monitorPulse;
+          const lampLight = data.layers.lamps[offset] / 255 * state.lampWeight * state.lampPulse;
+          const scan = Math.max(0, 1 - Math.abs(y - state.scanY) / 8) * (data.layers.monitor[offset] / 255) * 0.12;
           const light = windowLight * 0.78 + monitorLight * 0.62 + lampLight * 0.55 + scan;
-          const exposure = clamp(ambient * (1 - shadow * 0.32) + light, 0.04, 1.22);
+          const exposure = clamp(state.ambient * (1 - shadow * 0.32) + light, 0.04, 1.22);
 
           const sourceLift = windowLight * 16 + monitorLight * 14 + lampLight * 28;
-          const luminance = data.base[offset] * 0.299 + data.base[offset + 1] * 0.587 + data.base[offset + 2] * 0.114;
+          const base = data.layers.base;
+          const luminance = base[offset] * 0.299 + base[offset + 1] * 0.587 + base[offset + 2] * 0.114;
           const value = level(clamp(luminance * exposure + sourceLift, 0, 255));
 
           out[offset] = value;
@@ -326,27 +478,99 @@
           out[offset + 3] = 255;
         }
 
-        context.putImageData(output, 0, 0);
+        targetContext.putImageData(output, 0, 0);
+      }
+
+      function renderFinal(targetContext, data, state) {
+        const candidateKey = controls.candidate.value;
+        if (candidateKey === "current") {
+          renderComposite(targetContext, data, state);
+          return;
+        }
+        putExactLayer(targetContext, data.candidates[candidateKey]);
+      }
+
+      function renderLayer(targetContext, layerKey, data, state) {
+        if (layerKey === "final" || layerKey === "candidate") {
+          renderFinal(targetContext, data, state);
+          return;
+        }
+
+        const layer = layerSources[layerKey];
+        putGrayLayer(targetContext, data.layers[layerKey], layer.mode);
+      }
+
+      function renderQuad(data, state) {
+        const layerKeys = quadLayerSets[controls.layers.value];
+        quadCells.forEach((cell, index) => {
+          const layerKey = layerKeys[index];
+          renderLayer(cell.context, layerKey, data, state);
+          const label = layerKey === "final"
+            ? `final / ${candidateSources[controls.candidate.value].label}`
+            : layerSources[layerKey].label;
+          cell.label.textContent = label;
+        });
+      }
+
+      function updateUrl() {
+        const next = new URLSearchParams(window.location.search);
+        next.set("view", controls.view.value);
+        next.set("candidate", controls.candidate.value);
+        next.set("layers", controls.layers.value);
+        history.replaceState(null, "", `${window.location.pathname}?${next.toString()}`);
+      }
+
+      function renderFrame(data, startTime, now) {
+        const view = controls.view.value;
+        const state = controlState(startTime, now);
+
+        scene.hidden = view === "quad";
+        quadPanel.hidden = view !== "quad";
+
+        if (view === "quad") {
+          renderQuad(data, state);
+        } else {
+          renderLayer(context, view, data, state);
+        }
+
         if (!reducedMotion) {
-          window.setTimeout(() => {
-            requestAnimationFrame((next) => renderFrame(data, startTime, next));
-          }, mobileRender ? 100 : 33);
+          requestAnimationFrame((next) => renderFrame(data, startTime, next));
         }
       }
 
-      Promise.all(Object.entries(sources).map(async ([key, src]) => [key, imageData(await loadImage(src))]))
+      const layerEntries = Object.entries(layerSources).map(async ([key, source]) => (
+        [key, imageData(await loadImage(source.src))]
+      ));
+      const candidateEntries = Object.entries(candidateSources)
+        .filter(([, candidate]) => candidate.src)
+        .map(async ([key, candidate]) => [key, imageData(await loadImage(candidate.src))]);
+
+      Promise.all([
+        Promise.all(layerEntries),
+        Promise.all(candidateEntries),
+      ])
         .then((entries) => {
-          const data = {};
-          entries.forEach(([key, value]) => {
-            data[key] = value;
-          });
+          const [loadedLayers, loadedCandidates] = entries;
+          const data = {
+            layers: Object.fromEntries(loadedLayers),
+            candidates: Object.fromEntries(loadedCandidates),
+          };
           if (reducedMotion) {
             renderFrame(data, performance.now(), performance.now());
             Object.values(controls).forEach((control) => {
-              control.addEventListener("input", () => renderFrame(data, performance.now(), performance.now()));
-              control.addEventListener("change", () => renderFrame(data, performance.now(), performance.now()));
+              control.addEventListener("input", () => {
+                updateUrl();
+                renderFrame(data, performance.now(), performance.now());
+              });
+              control.addEventListener("change", () => {
+                updateUrl();
+                renderFrame(data, performance.now(), performance.now());
+              });
             });
           } else {
+            Object.values(controls).forEach((control) => {
+              control.addEventListener("change", updateUrl);
+            });
             requestAnimationFrame((time) => renderFrame(data, time, time));
           }
         })
