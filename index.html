@@ -262,6 +262,7 @@
             <option value="masks">final + hand masks</option>
             <option value="aiMasks">final + AI masks</option>
             <option value="lightmaps">final + lightmaps</option>
+            <option value="candidateReview">final + candidate</option>
           </select>
         </label>
       </div>
@@ -349,6 +350,7 @@
         masks: ["final", "terminalMask", "windowMask", "statusLampsMask"],
         aiMasks: ["final", "aiTerminalMask", "aiWindowMask", "aiLampsMask"],
         lightmaps: ["final", "window", "monitor", "lamps"],
+        candidateReview: ["final", "candidate", "monitor", "aiTerminalMask"],
       };
 
       Object.entries(candidateSources).forEach(([key, candidate]) => {
@@ -483,6 +485,10 @@
       }
 
       function renderFinal(targetContext, data, state) {
+        renderComposite(targetContext, data, state);
+      }
+
+      function renderCandidate(targetContext, data, state) {
         const candidateKey = controls.candidate.value;
         if (candidateKey === "current") {
           renderComposite(targetContext, data, state);
@@ -492,8 +498,12 @@
       }
 
       function renderLayer(targetContext, layerKey, data, state) {
-        if (layerKey === "final" || layerKey === "candidate") {
+        if (layerKey === "final") {
           renderFinal(targetContext, data, state);
+          return;
+        }
+        if (layerKey === "candidate") {
+          renderCandidate(targetContext, data, state);
           return;
         }
 
@@ -507,8 +517,10 @@
           const layerKey = layerKeys[index];
           renderLayer(cell.context, layerKey, data, state);
           const label = layerKey === "final"
-            ? `final / ${candidateSources[controls.candidate.value].label}`
-            : layerSources[layerKey].label;
+            ? "runtime final"
+            : layerKey === "candidate"
+              ? `candidate / ${candidateSources[controls.candidate.value].label}`
+              : layerSources[layerKey].label;
           cell.label.textContent = label;
         });
       }
@@ -534,7 +546,7 @@
           renderLayer(context, view, data, state);
         }
 
-        const shouldAnimate = view === "final" && controls.candidate.value === "current";
+        const shouldAnimate = view === "final";
         if (!reducedMotion && shouldAnimate) {
           nextFrameRequest = requestAnimationFrame((next) => renderFrame(data, startTime, next));
         }
