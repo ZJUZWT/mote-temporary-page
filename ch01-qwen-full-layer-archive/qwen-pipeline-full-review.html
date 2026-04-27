@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>CH01 Qwen Pipeline Full Review</title>
+<style>
+:root { color-scheme: dark; --bg:#0d0d0b; --panel:#171611; --line:#393528; --text:#eee8d8; --muted:#aaa087; --accent:#d7c27a; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+header { position:sticky; top:0; z-index:2; padding:18px 24px 12px; border-bottom:1px solid var(--line); background:rgba(13,13,11,.95); backdrop-filter:blur(8px); }
+h1 { margin:0 0 6px; font-size:24px; letter-spacing:0; }
+p { margin:0; color:var(--muted); line-height:1.45; }
+main { padding:22px 24px 54px; display:grid; gap:26px; }
+.sheet-wrap { overflow-x:auto; border:1px solid var(--line); background:#050505; }
+.sheet { width:2240px; max-width:none; display:block; }
+.scene { display:grid; gap:14px; padding:16px; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+.scene-head { max-width:980px; display:grid; gap:6px; }
+h2 { margin:0; font-size:20px; }
+.strip { display:grid; grid-auto-flow:column; grid-auto-columns:minmax(300px, 32vw); gap:12px; overflow-x:auto; padding-bottom:4px; }
+figure { margin:0; min-width:0; }
+img { width:100%; height:auto; display:block; border:1px solid #312d22; background:#050505; }
+figure img[src*='pixel'] { image-rendering:pixelated; }
+figcaption { padding-top:7px; font-size:12px; color:var(--muted); }
+.note { max-width:1080px; }
+.refs { display:flex; flex-wrap:wrap; gap:10px; }
+.refs a { color:var(--accent); text-decoration:none; font-size:13px; border-bottom:1px solid color-mix(in srgb, var(--accent), transparent 45%); }
+</style>
+</head>
+<body>
+<header>
+  <h1>CH01 Qwen Pipeline Full Review</h1>
+  <p class='note'>Per scene: original, SAM2 segmentation, stylized pixelization, material prototype, depth, and DSINE normal. The stylized pixel pass uses limited palette, value masses, ordered dithering, and restrained edge ink.</p>
+</header>
+<main>
+  <section>
+    <h2>All Layers Contact Sheet</h2>
+    <div class='sheet-wrap'><img class='sheet' src='qwen-pipeline-full-contact-sheet.png'></div>
+  </section>
+  <section>
+    <h2>Pixel Style Comparison</h2>
+    <div class='sheet-wrap'><img class='sheet' src='stylized-pixel-comparison-sheet.png'></div>
+  </section>
+  
+      <article class='scene'>
+        <div class='scene-head'>
+          <h2>wake-bay</h2>
+          <p>SAM2 kept 150 instances. Material prototype: R emissive, G smooth/specular, B receiver. Coverage: emissive 0.099, specular 0.261, receiver 0.713.</p>
+        </div>
+        <div class='strip'><figure><img src='qwen-image-2512-fp8/wake-bay/ch01_wake-bay_qwen2512_51001_00001_.png'><figcaption>original</figcaption></figure><figure><img src='sam2-qwen/wake-bay/scene-overlay.png'><figcaption>segmentation</figcaption></figure><figure><img src='pixel-stylized-qwen/ch01_wake-bay_qwen2512_51001_00001___stylized_320px.png'><figcaption>stylized pixel</figcaption></figure><figure><img src='material-prototype-qwen/wake-bay/material-overlay.png'><figcaption>material overlay</figcaption></figure><figure><img src='material-prototype-qwen/wake-bay/material-map-rgb.png'><figcaption>material RGB</figcaption></figure><figure><img src='gbuffer-qwen/wake-bay/depth-anything-v2/depth-anything-v2-depth.png'><figcaption>depth</figcaption></figure><figure><img src='gbuffer-qwen/wake-bay/dsine/dsine-normal.png'><figcaption>normal</figcaption></figure><figure><img src='pixelized/wake-bay__qwen-image-2512-fp8__6level_320px.png'><figcaption>old gray-step pixel</figcaption></figure></div>
+      </article>
+    
+      <article class='scene'>
+        <div class='scene-head'>
+          <h2>nav-console</h2>
+          <p>SAM2 kept 158 instances. Material prototype: R emissive, G smooth/specular, B receiver. Coverage: emissive 0.095, specular 0.218, receiver 0.716.</p>
+        </div>
+        <div class='strip'><figure><img src='qwen-image-2512-fp8/nav-console/ch01_nav-console_qwen2512_51011_00001_.png'><figcaption>original</figcaption></figure><figure><img src='sam2-qwen/nav-console/scene-overlay.png'><figcaption>segmentation</figcaption></figure><figure><img src='pixel-stylized-qwen/ch01_nav-console_qwen2512_51011_00001___stylized_320px.png'><figcaption>stylized pixel</figcaption></figure><figure><img src='material-prototype-qwen/nav-console/material-overlay.png'><figcaption>material overlay</figcaption></figure><figure><img src='material-prototype-qwen/nav-console/material-map-rgb.png'><figcaption>material RGB</figcaption></figure><figure><img src='gbuffer-qwen/nav-console/depth-anything-v2/depth-anything-v2-depth.png'><figcaption>depth</figcaption></figure><figure><img src='gbuffer-qwen/nav-console/dsine/dsine-normal.png'><figcaption>normal</figcaption></figure><figure><img src='pixelized/nav-console__qwen-image-2512-fp8__6level_320px.png'><figcaption>old gray-step pixel</figcaption></figure></div>
+      </article>
+    
+      <article class='scene'>
+        <div class='scene-head'>
+          <h2>gray-harbor-landing</h2>
+          <p>SAM2 kept 107 instances. Material prototype: R emissive, G smooth/specular, B receiver. Coverage: emissive 0.238, specular 0.747, receiver 0.648.</p>
+        </div>
+        <div class='strip'><figure><img src='qwen-image-2512-fp8/gray-harbor-landing/ch01_gray-harbor-landing_qwen2512_51021_00001_.png'><figcaption>original</figcaption></figure><figure><img src='sam2-qwen/gray-harbor-landing/scene-overlay.png'><figcaption>segmentation</figcaption></figure><figure><img src='pixel-stylized-qwen/ch01_gray-harbor-landing_qwen2512_51021_00001___stylized_320px.png'><figcaption>stylized pixel</figcaption></figure><figure><img src='material-prototype-qwen/gray-harbor-landing/material-overlay.png'><figcaption>material overlay</figcaption></figure><figure><img src='material-prototype-qwen/gray-harbor-landing/material-map-rgb.png'><figcaption>material RGB</figcaption></figure><figure><img src='gbuffer-qwen/gray-harbor-landing/depth-anything-v2/depth-anything-v2-depth.png'><figcaption>depth</figcaption></figure><figure><img src='gbuffer-qwen/gray-harbor-landing/dsine/dsine-normal.png'><figcaption>normal</figcaption></figure><figure><img src='pixelized/gray-harbor-landing__qwen-image-2512-fp8__6level_320px.png'><figcaption>old gray-step pixel</figcaption></figure></div>
+      </article>
+    
+</main>
+</body>
+</html>

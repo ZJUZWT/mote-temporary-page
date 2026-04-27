@@ -194,15 +194,15 @@
       <section class="lanes" aria-label="main review lanes">
         <article class="lane primary">
           <h2>CH01 Scene Pipeline</h2>
-          <p>三张第一章场景：原图、SAM2 分割、确定性像素化、material prototype、Depth Anything V2、DSINE normal。</p>
+          <p>三张第一章场景的多模型审查：先选生图模型，再选分割模型。灰港已重跑为更明确的太空/外星表面设定。</p>
           <div class="stack">
-            <span>base: Qwen Image 2512</span>
+            <span>generation: Qwen / FLUX.1 / SDXL / SDXL pixel LoRA</span>
             <span>segmentation: SAM2 whole-scene proposal</span>
-            <span>gbuffer inputs: depth / normal / material cue map</span>
+            <span>views: original / overlay / id map / proposal / stylized pixel</span>
           </div>
           <div class="actions">
-            <a class="button primary" href="ch01-scene-pipeline/qwen-pipeline-full-review.html">Open full review</a>
-            <a class="button" href="ch01-scene-pipeline/qwen-pipeline-full-contact-sheet.png">Open contact sheet</a>
+            <a class="button primary" href="ch01-scene-pipeline/">Open selector</a>
+            <a class="button" href="ch01-scene-pipeline/multimodel-generation-contact-sheet.png">Open contact sheet</a>
           </div>
         </article>
 
@@ -232,6 +232,10 @@
         <a href="algorithm-variants/index.html">
           <strong>Algorithm Variants</strong>
           <span>lightmap influence variants</span>
+        </a>
+        <a href="ch01-qwen-full-layer-archive/qwen-pipeline-full-review.html">
+          <strong>CH01 Qwen Full Layers</strong>
+          <span>previous Qwen-only depth / normal / material review</span>
         </a>
         <a href="sam2-scene-segmentation/full-2x/scene-overlay.png">
           <strong>SAM2 Scene Segmentation</strong>

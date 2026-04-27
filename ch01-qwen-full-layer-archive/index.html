@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>CH01 Scene Pipeline Review</title>
+<style>
+  :root { color-scheme: dark; --bg:#101010; --panel:#181818; --line:#343434; --text:#ece8dd; --muted:#aaa392; }
+  body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--bg); color:var(--text); }
+  header { padding:24px 28px 12px; border-bottom:1px solid var(--line); position:sticky; top:0; background:rgba(16,16,16,.92); backdrop-filter: blur(8px); z-index:2; }
+  h1 { margin:0 0 8px; font-size:24px; font-weight:650; letter-spacing:0; }
+  p { margin:0; color:var(--muted); line-height:1.5; }
+  main { padding:24px 28px 48px; display:grid; gap:24px; }
+  section { display:grid; gap:14px; }
+  h2 { margin:0; font-size:18px; font-weight:650; }
+  .sheet { width:min(100%, 1120px); border:1px solid var(--line); background:#060606; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(360px, 1fr)); gap:16px; }
+  .card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:12px; }
+  h3 { margin:0 0 10px; font-size:14px; font-weight:600; color:var(--muted); }
+  .pair { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .triple { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
+  figure { margin:0; min-width:0; }
+  img { width:100%; height:auto; display:block; background:#050505; border:1px solid #282828; }
+  figcaption { padding-top:6px; color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>CH01 Scene Pipeline Review</h1>
+  <p>Generated base scenes, deterministic pixel conversion, and SAM2 whole-scene segmentation for the Qwen route.</p>
+</header>
+<main>
+  <section><h2>Model Contact Sheet</h2><img class='sheet' src='contact-sheet.png'></section>
+  <section><h2>Pixel Conversion Contact Sheet</h2><img class='sheet' src='pixelized-contact-sheet.png'></section>
+  <section><h2>SAM2 Qwen Segmentation Contact Sheet</h2><img class='sheet' src='sam2-qwen-contact-sheet.png'></section>
+  <section><h2>Base And Pixel Pairs</h2><div class='grid'>
+      <article class='card'>
+        <h3>wake-bay / qwen-image-2512-fp8</h3>
+        <div class='pair'>
+          <figure><img src='qwen-image-2512-fp8/wake-bay/ch01_wake-bay_qwen2512_51001_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/wake-bay__qwen-image-2512-fp8__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>nav-console / qwen-image-2512-fp8</h3>
+        <div class='pair'>
+          <figure><img src='qwen-image-2512-fp8/nav-console/ch01_nav-console_qwen2512_51011_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/nav-console__qwen-image-2512-fp8__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>gray-harbor-landing / qwen-image-2512-fp8</h3>
+        <div class='pair'>
+          <figure><img src='qwen-image-2512-fp8/gray-harbor-landing/ch01_gray-harbor-landing_qwen2512_51021_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/gray-harbor-landing__qwen-image-2512-fp8__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>wake-bay / flux1-dev-fp8-checkpoint</h3>
+        <div class='pair'>
+          <figure><img src='flux1-dev-fp8-checkpoint/wake-bay/ch01_wake-bay_flux1dev_52001_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/wake-bay__flux1-dev-fp8-checkpoint__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>nav-console / flux1-dev-fp8-checkpoint</h3>
+        <div class='pair'>
+          <figure><img src='flux1-dev-fp8-checkpoint/nav-console/ch01_nav-console_flux1dev_52011_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/nav-console__flux1-dev-fp8-checkpoint__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>gray-harbor-landing / flux1-dev-fp8-checkpoint</h3>
+        <div class='pair'>
+          <figure><img src='flux1-dev-fp8-checkpoint/gray-harbor-landing/ch01_gray-harbor-landing_flux1dev_52021_00001_.png'><figcaption>base</figcaption></figure>
+          <figure><img src='pixelized/gray-harbor-landing__flux1-dev-fp8-checkpoint__6level_320px.png'><figcaption>deterministic pixel</figcaption></figure>
+        </div>
+      </article></div></section>
+  <section><h2>Segmentation Details</h2><div class='grid'>
+      <article class='card'>
+        <h3>wake-bay / SAM2 whole-scene segmentation / kept 150</h3>
+        <div class='triple'>
+          <figure><img src='sam2-qwen/wake-bay/scene-overlay.png'><figcaption>overlay</figcaption></figure>
+          <figure><img src='sam2-qwen/wake-bay/scene-id-map.png'><figcaption>id map</figcaption></figure>
+          <figure><img src='sam2-qwen/wake-bay/top-instances-contact-sheet.png'><figcaption>top instances</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>nav-console / SAM2 whole-scene segmentation / kept 158</h3>
+        <div class='triple'>
+          <figure><img src='sam2-qwen/nav-console/scene-overlay.png'><figcaption>overlay</figcaption></figure>
+          <figure><img src='sam2-qwen/nav-console/scene-id-map.png'><figcaption>id map</figcaption></figure>
+          <figure><img src='sam2-qwen/nav-console/top-instances-contact-sheet.png'><figcaption>top instances</figcaption></figure>
+        </div>
+      </article>
+      <article class='card'>
+        <h3>gray-harbor-landing / SAM2 whole-scene segmentation / kept 107</h3>
+        <div class='triple'>
+          <figure><img src='sam2-qwen/gray-harbor-landing/scene-overlay.png'><figcaption>overlay</figcaption></figure>
+          <figure><img src='sam2-qwen/gray-harbor-landing/scene-id-map.png'><figcaption>id map</figcaption></figure>
+          <figure><img src='sam2-qwen/gray-harbor-landing/top-instances-contact-sheet.png'><figcaption>top instances</figcaption></figure>
+        </div>
+      </article></div></section>
+</main>
+</body>
+</html>

@@ -1,0 +1,159 @@
+{
+  "models": [
+    {
+      "id": "qwen-image-2512-fp8",
+      "label": "Qwen Image 2512 fp8"
+    },
+    {
+      "id": "flux1-dev-fp8",
+      "label": "FLUX.1 dev fp8"
+    },
+    {
+      "id": "sdxl-turbo",
+      "label": "SDXL Turbo"
+    },
+    {
+      "id": "sdxl-turbo-pixel-lora",
+      "label": "SDXL Turbo + Pixel LoRA"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "IMG-CH01-WAKE-BAY",
+      "slug": "wake-bay",
+      "prompt": "single-person cryogenic wake bay inside an old slow transfer spacecraft in deep space, partial emergency power, opened cryo pod in foreground, manual door control visible, dim status lamps, frost and condensation, narrow service floor, dark inactive ship corners, pressure doors and utility conduits, no windows, lonely low-power spacecraft interior, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark",
+      "negative": "clean hospital, luxury capsule, bright clinic, large bridge window, planet surface, crowd, monster, action explosion, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, crowded crew, explosion, cheerful poster lighting"
+    },
+    {
+      "id": "IMG-CH01-NAV-CONSOLE",
+      "slug": "nav-console",
+      "prompt": "old spacecraft navigation console in a compact deep-space control alcove, terminal glow, physical switches and worn keys, signal comparison sheet beside the screen, archive slot, amber warning lamps, pressure hull panels, constrained low-power ship interior, procedural quiet mood, not a panoramic bridge, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark",
+      "negative": "huge bridge, transparent hologram spectacle, clean futuristic glass cockpit, city map, cheerful UI, readable final answer, crowd, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, crowded crew, explosion, cheerful poster lighting"
+    },
+    {
+      "id": "IMG-CH01-GRAY-HARBOR-LANDING",
+      "slug": "gray-harbor-landing",
+      "prompt": "abandoned extraterrestrial landing pad on an airless pale salt-regolith world, black upper sky with faint stars and a distant planetary arc, vacuum-rated weathered landing plates, docking pylons and low service beacons, white mineral dust in panel seams, no water, no shoreline, no Earth desert, no vegetation, failed old space harbor, quiet archaeological science fiction surface outpost, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark",
+      "negative": "lake, ocean, shoreline, Earth desert, sunny beach, blue daytime Earth sky, city skyline, active spaceport, welcome banner, spaceship wreck exposed, lush plants, heroic sunset, crowd, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, crowded crew, explosion, cheerful poster lighting"
+    }
+  ],
+  "records": {
+    "qwen-image-2512-fp8": {
+      "wake-bay": {
+        "original": "generations/qwen-image-2512-fp8/wake-bay/spacev2_wake-bay_qwen2512_61001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_wake-bay_qwen2512_61001_00001___stylized_320px.png",
+        "sam2RawMaskCount": 209,
+        "sam2KeptCount": 205
+      },
+      "nav-console": {
+        "original": "generations/qwen-image-2512-fp8/nav-console/spacev2_nav-console_qwen2512_61011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/nav-console/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_nav-console_qwen2512_61011_00001___stylized_320px.png",
+        "sam2RawMaskCount": 220,
+        "sam2KeptCount": 215
+      },
+      "gray-harbor-landing": {
+        "original": "generations/qwen-image-2512-fp8/gray-harbor-landing/spacev2_gray-harbor-landing_qwen2512_61021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_gray-harbor-landing_qwen2512_61021_00001___stylized_320px.png",
+        "sam2RawMaskCount": 119,
+        "sam2KeptCount": 109
+      }
+    },
+    "flux1-dev-fp8": {
+      "wake-bay": {
+        "original": "generations/flux1-dev-fp8/wake-bay/spacev2_wake-bay_flux1dev_62001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/wake-bay/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_wake-bay_flux1dev_62001_00001___stylized_320px.png",
+        "sam2RawMaskCount": 222,
+        "sam2KeptCount": 211
+      },
+      "nav-console": {
+        "original": "generations/flux1-dev-fp8/nav-console/spacev2_nav-console_flux1dev_62011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/nav-console/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_nav-console_flux1dev_62011_00001___stylized_320px.png",
+        "sam2RawMaskCount": 197,
+        "sam2KeptCount": 188
+      },
+      "gray-harbor-landing": {
+        "original": "generations/flux1-dev-fp8/gray-harbor-landing/spacev2_gray-harbor-landing_flux1dev_62021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_gray-harbor-landing_flux1dev_62021_00001___stylized_320px.png",
+        "sam2RawMaskCount": 89,
+        "sam2KeptCount": 80
+      }
+    },
+    "sdxl-turbo": {
+      "wake-bay": {
+        "original": "generations/sdxl-turbo/wake-bay/spacev2_wake-bay_sdxlturbo_63001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/wake-bay/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_wake-bay_sdxlturbo_63001_00001___stylized_320px.png",
+        "sam2RawMaskCount": 166,
+        "sam2KeptCount": 135
+      },
+      "nav-console": {
+        "original": "generations/sdxl-turbo/nav-console/spacev2_nav-console_sdxlturbo_63011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/nav-console/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_nav-console_sdxlturbo_63011_00001___stylized_320px.png",
+        "sam2RawMaskCount": 209,
+        "sam2KeptCount": 175
+      },
+      "gray-harbor-landing": {
+        "original": "generations/sdxl-turbo/gray-harbor-landing/spacev2_gray-harbor-landing_sdxlturbo_63021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_gray-harbor-landing_sdxlturbo_63021_00001___stylized_320px.png",
+        "sam2RawMaskCount": 131,
+        "sam2KeptCount": 89
+      }
+    },
+    "sdxl-turbo-pixel-lora": {
+      "wake-bay": {
+        "original": "generations/sdxl-turbo-pixel-lora/wake-bay/spacev2_wake-bay_sdxlpixellora_64001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_wake-bay_sdxlpixellora_64001_00001___stylized_320px.png",
+        "sam2RawMaskCount": 415,
+        "sam2KeptCount": 290
+      },
+      "nav-console": {
+        "original": "generations/sdxl-turbo-pixel-lora/nav-console/spacev2_nav-console_sdxlpixellora_64011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_nav-console_sdxlpixellora_64011_00001___stylized_320px.png",
+        "sam2RawMaskCount": 335,
+        "sam2KeptCount": 246
+      },
+      "gray-harbor-landing": {
+        "original": "generations/sdxl-turbo-pixel-lora/gray-harbor-landing/spacev2_gray-harbor-landing_sdxlpixellora_64021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/top-instances-contact-sheet.png",
+        "stylizedPixel": "pixel-stylized/spacev2_gray-harbor-landing_sdxlpixellora_64021_00001___stylized_320px.png",
+        "sam2RawMaskCount": 244,
+        "sam2KeptCount": 126
+      }
+    }
+  },
+  "contactSheet": "multimodel-generation-contact-sheet.png"
+}
