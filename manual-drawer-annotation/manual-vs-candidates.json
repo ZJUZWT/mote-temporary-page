@@ -1,94 +1,94 @@
 [
   {
     "manual": "drawer-top-hand.png",
-    "area": 6833,
+    "area": 6069,
     "best": [
       {
-        "iou": 0.41549775296200464,
-        "coverage": 0.4465095858334553,
+        "iou": 0.5098777046095955,
+        "coverage": 0.5358378645575878,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-00.png"
       },
       {
-        "iou": 0.21916852678571427,
-        "coverage": 0.2299136543246012,
+        "iou": 0.2764084507042254,
+        "coverage": 0.2845608831768001,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-03.png"
       },
       {
-        "iou": 0.17440690150970525,
-        "coverage": 0.17752085467583784,
+        "iou": 0.20233842156544332,
+        "coverage": 0.20530565167243367,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-12.png"
       },
       {
-        "iou": 0.1655378379819743,
-        "coverage": 0.9085321235182204,
+        "iou": 0.16447939262472885,
+        "coverage": 0.9995056846267919,
         "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
       },
       {
-        "iou": 0.09769663001672839,
-        "coverage": 1.0,
-        "candidate": "mask-model-audition/drawers/vitmatte_crop.png"
+        "iou": 0.08878954933893567,
+        "coverage": 0.9261822376009228,
+        "candidate": "mask-model-audition/drawers/depth_cut.png"
       }
     ]
   },
   {
     "manual": "drawer-middle-hand.png",
-    "area": 9289,
+    "area": 7813,
     "best": [
       {
-        "iou": 0.2121196208680127,
-        "coverage": 0.8697384002583701,
-        "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
-      },
-      {
-        "iou": 0.18096673484766929,
-        "coverage": 0.18096673484766929,
+        "iou": 0.21515423012927173,
+        "coverage": 0.21515423012927173,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-09.png"
       },
       {
-        "iou": 0.17999784691570675,
-        "coverage": 0.17999784691570675,
+        "iou": 0.21400230385255345,
+        "coverage": 0.21400230385255345,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-10.png"
       },
       {
-        "iou": 0.17418451932393153,
-        "coverage": 0.17418451932393153,
+        "iou": 0.21176789587852496,
+        "coverage": 0.9996160245744272,
+        "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
+      },
+      {
+        "iou": 0.20709074619224369,
+        "coverage": 0.20709074619224369,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-11.png"
       },
       {
-        "iou": 0.16145181476846057,
-        "coverage": 0.16664872429755626,
+        "iou": 0.20508982035928144,
+        "coverage": 0.21041853321387433,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-04.png"
       }
     ]
   },
   {
     "manual": "drawer-bottom-hand.png",
-    "area": 10092,
+    "area": 8252,
     "best": [
       {
-        "iou": 0.17293477175107383,
-        "coverage": 0.6861870788743559,
+        "iou": 0.17465316640204065,
+        "coverage": 0.813136209403781,
         "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
       },
       {
-        "iou": 0.1357488399644585,
-        "coverage": 0.13624653190646055,
+        "iou": 0.16056202714062687,
+        "coverage": 0.1620213281628696,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-05.png"
       },
       {
-        "iou": 0.13484698914116486,
-        "coverage": 0.13535473642489101,
+        "iou": 0.15946205571565802,
+        "coverage": 0.16093068347067377,
         "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-06.png"
       },
       {
-        "iou": 0.11686255980154746,
-        "coverage": 0.9802814110186286,
-        "candidate": "mask-model-audition/drawers/inspyrenet_crop.png"
+        "iou": 0.11934706984211935,
+        "coverage": 0.9188075618031992,
+        "candidate": "mask-model-audition/drawers/depth_cut.png"
       },
       {
-        "iou": 0.11493023184728951,
-        "coverage": 0.7451446690447879,
-        "candidate": "mask-model-audition/drawers/depth_cut.png"
+        "iou": 0.11934706984211935,
+        "coverage": 0.9188075618031992,
+        "candidate": "mask-model-audition/drawers/depth_cut_t0.88.png"
       }
     ]
   }
