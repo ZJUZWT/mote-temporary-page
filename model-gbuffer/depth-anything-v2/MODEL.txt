@@ -1,0 +1,4 @@
+model=depth-anything/Depth-Anything-V2-Large-hf
+input=D:\data\mote-gbuffer\input\base.png
+device=cuda
+normal=derived from depth gradients, not a dedicated normal model

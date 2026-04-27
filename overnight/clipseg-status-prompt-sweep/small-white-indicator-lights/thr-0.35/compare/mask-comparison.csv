@@ -1,0 +1,2 @@
+name,hand_pixels,ai_pixels,intersection,union,iou,precision,recall
+status_lamps,536,85071,0,85607,0.0000,0.0000,0.0000

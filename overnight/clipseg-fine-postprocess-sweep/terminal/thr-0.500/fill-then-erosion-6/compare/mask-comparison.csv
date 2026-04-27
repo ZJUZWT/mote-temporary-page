@@ -1,0 +1,2 @@
+name,hand_pixels,ai_pixels,intersection,union,iou,precision,recall
+terminal,104478,63316,59977,107817,0.5563,0.9473,0.5741

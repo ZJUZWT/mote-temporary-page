@@ -1,0 +1,28 @@
+{
+  "mask_set": "grounded-sam2-large",
+  "size": {
+    "width": 1024,
+    "height": 1024
+  },
+  "outputs": {
+    "material_map": "material-prototype/material-map.png",
+    "raw_glass_mask": "material-prototype/glass-mask-raw.png",
+    "glass_mask": "material-prototype/glass-mask.png",
+    "emissive_mask": "material-prototype/emissive-mask.png",
+    "interior_light_exclusion": "material-prototype/interior-light-exclusion.png",
+    "reflection_candidate": "material-prototype/reflection-candidate.png"
+  },
+  "coverage": {
+    "raw_glass": 0.0892324447631836,
+    "glass": 0.08840473741292953,
+    "terminal_emissive": 0.05400465801358223,
+    "lamp_emissive": 0.009528003633022308,
+    "emissive": 0.1386767029762268,
+    "solid_receiver": 0.9082604646682739
+  },
+  "contract": {
+    "glass_mask": "strict largest SAM2 component; interior monitor/lamp light is suppressed here",
+    "reflection_candidate": "depth-aware baked prototype; not a whole-image mirror",
+    "material_map": "R emissive, G glass, B solid receiver"
+  }
+}

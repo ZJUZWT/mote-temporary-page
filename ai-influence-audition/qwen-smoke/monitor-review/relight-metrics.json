@@ -1,0 +1,14 @@
+{
+  "base": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/base.png",
+  "candidate": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/ai-influence-audition/qwen-smoke/mote_qwen_lightmap_smoke_00001_.png",
+  "expected_map": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/lightmaps/monitor-influence.png",
+  "width": 1024,
+  "height": 1024,
+  "diff_threshold": 12,
+  "expected_threshold": 24,
+  "changed_pixels": 160282,
+  "changed_fraction": 0.15285682678222656,
+  "expected_overlap": 0.4760359865736639,
+  "outside_change_mean": 7.61467981338501,
+  "structure_drift_proxy": 12.375091552734375
+}

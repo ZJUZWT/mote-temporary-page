@@ -1,0 +1,74 @@
+[
+  {
+    "target": "terminal_monitor",
+    "label": "computer monitor",
+    "score": 0.8375357985496521,
+    "box": [
+      56.952362060546875,
+      325.02264404296875,
+      334.40167236328125,
+      627.5399169921875
+    ],
+    "output": "ai-terminal-monitor-mask.png"
+  },
+  {
+    "target": "terminal_panel",
+    "label": "old computer terminal",
+    "score": 0.3278662860393524,
+    "box": [
+      35.73826599121094,
+      325.02252197265625,
+      333.093017578125,
+      637.9591064453125
+    ],
+    "output": "ai-terminal-panel-mask.png"
+  },
+  {
+    "target": "terminal_screen",
+    "label": "glowing computer screen",
+    "score": 0.8616452217102051,
+    "box": [
+      65.04975891113281,
+      336.0337829589844,
+      332.61981201171875,
+      615.0506591796875
+    ],
+    "output": "ai-terminal-screen-mask.png"
+  },
+  {
+    "target": "window_porthole",
+    "label": "large circular porthole window",
+    "score": 0.8627778887748718,
+    "box": [
+      596.9603271484375,
+      233.52761840820312,
+      945.8837890625,
+      613.1370849609375
+    ],
+    "output": "ai-window-porthole-mask.png"
+  },
+  {
+    "target": "window_bright",
+    "label": "bright round window",
+    "score": 0.840622067451477,
+    "box": [
+      610.95166015625,
+      252.01788330078125,
+      926.3802490234375,
+      607.8136596679688
+    ],
+    "output": "ai-window-bright-mask.png"
+  },
+  {
+    "target": "window_opening",
+    "label": "circular window opening",
+    "score": 0.8581369519233704,
+    "box": [
+      599.1893310546875,
+      233.71932983398438,
+      945.6259765625,
+      610.3162841796875
+    ],
+    "output": "ai-window-opening-mask.png"
+  }
+]

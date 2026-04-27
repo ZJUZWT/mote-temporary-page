@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Old Survey Station Lightmap Demo</title>
+    <title>Old Survey Station Review Workspace</title>
     <style>
       :root {
         color-scheme: dark;
         --bg: #070808;
+        --panel: #0b0c0b;
         --ink: #d7d4c7;
         --muted: #8d8a7d;
         --line: #2c2c28;
-        --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+        --accent: #d8d0a5;
       }
 
       * {
@@ -21,120 +22,129 @@
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
         background:
-          radial-gradient(circle at 48% 18%, #171813 0, transparent 34rem),
+          radial-gradient(circle at 50% 18%, #171813 0, transparent 34rem),
           linear-gradient(180deg, #050606, var(--bg));
         color: var(--ink);
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       }
 
       main {
-        width: min(92vw, 1080px);
+        width: min(96vw, 1480px);
+        margin: 0 auto;
+        padding: 18px 0 22px;
         display: grid;
+        gap: 12px;
+      }
+
+      .workspace {
+        display: grid;
+        grid-template-columns: minmax(520px, 1.35fr) minmax(360px, 0.95fr);
         gap: 14px;
+        align-items: start;
       }
 
-      .scene {
-        position: relative;
-        width: min(92vw, 1024px);
-        aspect-ratio: 1;
-        margin-inline: auto;
-        overflow: hidden;
-        background: #020202;
-        outline: 1px solid color-mix(in srgb, var(--line), transparent 10%);
+      .workspace.no-result {
+        grid-template-columns: 1fr;
       }
 
-      .scene > canvas,
-      .scene > img,
-      .hotspot {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
+      .result-stage,
+      .texture-grid {
+        min-width: 0;
       }
 
-      canvas {
-        display: block;
-        image-rendering: pixelated;
-      }
-
-      img {
-        display: block;
-        image-rendering: pixelated;
-        object-fit: cover;
-      }
-
-      canvas[hidden],
-      img[hidden] {
-        display: none;
-      }
-
-      .scene[hidden],
-      .quad-panel[hidden] {
-        display: none;
-      }
-
-      .hotspot {
-        border: 0;
-        padding: 0;
-        background: transparent;
-        cursor: crosshair;
-      }
-
-      .hotspot::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        background: rgb(232 230 205 / 0.24);
-        mask-image: var(--mask);
-        mask-size: 100% 100%;
-        -webkit-mask-image: var(--mask);
-        -webkit-mask-size: 100% 100%;
-        transition: opacity 220ms var(--ease-out);
-      }
-
-      .hotspot:hover::after,
-      .hotspot:focus-visible::after {
-        opacity: 1;
-      }
-
-      .terminal-hotspot {
-        --mask: url("masks/terminal-mask.png");
-      }
-
-      .window-hotspot {
-        --mask: url("masks/window-mask.png");
-      }
-
-      .panel {
+      .texture-grid {
         display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
         gap: 10px;
+        align-items: start;
+      }
+
+      .workspace.no-result .texture-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .review-panel {
+        min-width: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .review-panel canvas {
+        width: 100%;
+        aspect-ratio: 1;
+        display: block;
+        image-rendering: pixelated;
+        background: #020202;
+        outline: 1px solid color-mix(in srgb, var(--line), transparent 8%);
+      }
+
+      .review-panel figcaption {
+        min-height: 34px;
+        display: grid;
+        gap: 2px;
         color: var(--muted);
-        font-size: 12px;
-        line-height: 1.5;
+        font-size: 11px;
+        line-height: 1.45;
         letter-spacing: 0;
       }
 
+      .review-panel strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 10px;
+        padding-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .mode-picker {
+        padding-bottom: 2px;
+      }
+
+      .mode-note {
+        margin: 0;
+        min-height: 20px;
+        color: var(--ink);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .control-hidden {
+        display: none;
+      }
+
       label {
+        min-width: 0;
         display: grid;
         gap: 5px;
+      }
+
+      .span-2 {
+        grid-column: span 2;
+      }
+
+      .span-3 {
+        grid-column: span 3;
       }
 
       input,
       select {
         width: 100%;
-        accent-color: #d8d0a5;
+        accent-color: var(--accent);
       }
 
       select {
-        min-height: 28px;
+        min-height: 30px;
         border: 1px solid var(--line);
         border-radius: 0;
-        background: #0c0d0c;
+        background: var(--panel);
         color: var(--ink);
         font: inherit;
       }
@@ -146,7 +156,6 @@
         color: var(--muted);
         font-size: 12px;
         line-height: 1.7;
-        letter-spacing: 0;
       }
 
       .caption strong {
@@ -154,247 +163,320 @@
         font-weight: 500;
       }
 
-      .quad-panel {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-        width: min(92vw, 1024px);
-        margin-inline: auto;
+      .missing {
+        color: #b9a36f;
       }
 
-      .quad-cell {
-        margin: 0;
-        display: grid;
-        gap: 6px;
-        min-width: 0;
-      }
-
-      .quad-cell canvas,
-      .quad-cell img {
-        width: 100%;
-        aspect-ratio: 1;
-        background: #020202;
-        outline: 1px solid color-mix(in srgb, var(--line), transparent 10%);
-      }
-
-      .quad-cell figcaption {
-        min-height: 18px;
-        color: var(--muted);
-        font-size: 11px;
-        line-height: 1.5;
-        letter-spacing: 0;
-      }
-
-      .error {
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: 24px;
-        color: var(--ink);
-        background: #080909;
-        font-size: 13px;
-        line-height: 1.7;
-        text-align: center;
-      }
-
-      @media (max-width: 760px) {
-        .panel {
-          grid-template-columns: 1fr 1fr;
+      @media (max-width: 980px) {
+        .workspace {
+          grid-template-columns: 1fr;
         }
 
-        .quad-panel {
-          gap: 8px;
+        .texture-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        }
+
+        .controls {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        }
+
+        .span-2,
+        .span-3 {
+          grid-column: span 1;
         }
 
         .caption {
           flex-direction: column;
         }
       }
-
-      @media (prefers-reduced-motion: reduce) {
-        .hotspot::after {
-          transition-duration: 0.01ms;
-        }
-      }
     </style>
   </head>
   <body>
     <main>
-      <section class="scene" aria-label="旧勘测站动态 lightmap 实验">
-        <canvas id="main-canvas" width="512" height="512"></canvas>
-        <img id="main-image" alt="" hidden>
-        <button class="hotspot terminal-hotspot" aria-label="旧勘测主机"></button>
-        <button class="hotspot window-hotspot" aria-label="盐盆观察窗"></button>
-      </section>
-      <section class="quad-panel" aria-label="layer comparison grid" hidden>
-        <figure class="quad-cell">
-          <canvas data-quad-cell="0" width="512" height="512"></canvas>
-          <img data-quad-img="0" alt="" hidden>
-          <figcaption data-quad-label="0"></figcaption>
-        </figure>
-        <figure class="quad-cell">
-          <canvas data-quad-cell="1" width="512" height="512"></canvas>
-          <img data-quad-img="1" alt="" hidden>
-          <figcaption data-quad-label="1"></figcaption>
-        </figure>
-        <figure class="quad-cell">
-          <canvas data-quad-cell="2" width="512" height="512"></canvas>
-          <img data-quad-img="2" alt="" hidden>
-          <figcaption data-quad-label="2"></figcaption>
-        </figure>
-        <figure class="quad-cell">
-          <canvas data-quad-cell="3" width="512" height="512"></canvas>
-          <img data-quad-img="3" alt="" hidden>
-          <figcaption data-quad-label="3"></figcaption>
-        </figure>
-      </section>
-      <div class="panel" aria-label="lightmap weights">
-        <label>ambient <input data-control="ambient" type="range" min="0.18" max="0.52" step="0.01" value="0.30"></label>
-        <label>window <input data-control="window" type="range" min="0" max="1.25" step="0.01" value="1.00"></label>
-        <label>monitor <input data-control="monitor" type="range" min="0" max="1.15" step="0.01" value="0.86"></label>
-        <label>lamps <input data-control="lamps" type="range" min="0" max="1.80" step="0.01" value="1.20"></label>
-        <label>candidate
-          <select data-control="candidate"></select>
-        </label>
-        <label>view
-          <select data-control="view">
-            <option value="final">final</option>
-            <option value="quad">2x2 layers</option>
-            <option value="candidate">candidate image</option>
-            <option value="base">base</option>
-            <option value="window">window map</option>
-            <option value="monitor">monitor map</option>
-            <option value="lamps">lamp map</option>
-            <option value="shadow">shadow map</option>
-            <option value="terminalMask">terminal mask</option>
-            <option value="windowMask">window mask</option>
-            <option value="statusLampsMask">status lamps mask</option>
-            <option value="aiTerminalMask">AI terminal mask</option>
-            <option value="aiWindowMask">AI window mask</option>
-            <option value="aiLampsMask">AI lamps mask</option>
+      <section class="controls" aria-label="review controls">
+        <label class="span-3 mode-picker">render mode
+          <select data-control="renderMode">
+            <option value="lightmapComposite">Lightmap Composite</option>
+            <option value="computedGbufferLighting">Computed G-buffer Lighting</option>
+            <option value="maskAudition">Mask Audition</option>
+            <option value="materialReflection">Material / Reflection</option>
+            <option value="textureInspect">Raw Texture Inspect</option>
           </select>
         </label>
-        <label>layers
-          <select data-control="layers">
-            <option value="masks">final + hand masks</option>
-            <option value="aiMasks">final + AI masks</option>
-            <option value="lightmaps">final + lightmaps</option>
-            <option value="candidateReview">final + candidate</option>
+        <p class="mode-note span-3" data-mode-note></p>
+        <label class="span-2" data-modes="lightmapComposite">lightmap pack
+          <select data-control="renderSource">
+            <option value="packedAlgorithmPolicyV2">packed algorithm policy v2</option>
+            <option value="packedDepthNormalLightmaps">packed depth+normal lightmap RGB</option>
+            <option value="packedDraftLightmaps">packed draft lightmap RGB</option>
+            <option value="packedHandLightmaps">packed hand lightmap RGB</option>
+            <option value="hand">hand split lightmaps</option>
+            <option value="draftLightmaps">draft split lightmaps</option>
+            <option value="computedDepthNormal">computed depth + normal draft</option>
           </select>
         </label>
-      </div>
+        <label class="span-2" data-modes="lightmapComposite computedGbufferLighting materialReflection">time / light cycle
+          <select data-control="lightingMode">
+            <option value="dayNightLoop">day-night loop</option>
+            <option value="day">day / no lamps</option>
+            <option value="night">night / lamps</option>
+            <option value="manual">manual sliders</option>
+          </select>
+        </label>
+        <label data-modes="maskAudition textureInspect">mask object
+          <select data-control="maskObject">
+            <option value="terminal">terminal</option>
+            <option value="window">round window</option>
+            <option value="lamps">status lamps</option>
+            <option value="drawers">lower-left drawers</option>
+          </select>
+        </label>
+        <label data-modes="maskAudition textureInspect">mask model
+          <select data-control="maskSource">
+            <option value="grounded">Grounded SAM2</option>
+            <option value="hand">hand</option>
+            <option value="sam2_raw">SAM2 raw</option>
+            <option value="sam2_strict">SAM2 strict</option>
+            <option value="depth_cut">depth cut</option>
+            <option value="birefnet_crop">BiRefNet crop</option>
+            <option value="inspyrenet_crop">InSPyReNet crop</option>
+            <option value="vitmatte_crop">ViTMatte crop</option>
+            <option value="ben2_crop">BEN2 crop</option>
+            <option value="hq_sam_box">HQ-SAM box</option>
+            <option value="hq_sam2_core">HQ-SAM2 core</option>
+          </select>
+        </label>
+        <label data-modes="lightmapComposite textureInspect">light channel
+          <select data-control="lightSource">
+            <option value="window">window</option>
+            <option value="monitor">monitor</option>
+            <option value="lamps">status lamps</option>
+            <option value="packed">packed RGB</option>
+          </select>
+        </label>
+        <label data-modes="lightmapComposite textureInspect">lightmap source
+          <select data-control="lightmapSource">
+            <option value="algorithmPolicyV2">algorithm policy v2</option>
+            <option value="hand">hand</option>
+            <option value="depthNormal">depth+normal probe</option>
+            <option value="draft">deprecated rule draft</option>
+          </select>
+        </label>
+        <label data-modes="lightmapComposite materialReflection">material blend
+          <select data-control="materialMode">
+            <option value="glassReflect">glass reflect</option>
+            <option value="glassExclude">glass blocks lamps</option>
+            <option value="none">none</option>
+          </select>
+        </label>
+        <label data-modes="computedGbufferLighting textureInspect">G-buffer set
+          <select data-control="gbufferSet">
+            <option value="depthNormalV1">Depth Anything V2 + DSINE</option>
+            <option value="draft">manual rule draft</option>
+            <option value="materialPrototype">material prototype</option>
+          </select>
+        </label>
+        <label data-modes="computedGbufferLighting textureInspect">G-buffer channel
+          <select data-control="gbufferChannel">
+            <option value="depth">depth</option>
+            <option value="normal">normal</option>
+            <option value="normalPreview">depth-derived normal preview</option>
+            <option value="receivers">receiver zones (rule draft)</option>
+            <option value="material">material map</option>
+            <option value="glass">glass mask</option>
+            <option value="reflection">reflection candidate</option>
+          </select>
+        </label>
+        <label data-modes="lightmapComposite computedGbufferLighting materialReflection">ambient <input data-control="ambient" type="range" min="0.18" max="0.52" step="0.01" value="0.30"></label>
+        <label data-modes="lightmapComposite computedGbufferLighting materialReflection">window <input data-control="window" type="range" min="0" max="1.25" step="0.01" value="1.00"></label>
+        <label data-modes="lightmapComposite computedGbufferLighting materialReflection">monitor <input data-control="monitor" type="range" min="0" max="1.15" step="0.01" value="0.86"></label>
+        <label data-modes="lightmapComposite computedGbufferLighting materialReflection">lamps <input data-control="lamps" type="range" min="0" max="1.80" step="0.01" value="1.00"></label>
+        <label data-modes="lightmapComposite computedGbufferLighting materialReflection">pixel steps
+          <select data-control="pixelSteps">
+            <option value="8">8 levels</option>
+            <option value="6">6 levels</option>
+            <option value="4">4 levels</option>
+            <option value="0">off</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="workspace" data-workspace aria-label="review workspace"></section>
+
       <div class="caption">
-        <span><strong>Lightmap demo</strong> / 可切换 AI 候选图、单层检查，或用 2x2 同时看 final 与 mask/map。</span>
-        <span>Scene: CH01 old survey station</span>
+        <span><strong>Review Workspace</strong> / render mode 决定当前算法、输入纹理和可调参数。</span>
+        <span>Runtime: 5fps stepped lighting / Scene: CH01 old survey station</span>
       </div>
     </main>
 
     <script>
-      const canvas = document.querySelector("#main-canvas");
-      const mainImage = document.querySelector("#main-image");
-      const scene = document.querySelector(".scene");
-      const quadPanel = document.querySelector(".quad-panel");
-      const quadCells = [...document.querySelectorAll("[data-quad-cell]")].map((quadCanvas, index) => ({
-        canvas: quadCanvas,
-        img: document.querySelector(`[data-quad-img="${index}"]`),
-        context: quadCanvas.getContext("2d", { willReadFrequently: true }),
-        label: document.querySelector(`[data-quad-label="${index}"]`),
-      }));
-      const context = canvas.getContext("2d", { willReadFrequently: true });
-      const width = canvas.width;
-      const height = canvas.height;
-      const pixelCount = width * height;
+      const workspace = document.querySelector("[data-workspace]");
+      const modeNote = document.querySelector("[data-mode-note]");
       const controls = {
+        renderMode: document.querySelector('[data-control="renderMode"]'),
+        renderSource: document.querySelector('[data-control="renderSource"]'),
+        lightingMode: document.querySelector('[data-control="lightingMode"]'),
+        maskObject: document.querySelector('[data-control="maskObject"]'),
+        maskSource: document.querySelector('[data-control="maskSource"]'),
+        lightSource: document.querySelector('[data-control="lightSource"]'),
+        lightmapSource: document.querySelector('[data-control="lightmapSource"]'),
+        materialMode: document.querySelector('[data-control="materialMode"]'),
+        gbufferSet: document.querySelector('[data-control="gbufferSet"]'),
+        gbufferChannel: document.querySelector('[data-control="gbufferChannel"]'),
         ambient: document.querySelector('[data-control="ambient"]'),
         window: document.querySelector('[data-control="window"]'),
         monitor: document.querySelector('[data-control="monitor"]'),
         lamps: document.querySelector('[data-control="lamps"]'),
-        candidate: document.querySelector('[data-control="candidate"]'),
-        view: document.querySelector('[data-control="view"]'),
-        layers: document.querySelector('[data-control="layers"]'),
+        pixelSteps: document.querySelector('[data-control="pixelSteps"]'),
       };
+      const width = 1024;
+      const height = 1024;
+      const pixelCount = width * height;
+      const runtimeFps = 5;
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let animationTimer = 0;
+      let startTime = 0;
 
       const layerSources = {
-        base: { label: "base", src: "base.png", mode: "luminance" },
-        window: { label: "window influence", src: "lightmaps/window-influence.png", mode: "gray" },
-        monitor: { label: "monitor influence", src: "lightmaps/monitor-influence.png", mode: "gray" },
-        lamps: { label: "lamp influence", src: "lightmaps/lamp-influence.png", mode: "gray" },
-        shadow: { label: "shadow occlusion", src: "lightmaps/shadow-occlusion.png", mode: "gray" },
-        terminalMask: { label: "hand terminal mask", src: "masks/terminal-mask.png", mode: "gray" },
-        windowMask: { label: "hand window mask", src: "masks/window-mask.png", mode: "gray" },
-        statusLampsMask: { label: "hand status lamps mask", src: "masks/status-lamps.png", mode: "gray" },
-        aiTerminalMask: { label: "AI terminal mask", src: "best-hybrid-segmentation/ai-terminal-screen-mask.png", mode: "gray" },
-        aiWindowMask: { label: "AI window mask", src: "best-hybrid-segmentation/ai-round-window-mask.png", mode: "gray" },
-        aiLampsMask: { label: "AI status lamps mask", src: "best-hybrid-segmentation/ai-small-lights-mask.png", mode: "gray" },
+        base: { label: "base", src: "base.png" },
+        shadow: { label: "shadow occlusion", src: "lightmaps/shadow-occlusion.png" },
+        handWindow: { label: "hand lightmap / window", src: "lightmaps/window-influence.png" },
+        handMonitor: { label: "hand lightmap / monitor", src: "lightmaps/monitor-influence.png" },
+        handLamps: { label: "hand lightmap / status lamps", src: "lightmaps/lamp-influence.png" },
+        handPacked: { label: "hand packed lightmap / RGB", src: "lightmaps/packed-lightmap-rgb.png" },
+        draftWindow: { label: "draft lightmap / window", src: "draft-lightmaps/window-influence.png" },
+        draftMonitor: { label: "draft lightmap / monitor", src: "draft-lightmaps/monitor-influence.png" },
+        draftLamps: { label: "draft lightmap / status lamps", src: "draft-lightmaps/lamp-influence.png" },
+        draftPacked: { label: "draft packed lightmap / RGB", src: "draft-lightmaps/packed-lightmap-rgb.png" },
+        depthNormalWindow: { label: "depth+normal lightmap / window", src: "depth-normal-lightmaps/window-influence.png" },
+        depthNormalMonitor: { label: "depth+normal lightmap / monitor", src: "depth-normal-lightmaps/monitor-influence.png" },
+        depthNormalLamps: { label: "depth+normal lightmap / status lamps", src: "depth-normal-lightmaps/lamp-influence.png" },
+        depthNormalPacked: { label: "depth+normal packed lightmap / RGB", src: "depth-normal-lightmaps/packed-lightmap-rgb.png" },
+        algorithmPolicyV2Window: {
+          label: "algorithm policy v2 / window",
+          src: "algorithm-variants/per_light_policy_v2_previous_monitor/window-influence.png",
+        },
+        algorithmPolicyV2Monitor: {
+          label: "algorithm policy v2 / monitor",
+          src: "algorithm-variants/per_light_policy_v2_previous_monitor/monitor-influence.png",
+        },
+        algorithmPolicyV2Lamps: {
+          label: "algorithm policy v2 / lamps",
+          src: "algorithm-variants/per_light_policy_v2_previous_monitor/lamp-influence.png",
+        },
+        algorithmPolicyV2Packed: {
+          label: "algorithm policy v2 packed lightmap / RGB",
+          src: "algorithm-variants/per_light_policy_v2_previous_monitor/packed-lightmap-rgb.png",
+        },
+        gbufferDepth: { label: "G-buffer input / depth-ish", src: "draft-lightmaps/depth.png" },
+        gbufferReceivers: { label: "G-buffer input / receiver zones", src: "draft-lightmaps/receiver-zones.png" },
+        depthAnythingV2Depth: { label: "Depth Anything V2 Large / depth", src: "model-gbuffer/depth-anything-v2/depth.png" },
+        depthAnythingV2NormalPreview: {
+          label: "Depth Anything V2 / depth-derived normal preview",
+          src: "model-gbuffer/depth-anything-v2/normal-preview.png",
+        },
+        dsineNormal: {
+          label: "DSINE / dedicated normal",
+          src: "model-gbuffer/dsine/normal.png",
+        },
+        materialMap: {
+          label: "Material prototype / R emissive, G glass, B solid receiver",
+          src: "material-prototype/material-map.png",
+        },
+        materialGlassMask: {
+          label: "Material prototype / glass mask",
+          src: "material-prototype/glass-mask.png",
+        },
+        materialInteriorExclusion: {
+          label: "Material prototype / interior-light exclusion",
+          src: "material-prototype/interior-light-exclusion.png",
+        },
+        materialReflectionCandidate: {
+          label: "Material prototype / baked reflection candidate",
+          src: "material-prototype/reflection-candidate.png",
+        },
+        handTerminalMask: { label: "hand mask / terminal", src: "masks/terminal-mask.png" },
+        handWindowMask: { label: "hand mask / round window", src: "masks/window-mask.png" },
+        handLampsMask: { label: "hand mask / status lamps", src: "masks/status-lamps.png" },
+        groundedTerminalMask: { label: "Grounded SAM2 mask / terminal", src: "grounded-sam2-large/ai-terminal-screen-mask.png" },
+        groundedWindowMask: { label: "Grounded SAM2 mask / round window", src: "grounded-sam2-large/ai-round-window-mask.png" },
+        groundedLampsMask: { label: "Grounded SAM2 mask / status lamps", src: "grounded-sam2-large/ai-small-lights-mask.png" },
+        auditionContactSheet: {
+          label: "mask model audition / all targets",
+          src: "mask-model-audition/all-targets-contact-sheet.png",
+        },
       };
 
-      const candidateSources = {
-        current: { label: "current composite", src: null },
-        qwenPlainD035: {
-          label: "Qwen Edit plain d0.35",
-          src: "ai-influence-audition/qwen-edit2509-plain-denoise035/mote_qwen_edit2509_plain_d035_00001_.png",
-        },
-        qwenRelight: {
-          label: "Qwen Edit + Relight LoRA",
-          src: "ai-influence-audition/qwen-edit2509-relight/mote_qwen_edit2509_relight_00001_.png",
-        },
-        qwenSmoke: {
-          label: "Qwen smoke",
-          src: "ai-influence-audition/qwen-smoke/mote_qwen_lightmap_smoke_00001_.png",
-        },
-        qwenDirectMask: {
-          label: "Qwen direct mask",
-          src: "ai-influence-audition/qwen-edit2509-direct-mask/mote_qwen_edit2509_monitor_mask_00001_.png",
-        },
-        iclightCfg5: {
-          label: "IC-Light cfg5",
-          src: "ai-influence-audition/iclight/monitor-iclight.png",
-        },
-        iclightCfg2: {
-          label: "IC-Light cfg2",
-          src: "ai-influence-audition/iclight/monitor-iclight-cfg2.png",
-        },
-        iclightCfg1: {
-          label: "IC-Light cfg1",
-          src: "ai-influence-audition/iclight/monitor-iclight-cfg1.png",
-        },
-        syntheticMonitor: {
-          label: "synthetic monitor",
-          src: "ai-influence-audition/synthetic-monitor/synthetic-monitor-lit.png",
-        },
-      };
-
-      const quadLayerSets = {
-        masks: ["final", "terminalMask", "windowMask", "statusLampsMask"],
-        aiMasks: ["final", "aiTerminalMask", "aiWindowMask", "aiLampsMask"],
-        lightmaps: ["final", "window", "monitor", "lamps"],
-        candidateReview: ["final", "candidate", "monitor", "aiTerminalMask"],
-      };
-      const compositeLayerKeys = ["base", "window", "monitor", "lamps", "shadow"];
-
-      Object.entries(candidateSources).forEach(([key, candidate]) => {
-        const option = document.createElement("option");
-        option.value = key;
-        option.textContent = candidate.label;
-        controls.candidate.append(option);
+      const auditionTargets = ["terminal", "window", "lamps", "drawers"];
+      const auditionModels = [
+        "sam2_raw",
+        "sam2_strict",
+        "depth_cut",
+        "birefnet_crop",
+        "inspyrenet_crop",
+        "vitmatte_crop",
+        "ben2_crop",
+        "hq_sam_box",
+        "hq_sam2_core",
+      ];
+      auditionTargets.forEach((target) => {
+        auditionModels.forEach((model) => {
+          layerSources[`audition_${target}_${model}`] = {
+            label: `${model} / ${target}`,
+            src: `mask-model-audition/${target}/${model}.png`,
+          };
+        });
       });
 
-      const params = new URLSearchParams(window.location.search);
-      let nextFrameRequest = 0;
-      const requestedView = params.get("view");
-      if (requestedView && [...controls.view.options].some((option) => option.value === requestedView)) {
-        controls.view.value = requestedView;
-      }
-      const requestedCandidate = params.get("candidate");
-      if (requestedCandidate && candidateSources[requestedCandidate]) {
-        controls.candidate.value = requestedCandidate;
-      }
-      const requestedLayers = params.get("layers");
-      if (requestedLayers && quadLayerSets[requestedLayers]) {
-        controls.layers.value = requestedLayers;
-      }
+      const maskLayerMap = {
+        hand: { terminal: "handTerminalMask", window: "handWindowMask", lamps: "handLampsMask" },
+        grounded: { terminal: "groundedTerminalMask", window: "groundedWindowMask", lamps: "groundedLampsMask" },
+      };
+
+      const lightmapLayerMap = {
+        algorithmPolicyV2: { window: "algorithmPolicyV2Window", monitor: "algorithmPolicyV2Monitor", lamps: "algorithmPolicyV2Lamps" },
+        hand: { window: "handWindow", monitor: "handMonitor", lamps: "handLamps" },
+        draft: { window: "draftWindow", monitor: "draftMonitor", lamps: "draftLamps" },
+        depthNormal: { window: "depthNormalWindow", monitor: "depthNormalMonitor", lamps: "depthNormalLamps" },
+      };
+
+      const renderSourceMap = {
+        hand: { window: "handWindow", monitor: "handMonitor", lamps: "handLamps" },
+        draftLightmaps: { window: "draftWindow", monitor: "draftMonitor", lamps: "draftLamps" },
+        packedHandLightmaps: { packed: "handPacked" },
+        packedDraftLightmaps: { packed: "draftPacked" },
+        packedDepthNormalLightmaps: { packed: "depthNormalPacked" },
+        packedAlgorithmPolicyV2: { packed: "algorithmPolicyV2Packed" },
+      };
+
+      const renderModePanels = {
+        lightmapComposite: [
+          "result",
+          "packedSelectedLightmap",
+          "windowLightmap",
+          "monitorLightmap",
+          "lampLightmap",
+          "base",
+        ],
+        computedGbufferLighting: ["result", "gbufferDepthModel", "gbufferNormalModel", "groundedEmitterMasks", "base"],
+        maskAudition: ["base", "auditionContactSheet", "selectedMask"],
+        materialReflection: ["result", "materialMap", "materialGlass", "materialReflection", "packedSelectedLightmap", "base"],
+        textureInspect: ["base", "selectedMask", "selectedLightmap", "packedSelectedLightmap", "selectedGbuffer"],
+      };
+
+      const renderModeNotes = {
+        lightmapComposite: "Uses the selected packed/per-light lightmap as the runtime composite. Shows the exact lightmap textures that drive the result.",
+        computedGbufferLighting: "Uses depth, normal, and emitter masks to compute a diagnostic lighting result. Lightmap pack controls are hidden in this mode.",
+        maskAudition: "Compares object cutout models. This mode does not render lighting; it only reviews semantic masks for selectable objects.",
+        materialReflection: "Reviews glass/material behavior on top of the accepted lightmap composite.",
+        textureInspect: "Raw inspection mode. It exposes one selected mask, lightmap channel, packed map, and G-buffer channel without claiming they form a final renderer.",
+      };
+
+      const missingChannels = {
+        normalPreview: "depth-derived normal preview only exists for Depth Anything V2",
+        receivers: "receiver zones are rule data, not model G-buffer",
+        material: "material prototype has not been generated",
+      };
 
       const loadImage = (src) => new Promise((resolve, reject) => {
         const image = new Image();
@@ -407,14 +489,26 @@
         const buffer = document.createElement("canvas");
         buffer.width = width;
         buffer.height = height;
-        const bufferContext = buffer.getContext("2d", { willReadFrequently: true });
-        bufferContext.imageSmoothingEnabled = false;
-        bufferContext.drawImage(image, 0, 0, width, height);
-        return bufferContext.getImageData(0, 0, width, height).data;
+        const context = buffer.getContext("2d", { willReadFrequently: true });
+        context.imageSmoothingEnabled = false;
+        context.drawImage(image, 0, 0, width, height);
+        return context.getImageData(0, 0, width, height).data;
+      }
+
+      function makeImageData(context, pixels) {
+        const output = context.createImageData(width, height);
+        output.data.set(pixels);
+        return output;
       }
 
       function level(value) {
-        const levels = [0, 34, 68, 104, 145, 188, 232, 255];
+        const stepCount = Number(controls.pixelSteps.value);
+        if (stepCount <= 0) {
+          return Math.round(value);
+        }
+        const levels = stepCount === 8
+          ? [0, 34, 68, 104, 145, 188, 232, 255]
+          : Array.from({ length: stepCount }, (_, index) => Math.round((255 * index) / (stepCount - 1)));
         let best = levels[0];
         let distance = Math.abs(value - best);
         for (const candidate of levels) {
@@ -431,43 +525,333 @@
         return Math.max(min, Math.min(max, value));
       }
 
-      function controlState(startTime, now) {
-        const elapsed = reducedMotion ? 0 : (now - startTime) / 1000;
+      function smoothstep(value) {
+        const x = clamp(value, 0, 1);
+        return x * x * (3 - 2 * x);
+      }
+
+      function state(now) {
+        const rawElapsed = reducedMotion ? 0 : (now - startTime) / 1000;
+        const elapsed = Math.floor(rawElapsed * runtimeFps) / runtimeFps;
+        const mode = controls.lightingMode.value;
+        const sliderAmbient = Number(controls.ambient.value);
+        const sliderWindow = Number(controls.window.value);
+        const sliderMonitor = Number(controls.monitor.value);
+        const sliderLamps = Number(controls.lamps.value);
+        const cycle = reducedMotion ? 0.5 : (Math.sin(elapsed * 0.18) + 1) / 2;
+        const dayAmount = smoothstep(cycle);
+        const nightAmount = 1 - dayAmount;
+        let ambient = sliderAmbient;
+        let windowWeight = sliderWindow;
+        let monitorWeight = sliderMonitor;
+        let lampWeight = sliderLamps;
+        let windowPulse = 0.72;
+        let monitorPulse = 0.82;
+        let lampPulse = 0.82;
+
+        if (mode === "day") {
+          ambient = 0.34 * sliderAmbient / 0.30;
+          windowPulse = 0.92;
+          monitorPulse = 0.78;
+          lampPulse = 0;
+        } else if (mode === "night") {
+          ambient = 0.20 * sliderAmbient / 0.30;
+          windowPulse = 0;
+          monitorPulse = 0.84;
+          lampPulse = reducedMotion ? 0.88 : 0.82 + 0.12 * (Math.sin(elapsed * 0.65) > 0 ? 1 : 0);
+        } else if (mode === "dayNightLoop") {
+          ambient = sliderAmbient * (0.62 + dayAmount * 0.56);
+          windowPulse = dayAmount;
+          monitorPulse = 0.78 + 0.05 * (Math.sin(elapsed * 0.9) > 0 ? 1 : 0);
+          lampPulse = nightAmount > 0.55
+            ? 0.82 + 0.14 * (Math.sin(elapsed * 0.55) > 0 ? 1 : 0)
+            : 0;
+        } else {
+          windowPulse = reducedMotion
+            ? 0.72
+            : 0.58 + 0.24 * Math.sin(elapsed * 0.82) + 0.08 * Math.sin(elapsed * 1.73);
+          monitorPulse = reducedMotion
+            ? 0.72
+            : 0.72 + 0.08 * (Math.sin(elapsed * 1.25) > 0 ? 1 : 0);
+          lampPulse = reducedMotion
+            ? 0.82
+            : 0.72 + 0.18 * (Math.sin(elapsed * 0.7) > 0 ? 1 : 0);
+        }
+
         return {
-          ambient: Number(controls.ambient.value),
-          windowWeight: Number(controls.window.value),
-          monitorWeight: Number(controls.monitor.value),
-          lampWeight: Number(controls.lamps.value),
-          windowPulse: reducedMotion
-            ? 0.72
-            : 0.58 + 0.24 * Math.sin(elapsed * 0.82) + 0.08 * Math.sin(elapsed * 1.73),
-          monitorPulse: reducedMotion
-            ? 0.72
-            : 0.62 + 0.17 * Math.sin(elapsed * 2.4) + (Math.sin(elapsed * 11.0) > 0.96 ? -0.28 : 0),
-          lampPulse: reducedMotion
-            ? 0.5
-            : (Math.sin(elapsed * 7.0) > 0.72 ? 1.0 : 0.24) + (Math.sin(elapsed * 17.0) > 0.91 ? 0.55 : 0),
-          scanY: Math.floor(((elapsed * 74) % 430) + 250),
+          ambient,
+          windowWeight,
+          monitorWeight,
+          lampWeight,
+          windowPulse,
+          monitorPulse,
+          lampPulse,
+          scanY: Math.floor(((elapsed * 28) % 430) + 250),
         };
       }
 
-      function renderComposite(targetContext, data, state) {
-        const output = targetContext.createImageData(width, height);
+      function currentMaskLayer(source = controls.maskSource.value) {
+        const target = controls.maskObject.value;
+        if (auditionModels.includes(source)) {
+          return `audition_${target}_${source}`;
+        }
+        return maskLayerMap[source]?.[target] || `audition_${target}_hq_sam2_core`;
+      }
+
+      function currentLightmapLayer(source = controls.lightmapSource.value, light = controls.lightSource.value) {
+        if (light === "packed") {
+          return null;
+        }
+        return lightmapLayerMap[source][light];
+      }
+
+      function currentPackedLightmapSource() {
+        if (controls.renderMode.value === "materialReflection") {
+          return "algorithmPolicyV2";
+        }
+        if (controls.renderSource.value === "packedAlgorithmPolicyV2") {
+          return "algorithmPolicyV2";
+        }
+        if (controls.renderSource.value === "packedDraftLightmaps") {
+          return "draft";
+        }
+        if (controls.renderSource.value === "packedDepthNormalLightmaps") {
+          return "depthNormal";
+        }
+        if (controls.renderSource.value === "packedHandLightmaps") {
+          return "hand";
+        }
+        return controls.lightmapSource.value;
+      }
+
+      function currentRenderSource() {
+        if (controls.renderMode.value === "computedGbufferLighting") {
+          return "computedDepthNormal";
+        }
+        if (controls.renderMode.value === "materialReflection") {
+          return "packedAlgorithmPolicyV2";
+        }
+        return controls.renderSource.value;
+      }
+
+      function currentGbufferLayer() {
+        const set = controls.gbufferSet.value;
+        const channel = controls.gbufferChannel.value;
+        if ((set === "depthNormalV1" || set === "depthAnythingV2") && channel === "depth") {
+          return "depthAnythingV2Depth";
+        }
+        if (set === "depthNormalV1" && channel === "normal") {
+          return "dsineNormal";
+        }
+        if ((set === "depthNormalV1" || set === "depthAnythingV2") && channel === "normalPreview") {
+          return "depthAnythingV2NormalPreview";
+        }
+        if (set === "draft" && channel === "depth") {
+          return "gbufferDepth";
+        }
+        if (set === "draft" && channel === "receivers") {
+          return "gbufferReceivers";
+        }
+        if (set === "materialPrototype" && channel === "material") {
+          return "materialMap";
+        }
+        if (set === "materialPrototype" && channel === "glass") {
+          return "materialGlassMask";
+        }
+        if (set === "materialPrototype" && channel === "reflection") {
+          return "materialReflectionCandidate";
+        }
+        return null;
+      }
+
+      function luminanceAt(data, offset) {
+        return data[offset] * 0.299 + data[offset + 1] * 0.587 + data[offset + 2] * 0.114;
+      }
+
+      function lightCentroid(mask, depth) {
+        let sum = 0;
+        let xSum = 0;
+        let ySum = 0;
+        let depthSum = 0;
+        for (let i = 0; i < pixelCount; i += 1) {
+          const offset = i * 4;
+          const weight = luminanceAt(mask, offset) / 255;
+          if (weight <= 0.04) {
+            continue;
+          }
+          const x = i % width;
+          const y = Math.floor(i / width);
+          sum += weight;
+          xSum += x * weight;
+          ySum += y * weight;
+          depthSum += (depth[offset] / 255) * weight;
+        }
+        if (sum <= 0) {
+          return { x: width / 2, y: height / 2, z: 0.5 };
+        }
+        return { x: xSum / sum, y: ySum / sum, z: depthSum / sum };
+      }
+
+      function buildLightingModel(data) {
+        const depth = data.layers.depthAnythingV2Depth;
+        return {
+          window: {
+            centroid: lightCentroid(data.layers.groundedWindowMask, depth),
+            mask: data.layers.groundedWindowMask,
+          },
+          monitor: {
+            centroid: lightCentroid(data.layers.groundedTerminalMask, depth),
+            mask: data.layers.groundedTerminalMask,
+          },
+          lamps: {
+            centroid: lightCentroid(data.layers.groundedLampsMask, depth),
+            mask: data.layers.groundedLampsMask,
+          },
+        };
+      }
+
+      function renderStaticLayer(context, data, key) {
+        context.putImageData(makeImageData(context, data.layers[key]), 0, 0);
+      }
+
+      function renderMissing(context, title) {
+        context.fillStyle = "#050606";
+        context.fillRect(0, 0, width, height);
+        context.strokeStyle = "#3b3526";
+        context.strokeRect(40, 40, width - 80, height - 80);
+        context.fillStyle = "#b9a36f";
+        context.font = "18px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        context.fillText("missing", 64, 96);
+        context.fillStyle = "#d7d4c7";
+        context.font = "14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        context.fillText(title, 64, 126);
+      }
+
+      function renderPackedLightmap(context, data, source) {
+        const packedKey = source === "algorithmPolicyV2"
+          ? "algorithmPolicyV2Packed"
+          : source === "draft"
+          ? "draftPacked"
+          : source === "depthNormal"
+            ? "depthNormalPacked"
+            : "handPacked";
+        if (data.layers[packedKey]) {
+          renderStaticLayer(context, data, packedKey);
+          return;
+        }
+        const keys = lightmapLayerMap[source];
+        const output = context.createImageData(width, height);
         const out = output.data;
+        const red = data.layers[keys.window];
+        const green = data.layers[keys.monitor];
+        const blue = data.layers[keys.lamps];
+
+        for (let i = 0; i < pixelCount; i += 1) {
+          const offset = i * 4;
+          out[offset] = red[offset];
+          out[offset + 1] = green[offset];
+          out[offset + 2] = blue[offset];
+          out[offset + 3] = 255;
+        }
+
+        context.putImageData(output, 0, 0);
+      }
+
+      function lightSignals(data, source, offset) {
+        if (source.packed) {
+          const packed = data.layers[source.packed];
+          return {
+            window: packed[offset] / 255,
+            monitor: packed[offset + 1] / 255,
+            lamps: packed[offset + 2] / 255,
+          };
+        }
+        return {
+          window: data.layers[source.window][offset] / 255,
+          monitor: data.layers[source.monitor][offset] / 255,
+          lamps: data.layers[source.lamps][offset] / 255,
+        };
+      }
+
+      function quantizeLight(value) {
+        const stepCount = Number(controls.pixelSteps.value);
+        if (stepCount <= 0) {
+          return value;
+        }
+        return Math.round(value * stepCount) / stepCount;
+      }
+
+      function renderAlgorithmReviewResult(context, data, frameState) {
+        const output = context.createImageData(width, height);
+        const out = output.data;
+        const source = renderSourceMap[currentRenderSource()];
+        const base = data.layers.base;
+        const materialMode = controls.materialMode.value;
+        const glassMask = data.layers.materialGlassMask;
+        const reflection = data.layers.materialReflectionCandidate;
+
+        for (let i = 0; i < pixelCount; i += 1) {
+          const offset = i * 4;
+          const signals = lightSignals(data, source, offset);
+          const windowLight = signals.window * frameState.windowWeight * frameState.windowPulse;
+          const glass = glassMask ? glassMask[offset] / 255 : 0;
+          const interiorReceiver = materialMode === "none" ? 1 : 1 - glass;
+          const monitorLight = signals.monitor * frameState.monitorWeight * frameState.monitorPulse * interiorReceiver;
+          const lampLight = signals.lamps * frameState.lampWeight * frameState.lampPulse * interiorReceiver;
+          const light = quantizeLight(frameState.ambient + windowLight + monitorLight + lampLight);
+          const glow = Math.max(windowLight, monitorLight, lampLight);
+          const reflectionMix = materialMode === "glassReflect"
+            ? glass * clamp((frameState.lampWeight * frameState.lampPulse + frameState.monitorWeight * frameState.monitorPulse) * 0.22, 0, 0.42)
+            : 0;
+
+          for (let channel = 0; channel < 3; channel += 1) {
+            const lit = base[offset + channel] * light + glow * 38;
+            const reflected = reflection ? reflection[offset + channel] : lit;
+            out[offset + channel] = clamp(lit * (1 - reflectionMix) + reflected * reflectionMix, 0, 255);
+          }
+          out[offset + 3] = 255;
+        }
+
+        context.putImageData(output, 0, 0);
+      }
+
+      function renderResult(context, data, frameState) {
+        const renderSource = currentRenderSource();
+        if (renderSource === "computedDepthNormal") {
+          renderComputedLighting(context, data, frameState);
+          return;
+        }
+        if (renderSource === "packedAlgorithmPolicyV2") {
+          renderAlgorithmReviewResult(context, data, frameState);
+          return;
+        }
+
+        const output = context.createImageData(width, height);
+        const out = output.data;
+        const source = renderSourceMap[renderSource];
+        const base = data.layers.base;
 
         for (let i = 0; i < pixelCount; i += 1) {
           const offset = i * 4;
           const y = Math.floor(i / width);
           const shadow = data.layers.shadow[offset] / 255;
-          const windowLight = data.layers.window[offset] / 255 * state.windowWeight * state.windowPulse;
-          const monitorLight = data.layers.monitor[offset] / 255 * state.monitorWeight * state.monitorPulse;
-          const lampLight = data.layers.lamps[offset] / 255 * state.lampWeight * state.lampPulse;
-          const scan = Math.max(0, 1 - Math.abs(y - state.scanY) / 8) * (data.layers.monitor[offset] / 255) * 0.12;
-          const light = windowLight * 0.78 + monitorLight * 0.62 + lampLight * 0.55 + scan;
-          const exposure = clamp(state.ambient * (1 - shadow * 0.32) + light, 0.04, 1.22);
-
-          const sourceLift = windowLight * 16 + monitorLight * 14 + lampLight * 28;
-          const base = data.layers.base;
+          const signals = lightSignals(data, source, offset);
+          const windowSignal = signals.window;
+          const monitorSignal = signals.monitor;
+          const lampSignal = signals.lamps;
+          const windowLight = windowSignal * frameState.windowWeight * frameState.windowPulse;
+          const monitorLight = monitorSignal * frameState.monitorWeight * frameState.monitorPulse;
+          const lampLight = lampSignal * frameState.lampWeight * frameState.lampPulse;
+          const scan = Math.max(0, 1 - Math.abs(y - frameState.scanY) / 8) * monitorSignal * 0.12;
+          const windowEmitter = data.layers.groundedWindowMask[offset] / 255;
+          const monitorEmitter = data.layers.groundedTerminalMask[offset] / 255;
+          const lampEmitter = data.layers.groundedLampsMask[offset] / 255;
+          const light = windowLight * 0.74 + monitorLight * 0.38 + lampLight * 0.28 + scan;
+          const exposure = clamp(frameState.ambient * (1 - shadow * 0.32) + light, 0.04, 1.22);
+          const sourceLift =
+            windowEmitter * frameState.windowWeight * frameState.windowPulse * 88 +
+            monitorEmitter * frameState.monitorWeight * frameState.monitorPulse * 148 +
+            lampEmitter * frameState.lampWeight * frameState.lampPulse * 236;
           const luminance = base[offset] * 0.299 + base[offset + 1] * 0.587 + base[offset + 2] * 0.114;
           const value = level(clamp(luminance * exposure + sourceLift, 0, 255));
 
@@ -477,157 +861,407 @@
           out[offset + 3] = 255;
         }
 
-        targetContext.putImageData(output, 0, 0);
+        context.putImageData(output, 0, 0);
       }
 
-      function renderFinal(targetContext, data, state) {
-        renderComposite(targetContext, data, state);
+      function lightContribution(light, x, y, depthValue, normal, strength) {
+        const dx = (light.centroid.x - x) / width;
+        const dy = (light.centroid.y - y) / height;
+        const dz = (light.centroid.z - depthValue) * 0.75 + 0.22;
+        const length = Math.hypot(dx, dy, dz) || 1;
+        const lx = dx / length;
+        const ly = dy / length;
+        const lz = dz / length;
+        const lambert = Math.max(0, normal.x * lx - normal.y * ly + normal.z * lz);
+        const distance = dx * dx + dy * dy + Math.abs(light.centroid.z - depthValue) * 0.26;
+        return strength * (0.18 + lambert * 0.82) / (1 + distance * 7.5);
       }
 
-      function staticLayer(layerKey) {
-        if (layerKey === "candidate") {
-          const candidateKey = controls.candidate.value;
-          if (candidateKey === "current") {
-            return null;
-          }
+      function renderComputedLighting(context, data, frameState) {
+        const output = context.createImageData(width, height);
+        const out = output.data;
+        const base = data.layers.base;
+        const depth = data.layers.depthAnythingV2Depth;
+        const normal = data.layers.dsineNormal;
+        const lights = data.lightingModel || buildLightingModel(data);
+        data.lightingModel = lights;
+
+        for (let i = 0; i < pixelCount; i += 1) {
+          const offset = i * 4;
+          const x = i % width;
+          const y = Math.floor(i / width);
+          const depthValue = depth[offset] / 255;
+          const surfaceNormal = {
+            x: normal[offset] / 127.5 - 1,
+            y: normal[offset + 1] / 127.5 - 1,
+            z: normal[offset + 2] / 127.5 - 1,
+          };
+          const normalLength = Math.hypot(surfaceNormal.x, surfaceNormal.y, surfaceNormal.z) || 1;
+          surfaceNormal.x /= normalLength;
+          surfaceNormal.y /= normalLength;
+          surfaceNormal.z /= normalLength;
+
+          const windowLight = lightContribution(
+            lights.window,
+            x,
+            y,
+            depthValue,
+            surfaceNormal,
+            frameState.windowWeight * frameState.windowPulse * 0.86,
+          );
+          const monitorLight = lightContribution(
+            lights.monitor,
+            x,
+            y,
+            depthValue,
+            surfaceNormal,
+            frameState.monitorWeight * frameState.monitorPulse * 0.62,
+          );
+          const lampLight = lightContribution(
+            lights.lamps,
+            x,
+            y,
+            depthValue,
+            surfaceNormal,
+            frameState.lampWeight * frameState.lampPulse * 0.44,
+          );
+          const emitterLift =
+            luminanceAt(lights.window.mask, offset) * frameState.windowWeight * frameState.windowPulse * 0.12 +
+            luminanceAt(lights.monitor.mask, offset) * frameState.monitorWeight * frameState.monitorPulse * 0.11 +
+            luminanceAt(lights.lamps.mask, offset) * frameState.lampWeight * frameState.lampPulse * 0.22;
+          const luminance = luminanceAt(base, offset);
+          const exposure = clamp(frameState.ambient * 0.76 + windowLight + monitorLight + lampLight, 0.05, 1.28);
+          const value = level(clamp(luminance * exposure + emitterLift, 0, 255));
+
+          out[offset] = value;
+          out[offset + 1] = value;
+          out[offset + 2] = value;
+          out[offset + 3] = 255;
+        }
+
+        context.putImageData(output, 0, 0);
+      }
+
+      function panelSpec(kind) {
+        const maskObject = controls.maskObject.selectedOptions[0].textContent;
+        const maskSource = controls.maskSource.selectedOptions[0].textContent;
+        const lightSource = controls.lightSource.selectedOptions[0].textContent;
+        const lightmapSource = controls.lightmapSource.selectedOptions[0].textContent;
+        const activeRenderSource = currentRenderSource();
+        const renderSource = activeRenderSource === "computedDepthNormal"
+          ? "computed depth + normal draft"
+          : activeRenderSource === "packedAlgorithmPolicyV2" && controls.renderMode.value === "materialReflection"
+            ? "packed algorithm policy v2"
+            : controls.renderSource.selectedOptions[0].textContent;
+        const gbufferChannel = controls.gbufferChannel.value;
+
+        if (kind === "result") {
           return {
-            label: `candidate / ${candidateSources[candidateKey].label}`,
-            src: candidateSources[candidateKey].src,
+            title: "Result",
+            meta: `${controls.renderMode.selectedOptions[0].textContent} / ${renderSource}`,
+            draw: (context, data, frameState) => renderResult(context, data, frameState),
           };
         }
-        const layer = layerSources[layerKey];
-        return {
-          label: layer.label,
-          src: layer.src,
-        };
-      }
-
-      function showMainCanvas() {
-        canvas.hidden = false;
-        mainImage.hidden = true;
-      }
-
-      function showMainImage(layer) {
-        canvas.hidden = true;
-        mainImage.hidden = false;
-        mainImage.src = layer.src;
-        mainImage.alt = layer.label;
-      }
-
-      function renderMainLayer(layerKey, data, state) {
-        if (layerKey === "final") {
-          showMainCanvas();
-          renderFinal(context, data, state);
-          return;
+        if (kind === "base") {
+          return {
+            title: "Base Image",
+            meta: "generated still",
+            draw: (context, data) => renderStaticLayer(context, data, "base"),
+          };
         }
-        if (layerKey === "candidate" && controls.candidate.value === "current") {
-          showMainCanvas();
-          renderFinal(context, data, state);
-          return;
+        if (kind === "selectedMask") {
+          const layer = currentMaskLayer();
+          return {
+            title: "Object Mask",
+            meta: `${maskObject} / ${maskSource}`,
+            draw: (context, data) => renderStaticLayer(context, data, layer),
+          };
         }
-        showMainImage(staticLayer(layerKey));
+        if (kind === "handMask" || kind === "groundedMask") {
+          const source = kind.replace("Mask", "");
+          return {
+            title: "Object Mask",
+            meta: `${maskObject} / ${source}`,
+            draw: (context, data) => renderStaticLayer(context, data, currentMaskLayer(source)),
+          };
+        }
+        if (kind === "selectedLightmap") {
+          if (controls.lightSource.value === "packed") {
+            const packedSource = currentPackedLightmapSource();
+            return {
+              title: "Packed Lightmap",
+              meta: `${packedSource} / R window, G monitor, B lamps, A spare`,
+              draw: (context, data) => renderPackedLightmap(context, data, packedSource),
+            };
+          }
+          return {
+            title: "Lightmap",
+            meta: `${lightSource} / ${lightmapSource}`,
+            draw: (context, data) => renderStaticLayer(context, data, currentLightmapLayer()),
+          };
+        }
+        if (kind === "windowLightmap" || kind === "monitorLightmap" || kind === "lampLightmap") {
+          const light = kind === "windowLightmap" ? "window" : kind === "monitorLightmap" ? "monitor" : "lamps";
+          const source = currentPackedLightmapSource();
+          return {
+            title: "Lightmap Channel",
+            meta: `${source} / ${light}`,
+            draw: (context, data) => renderStaticLayer(context, data, currentLightmapLayer(source, light)),
+          };
+        }
+        if (kind === "packedSelectedLightmap") {
+          const packedSource = currentPackedLightmapSource();
+          return {
+            title: "Packed Lightmap",
+            meta: `${packedSource} / R window, G monitor, B lamps, A spare`,
+            draw: (context, data) => renderPackedLightmap(context, data, packedSource),
+          };
+        }
+        if (kind === "auditionContactSheet") {
+          return {
+            title: "Mask Audition Contact Sheet",
+            meta: "terminal / window / lamps / drawers across all runnable models",
+            draw: (context, data) => renderStaticLayer(context, data, "auditionContactSheet"),
+          };
+        }
+        if (kind === "groundedEmitterMasks") {
+          return {
+            title: "Emitter Masks",
+            meta: "Grounded SAM2 / R window, G monitor, B lamps",
+            draw: (context, data) => {
+              const output = context.createImageData(width, height);
+              const out = output.data;
+              const red = data.layers.groundedWindowMask;
+              const green = data.layers.groundedTerminalMask;
+              const blue = data.layers.groundedLampsMask;
+              for (let i = 0; i < pixelCount; i += 1) {
+                const offset = i * 4;
+                out[offset] = red[offset];
+                out[offset + 1] = green[offset];
+                out[offset + 2] = blue[offset];
+                out[offset + 3] = 255;
+              }
+              context.putImageData(output, 0, 0);
+            },
+          };
+        }
+        if (kind === "selectedGbuffer") {
+          const layer = currentGbufferLayer();
+          return {
+            title: "G-buffer Channel",
+            meta: layer
+              ? `${controls.gbufferSet.selectedOptions[0].textContent} / ${controls.gbufferChannel.selectedOptions[0].textContent}`
+              : missingChannels[gbufferChannel] || `${controls.gbufferChannel.selectedOptions[0].textContent} not generated`,
+            missing: !layer,
+            draw: (context, data) => {
+              if (layer) {
+                renderStaticLayer(context, data, layer);
+              } else {
+                renderMissing(context, missingChannels[gbufferChannel]);
+              }
+            },
+          };
+        }
+        if (kind === "materialMap") {
+          return {
+            title: "Material Map",
+            meta: "R emissive / G glass / B solid receiver",
+            draw: (context, data) => renderStaticLayer(context, data, "materialMap"),
+          };
+        }
+        if (kind === "materialGlass") {
+          return {
+            title: "Glass Mask",
+            meta: "Grounded SAM2 window region",
+            draw: (context, data) => renderStaticLayer(context, data, "materialGlassMask"),
+          };
+        }
+        if (kind === "materialReflection") {
+          return {
+            title: "Reflection Candidate",
+            meta: "baked texture, mixed only inside glass material",
+            draw: (context, data) => renderStaticLayer(context, data, "materialReflectionCandidate"),
+          };
+        }
+        if (kind === "gbufferDepth") {
+          return {
+            title: "G-buffer Channel",
+            meta: "manual draft inputs / depth-ish",
+            draw: (context, data) => renderStaticLayer(context, data, "gbufferDepth"),
+          };
+        }
+        if (kind === "gbufferDepthModel") {
+          return {
+            title: "G-buffer Depth",
+            meta: "Depth Anything V2 Large",
+            draw: (context, data) => renderStaticLayer(context, data, "depthAnythingV2Depth"),
+          };
+        }
+        if (kind === "gbufferNormalModel") {
+          return {
+            title: "G-buffer Normal",
+            meta: "DSINE dedicated normal",
+            draw: (context, data) => renderStaticLayer(context, data, "dsineNormal"),
+          };
+        }
+        if (kind === "gbufferReceivers") {
+          return {
+            title: "G-buffer Channel",
+            meta: "manual draft inputs / receiver zones",
+            draw: (context, data) => renderStaticLayer(context, data, "gbufferReceivers"),
+          };
+        }
+        return null;
       }
 
-      function renderQuadLayer(cell, layerKey, data, state) {
-        if (layerKey === "final") {
-          cell.canvas.hidden = false;
-          cell.img.hidden = true;
-          renderFinal(cell.context, data, state);
-          cell.label.textContent = "runtime final";
-          return;
+      function buildWorkspace(data) {
+        applyModeVisibility();
+        workspace.textContent = "";
+        const resultStage = document.createElement("div");
+        resultStage.className = "result-stage";
+        const textureGrid = document.createElement("div");
+        textureGrid.className = "texture-grid";
+        const panelKinds = renderModePanels[controls.renderMode.value];
+        const hasResult = panelKinds.includes("result");
+        workspace.classList.toggle("no-result", !hasResult);
+        if (hasResult) {
+          workspace.append(resultStage, textureGrid);
+        } else {
+          workspace.append(textureGrid);
         }
-        if (layerKey === "candidate" && controls.candidate.value === "current") {
-          cell.canvas.hidden = false;
-          cell.img.hidden = true;
-          renderFinal(cell.context, data, state);
-          cell.label.textContent = "candidate / current composite";
-          return;
-        }
-        const layer = staticLayer(layerKey);
-        cell.canvas.hidden = true;
-        cell.img.hidden = false;
-        cell.img.src = layer.src;
-        cell.img.alt = layer.label;
-        cell.label.textContent = layer.label;
-      }
-
-      function renderCandidate(targetContext, data, state) {
-        const candidateKey = controls.candidate.value;
-        if (candidateKey === "current") {
-          renderComposite(targetContext, data, state);
-          return;
-        }
-        showMainImage(staticLayer("candidate"));
-      }
-
-      function renderQuad(data, state) {
-        const layerKeys = quadLayerSets[controls.layers.value];
-        quadCells.forEach((cell, index) => {
-          const layerKey = layerKeys[index];
-          renderQuadLayer(cell, layerKey, data, state);
+        panelKinds.forEach((kind) => {
+          if (kind === "packedSelectedLightmap" && controls.lightSource.value === "packed") {
+            return;
+          }
+          const spec = panelSpec(kind);
+          if (!spec) {
+            return;
+          }
+          const figure = document.createElement("figure");
+          figure.className = "review-panel";
+          figure.dataset.kind = kind;
+          const panelCanvas = document.createElement("canvas");
+          panelCanvas.width = width;
+          panelCanvas.height = height;
+          const caption = document.createElement("figcaption");
+          caption.innerHTML = `<strong>${spec.title}</strong><span class="${spec.missing ? "missing" : ""}">${spec.meta}</span>`;
+          figure.append(panelCanvas, caption);
+          if (kind === "result") {
+            resultStage.append(figure);
+          } else {
+            textureGrid.append(figure);
+          }
         });
+        render(data, performance.now());
+      }
+
+      function render(data, now) {
+        const frameState = state(now);
+        const panelKinds = renderModePanels[controls.renderMode.value];
+        const panels = [...workspace.querySelectorAll(".review-panel")];
+        panels.forEach((panel, index) => {
+          const kind = panel.dataset.kind;
+          const panelCanvas = panel.querySelector("canvas");
+          const spec = panelSpec(kind || panelKinds[index]);
+          if (!spec) {
+            return;
+          }
+          const panelContext = panelCanvas.getContext("2d", { willReadFrequently: true });
+          panelContext.imageSmoothingEnabled = false;
+          spec.draw(panelContext, data, frameState);
+        });
+
+        if (!reducedMotion) {
+          animationTimer = window.setTimeout(() => render(data, performance.now()), 1000 / runtimeFps);
+        }
       }
 
       function updateUrl() {
-        const next = new URLSearchParams(window.location.search);
-        next.set("view", controls.view.value);
-        next.set("candidate", controls.candidate.value);
-        next.set("layers", controls.layers.value);
+        const next = new URLSearchParams();
+        Object.entries(controls).forEach(([key, control]) => {
+          next.set(key, control.value);
+        });
         history.replaceState(null, "", `${window.location.pathname}?${next.toString()}`);
       }
 
-      function renderFrame(data, startTime, now) {
-        const view = controls.view.value;
-        const state = controlState(startTime, now);
-
-        scene.hidden = view === "quad";
-        quadPanel.hidden = view !== "quad";
-
-        if (view === "quad") {
-          renderQuad(data, state);
-        } else {
-          renderMainLayer(view, data, state);
-        }
-
-        const shouldAnimate = view === "final";
-        if (!reducedMotion && shouldAnimate) {
-          nextFrameRequest = requestAnimationFrame((next) => renderFrame(data, startTime, next));
-        }
+      function applyModeVisibility() {
+        const mode = controls.renderMode.value;
+        modeNote.textContent = renderModeNotes[mode] || "";
+        document.querySelectorAll("[data-modes]").forEach((node) => {
+          const modes = node.dataset.modes.split(/\s+/);
+          node.classList.toggle("control-hidden", !modes.includes(mode));
+        });
       }
 
-      function renderFromControls(data) {
-        if (nextFrameRequest) {
-          cancelAnimationFrame(nextFrameRequest);
-          nextFrameRequest = 0;
-        }
-        const time = performance.now();
-        renderFrame(data, time, time);
+      function applyParams() {
+        const params = new URLSearchParams(window.location.search);
+        const aliases = {
+          maskSet: "renderSource",
+          layers: "renderMode",
+          preset: "renderMode",
+        };
+        Object.entries(controls).forEach(([key, control]) => {
+          const raw = params.get(key) ?? params.get(Object.keys(aliases).find((oldKey) => aliases[oldKey] === key));
+          if (!raw) {
+            return;
+          }
+          const normalized = raw === "gbufferHybrid"
+            ? "draftLightmaps"
+            : raw === "packed"
+              ? "packedDraftLightmaps"
+            : raw === "gbufferMaps"
+              ? "computedGbufferLighting"
+            : raw === "objectMasks"
+              ? "maskAudition"
+            : raw === "lightmapAudit"
+              ? "lightmapComposite"
+            : raw === "maskAudit"
+              ? "maskAudition"
+            : raw === "gbufferAudit"
+              ? "computedGbufferLighting"
+            : raw === "materialAudit"
+              ? "materialReflection"
+            : raw === "fullAudit"
+              ? "textureInspect"
+            : raw;
+          if ([...control.options || []].some((option) => option.value === normalized)) {
+            control.value = normalized;
+          }
+        });
+        applyModeVisibility();
       }
 
-      const layerEntries = compositeLayerKeys.map(async (key) => (
-        [key, imageData(await loadImage(layerSources[key].src))]
+      const layerEntries = Object.entries(layerSources).map(async ([key, layer]) => (
+        [key, imageData(await loadImage(layer.src))]
       ));
 
+      applyParams();
       Promise.all(layerEntries)
         .then((entries) => {
-          const data = {
-            layers: Object.fromEntries(entries),
-          };
+          const data = { layers: Object.fromEntries(entries) };
           Object.values(controls).forEach((control) => {
-            const rerender = () => {
+            const rebuild = control.tagName === "SELECT";
+            const handler = () => {
               updateUrl();
-              renderFromControls(data);
+              if (animationTimer) {
+                clearTimeout(animationTimer);
+                animationTimer = 0;
+              }
+              if (rebuild) {
+                buildWorkspace(data);
+              } else {
+                render(data, performance.now());
+              }
             };
-            control.addEventListener("input", rerender);
-            control.addEventListener("change", rerender);
+            control.addEventListener("input", handler);
+            control.addEventListener("change", handler);
           });
-          requestAnimationFrame((time) => renderFrame(data, time, time));
+          startTime = performance.now();
+          buildWorkspace(data);
         })
         .catch((error) => {
-          const box = document.createElement("div");
-          box.className = "error";
-          box.textContent = error.message;
-          scene.append(box);
+          workspace.textContent = error.message;
+          workspace.classList.add("missing");
         });
     </script>
   </body>

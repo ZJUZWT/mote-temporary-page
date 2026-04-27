@@ -1,0 +1,40 @@
+{
+  "scene_id": "CH01-N03-old-survey-station-light-demo",
+  "source_scene": "Stellar Detective / 第一章 / 旧勘测站",
+  "base": "base.png",
+  "layers": [
+    {
+      "id": "survey-terminal",
+      "label": "旧勘测主机",
+      "semantic_mask": "masks/terminal-mask.png",
+      "light_mask": "masks/monitor-glow.png",
+      "influence_map": "lightmaps/monitor-influence.png",
+      "receivers": ["screen", "desk", "near wall"],
+      "effects": ["screen-breathe", "scanline", "hover-highlight"]
+    },
+    {
+      "id": "basin-window",
+      "label": "盐盆观察窗",
+      "semantic_mask": "masks/window-mask.png",
+      "light_mask": "masks/window-glow.png",
+      "influence_map": "lightmaps/window-influence.png",
+      "receivers": ["window opening", "floor patch", "ceiling bounce", "right wall"],
+      "effects": ["low-drift", "distant-glow"]
+    },
+    {
+      "id": "status-lamps",
+      "label": "残余状态灯",
+      "light_mask": "masks/status-lamps.png",
+      "influence_map": "lightmaps/lamp-influence.png",
+      "receivers": ["whole-room low fill", "ceiling", "right wall", "floor", "local panels"],
+      "effects": ["irregular-flicker"]
+    },
+    {
+      "id": "ambient-shadow",
+      "label": "环境遮蔽",
+      "influence_map": "lightmaps/shadow-occlusion.png",
+      "receivers": ["upper corners", "under desk", "right edge"],
+      "effects": ["ambient-darkening"]
+    }
+  ]
+}

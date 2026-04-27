@@ -1,0 +1,4 @@
+name,hand_pixels,ai_pixels,intersection,union,iou,precision,recall
+terminal,104478,60049,53430,111097,0.4809,0.8898,0.5114
+window,55520,93567,55520,93567,0.5934,0.5934,1.0000
+status_lamps,536,12504,0,13040,0.0000,0.0000,0.0000

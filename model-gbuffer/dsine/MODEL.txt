@@ -1,0 +1,4 @@
+repo=hugoycj/DSINE-hub
+input=D:\data\mote-gbuffer\input\base.png
+torch=2.5.1+cu121
+cuda=True

@@ -1,0 +1,39 @@
+{
+  "threshold": 0.96,
+  "results": [
+    {
+      "name": "window",
+      "status": "pass",
+      "emitter_pixels": 93567,
+      "emitter_min": 1.0,
+      "emitter_mean": 1.0,
+      "map_mean": 0.4074125289916992,
+      "map_over_0_1": 0.9813327789306641,
+      "packed_emitter_min": 1.0,
+      "packed_emitter_mean": 1.0
+    },
+    {
+      "name": "monitor",
+      "status": "pass",
+      "emitter_pixels": 56157,
+      "emitter_min": 1.0,
+      "emitter_mean": 1.0,
+      "map_mean": 0.22974348068237305,
+      "map_over_0_1": 0.4797401428222656,
+      "packed_emitter_min": 1.0,
+      "packed_emitter_mean": 1.0
+    },
+    {
+      "name": "lamps",
+      "status": "pass",
+      "emitter_pixels": 9729,
+      "emitter_min": 1.0,
+      "emitter_mean": 1.0,
+      "map_mean": 0.3474111557006836,
+      "map_over_0_1": 1.0,
+      "packed_emitter_min": 1.0,
+      "packed_emitter_mean": 1.0
+    }
+  ],
+  "status": "pass"
+}

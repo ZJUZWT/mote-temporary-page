@@ -1,0 +1,73 @@
+{
+  "target": "lamps",
+  "models": {
+    "sam2_raw": {
+      "status": "ok",
+      "coverage": 0.009278297424316406,
+      "edge_pixels": 613.0,
+      "edge_per_area": 0.06300750334052832,
+      "hole_pixels": 85.0
+    },
+    "sam2_strict": {
+      "status": "ok",
+      "coverage": 0.008866310119628906,
+      "edge_pixels": 410.0,
+      "edge_per_area": 0.04410024739163171,
+      "hole_pixels": 0.0
+    },
+    "depth_cut": {
+      "status": "ok",
+      "coverage": 0.013589859008789062,
+      "edge_pixels": 406.0,
+      "edge_per_area": 0.02849122807017544,
+      "hole_pixels": 0.0
+    },
+    "birefnet_crop": {
+      "status": "ok",
+      "coverage": 0.013533592224121094,
+      "edge_pixels": 1476.0,
+      "edge_per_area": 0.10400958353886267,
+      "hole_pixels": 123.0
+    },
+    "inspyrenet_crop": {
+      "status": "ok",
+      "coverage": 0.0060520172119140625,
+      "edge_pixels": 1319.0,
+      "edge_per_area": 0.20784746296879925,
+      "hole_pixels": 70.0
+    },
+    "vitmatte_crop": {
+      "status": "ok",
+      "coverage": 0.006567955017089844,
+      "edge_pixels": 299.0,
+      "edge_per_area": 0.043415129954987655,
+      "hole_pixels": 0.0
+    },
+    "ben2_crop": {
+      "status": "ok",
+      "coverage": 0.009747505187988281,
+      "edge_pixels": 2288.0,
+      "edge_per_area": 0.22385285197143137,
+      "hole_pixels": 185.0
+    },
+    "hq_sam_box": {
+      "status": "ok",
+      "coverage": 0.1099863052368164,
+      "edge_pixels": 29791.0,
+      "edge_per_area": 0.25831317361634976,
+      "hole_pixels": 3933.0
+    },
+    "hq_sam2_core": {
+      "status": "ok",
+      "coverage": 0.012148857116699219,
+      "edge_pixels": 602.0,
+      "edge_per_area": 0.04725645655074966,
+      "hole_pixels": 48.0
+    },
+    "seem_attempt": {
+      "status": "failed",
+      "reason": "SEEM loader dependency missing: detectron2 import failed: No module named 'detectron2'",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\10310\\mote-seg-work\\run_full_mask_model_audition.py\", line 284, in run_seem_attempt\n    import detectron2  # noqa: F401\nModuleNotFoundError: No module named 'detectron2'\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"C:\\Users\\10310\\mote-seg-work\\run_full_mask_model_audition.py\", line 367, in main\n    mask = runners[model_name]()\n  File \"C:\\Users\\10310\\mote-seg-work\\run_full_mask_model_audition.py\", line 361, in <lambda>\n    \"seem_attempt\": lambda: run_seem_attempt(base, candidate, args.cache_root),\n  File \"C:\\Users\\10310\\mote-seg-work\\run_full_mask_model_audition.py\", line 286, in run_seem_attempt\n    raise RuntimeError(f\"SEEM loader dependency missing: detectron2 import failed: {exc}\") from exc\nRuntimeError: SEEM loader dependency missing: detectron2 import failed: No module named 'detectron2'\n"
+    }
+  }
+}

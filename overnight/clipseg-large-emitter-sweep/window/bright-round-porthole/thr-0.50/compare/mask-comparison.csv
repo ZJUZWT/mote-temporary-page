@@ -1,0 +1,2 @@
+name,hand_pixels,ai_pixels,intersection,union,iou,precision,recall
+window,55520,66537,46816,75241,0.6222,0.7036,0.8432

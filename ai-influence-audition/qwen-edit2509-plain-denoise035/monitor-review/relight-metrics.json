@@ -1,0 +1,14 @@
+{
+  "base": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/base.png",
+  "candidate": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/ai-influence-audition/qwen-edit2509-plain-denoise035/mote_qwen_edit2509_plain_d035_00001_.png",
+  "expected_map": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/lightmaps/monitor-influence.png",
+  "width": 1024,
+  "height": 1024,
+  "diff_threshold": 12,
+  "expected_threshold": 24,
+  "changed_pixels": 70632,
+  "changed_fraction": 0.06735992431640625,
+  "expected_overlap": 0.5673490769056518,
+  "outside_change_mean": 3.645871877670288,
+  "structure_drift_proxy": 6.027091026306152
+}

@@ -1,0 +1,55 @@
+{
+  "targets": {
+    "window": {
+      "sam2_raw": "ok",
+      "sam2_strict": "ok",
+      "depth_cut": "ok",
+      "birefnet_crop": "ok",
+      "inspyrenet_crop": "ok",
+      "vitmatte_crop": "ok",
+      "ben2_crop": "ok",
+      "hq_sam_box": "ok",
+      "hq_sam2_core": "ok",
+      "seem_attempt": "blocked_or_failed"
+    },
+    "terminal": {
+      "sam2_raw": "ok",
+      "sam2_strict": "ok",
+      "depth_cut": "ok",
+      "birefnet_crop": "ok",
+      "inspyrenet_crop": "ok",
+      "vitmatte_crop": "ok",
+      "ben2_crop": "ok",
+      "hq_sam_box": "ok",
+      "hq_sam2_core": "ok",
+      "seem_attempt": "blocked_or_failed"
+    },
+    "lamps": {
+      "sam2_raw": "ok",
+      "sam2_strict": "ok",
+      "depth_cut": "ok",
+      "birefnet_crop": "ok",
+      "inspyrenet_crop": "ok",
+      "vitmatte_crop": "ok",
+      "ben2_crop": "ok",
+      "hq_sam_box": "ok",
+      "hq_sam2_core": "ok",
+      "seem_attempt": "blocked_or_failed"
+    },
+    "drawers": {
+      "sam2_raw": "ok",
+      "sam2_strict": "ok",
+      "depth_cut": "ok",
+      "birefnet_crop": "ok",
+      "inspyrenet_crop": "ok",
+      "vitmatte_crop": "ok",
+      "ben2_crop": "ok",
+      "hq_sam_box": "ok",
+      "hq_sam2_core": "ok",
+      "seem_attempt": "blocked_or_failed"
+    }
+  },
+  "blocked_models": {
+    "seem_attempt": "weights downloaded; attempted loader path, but detectron2/xdecoder runtime is not available if this column failed"
+  }
+}

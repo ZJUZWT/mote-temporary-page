@@ -1,0 +1,14 @@
+{
+  "base": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/base.png",
+  "candidate": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/ai-influence-audition/synthetic-monitor/synthetic-monitor-lit.png",
+  "expected_map": "tools/imagery/mote-comfy-client/assets/generated/light-mask-demo/lightmaps/monitor-influence.png",
+  "width": 1024,
+  "height": 1024,
+  "diff_threshold": 12,
+  "expected_threshold": 24,
+  "changed_pixels": 177508,
+  "changed_fraction": 0.16928482055664062,
+  "expected_overlap": 1.0,
+  "outside_change_mean": 0.9172929525375366,
+  "structure_drift_proxy": 0.0501520000398159
+}

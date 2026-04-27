@@ -1,0 +1,38 @@
+[
+  {
+    "target": "terminal",
+    "label": "computer terminal screen",
+    "score": 0.785744309425354,
+    "box": [
+      63.96437072753906,
+      333.2054748535156,
+      331.894287109375,
+      617.3685302734375
+    ],
+    "output": "ai-terminal-screen-mask.png"
+  },
+  {
+    "target": "window",
+    "label": "round window",
+    "score": 0.8191682696342468,
+    "box": [
+      608.3775634765625,
+      246.386474609375,
+      928.029541015625,
+      607.7012939453125
+    ],
+    "output": "ai-round-window-mask.png"
+  },
+  {
+    "target": "status_lamps",
+    "label": "small status lamps",
+    "score": 0.33930134773254395,
+    "box": [
+      845.0918579101562,
+      23.79751968383789,
+      961.2041625976562,
+      130.45753479003906
+    ],
+    "output": "ai-small-lights-mask.png"
+  }
+]
