@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manual Drawer Annotation Reference</title>
+    <style>
+      :root { color-scheme: dark; --bg: #070808; --ink: #d7d4c7; --muted: #8d8a7d; --line: #2c2c28; }
+      * { box-sizing: border-box; }
+      body { margin: 0; min-height: 100vh; background: #070808; color: var(--ink); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      main { width: min(96vw, 1280px); margin: 0 auto; padding: 24px 0 32px; display: grid; gap: 16px; }
+      h1 { margin: 0; font-size: 20px; font-weight: 500; }
+      p, li { color: var(--muted); font-size: 12px; line-height: 1.7; }
+      img { width: 100%; height: auto; display: block; image-rendering: pixelated; outline: 1px solid var(--line); background: #020202; }
+      code { color: var(--ink); }
+      .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr); gap: 18px; align-items: start; }
+      @media (max-width: 900px) { .cols { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Manual Drawer Annotation Reference</h1>
+        <p>Hand reference for drawer cabinet and individual drawer faces. This is not model output.</p>
+      </header>
+      <section class="cols">
+        <img src="contact-sheet.png" alt="Manual drawer annotation contact sheet">
+        <div>
+          <p>Best automatic match against these hand masks is still weak:</p>
+          <ul>
+            <li><code>drawer-top-hand</code>: best IoU 0.198</li>
+            <li><code>drawer-upper-middle-hand</code>: best IoU 0.315</li>
+            <li><code>drawer-lower-middle-hand</code>: best IoU 0.180</li>
+            <li><code>drawer-bottom-hand</code>: best IoU 0.160</li>
+          </ul>
+          <p>Interpretation: the current automatic route can find nearby fragments, but it does not recover human-intended drawer faces.</p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

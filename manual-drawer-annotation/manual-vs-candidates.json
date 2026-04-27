@@ -1,0 +1,126 @@
+[
+  {
+    "manual": "drawer-top-hand.png",
+    "area": 7887,
+    "best": [
+      [
+        0.1984846745494203,
+        0.2192215037403322,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-02.png"
+      ],
+      [
+        0.18648741813167874,
+        0.20578166603271206,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-01.png"
+      ],
+      [
+        0.12133432267638804,
+        0.47686065677697476,
+        "mask-model-audition/drawers/ben2_crop.png"
+      ],
+      [
+        0.11276647460002001,
+        1.0,
+        "mask-model-audition/drawers/vitmatte_crop.png"
+      ],
+      [
+        0.10214204309987568,
+        1.0,
+        "mask-model-audition/drawers/sam2_strict.png"
+      ]
+    ]
+  },
+  {
+    "manual": "drawer-upper-middle-hand.png",
+    "area": 8146,
+    "best": [
+      [
+        0.31465468837731614,
+        0.34397250184139455,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-00.png"
+      ],
+      [
+        0.20889957907396273,
+        0.21323348882887308,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-03.png"
+      ],
+      [
+        0.16251387848898757,
+        0.7726491529585072,
+        "mask-model-audition/drawers/hq_sam2_core.png"
+      ],
+      [
+        0.11646959580217613,
+        1.0,
+        "mask-model-audition/drawers/vitmatte_crop.png"
+      ],
+      [
+        0.10549627020306672,
+        1.0,
+        "mask-model-audition/drawers/sam2_strict.png"
+      ]
+    ]
+  },
+  {
+    "manual": "drawer-bottom-hand.png",
+    "area": 6401,
+    "best": [
+      [
+        0.15973254086181277,
+        0.16794250898297142,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-06.png"
+      ],
+      [
+        0.1595428910655981,
+        0.16794250898297142,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-05.png"
+      ],
+      [
+        0.1268258390397584,
+        0.76097484768005,
+        "mask-model-audition/drawers/hq_sam2_core.png"
+      ],
+      [
+        0.0824767625508117,
+        0.995313232307452,
+        "mask-model-audition/drawers/sam2_strict.png"
+      ],
+      [
+        0.0814912191137431,
+        0.9975003905639743,
+        "mask-model-audition/drawers/sam2_raw.png"
+      ]
+    ]
+  },
+  {
+    "manual": "drawer-lower-middle-hand.png",
+    "area": 7686,
+    "best": [
+      [
+        0.18031754032258066,
+        0.18618266978922718,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-09.png"
+      ],
+      [
+        0.17666289450521816,
+        0.18279989591465,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-10.png"
+      ],
+      [
+        0.16990890236538814,
+        0.8420504813947437,
+        "mask-model-audition/drawers/hq_sam2_core.png"
+      ],
+      [
+        0.1686973998241427,
+        0.17473328129065835,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-11.png"
+      ],
+      [
+        0.1300379326695116,
+        0.14272703616965912,
+        "sam2-proposal-audition/drawers-roi-4x/candidate-04.png"
+      ]
+    ]
+  }
+]
