@@ -1,0 +1,20 @@
+{
+  "base": "tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/qwen-image-2512-fp8/wake-bay/ch01_wake-bay_qwen2512_51001_00001_.png",
+  "depth": "tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/gbuffer-qwen/wake-bay/depth-anything-v2/depth-anything-v2-depth.png",
+  "normal": "tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/gbuffer-qwen/wake-bay/dsine/dsine-normal.png",
+  "outputs": {
+    "material_map_rgb": "material-map-rgb.png",
+    "material_clusters": "material-clusters.png",
+    "material_overlay": "material-overlay.png"
+  },
+  "contract": {
+    "material_map_rgb": "R emissive cue, G smooth/specular cue, B solid receiver cue",
+    "material_clusters": "deterministic k-means over RGB, luminance, saturation, depth, normal, texture",
+    "status": "prototype review layer, not a trained material model"
+  },
+  "coverage": {
+    "emissive_mean": 0.09935339540243149,
+    "specular_mean": 0.26147258281707764,
+    "receiver_mean": 0.7129162549972534
+  }
+}

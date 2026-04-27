@@ -1,0 +1,67 @@
+{
+  "run_dir": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition",
+  "scenes": [
+    {
+      "id": "IMG-CH01-WAKE-BAY",
+      "slug": "wake-bay",
+      "prompt": "single-person cryogenic wake bay inside an old slow transfer spacecraft, partial emergency power, opened cryo pod in foreground, dim status lamps, manual door control visible, frost and condensation on edges, worn off-white composite panels, dull metal seams, narrow service floor, inactive dark corners, exit path readable, high resolution realistic cinematic concept art, clear object boundaries for segmentation, legible spatial layout, physically plausible light, textured worn materials, no readable text, no logo, no watermark, sparse technical old human-used science fiction, not glossy, not heroic",
+      "negative": "no crowd, no clean hospital, no heroic command bridge, no glossy starship, no readable ship name, no monster, no action explosion, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, plastic futuristic gloss, heroic spectacle, crowded crew, explosion",
+      "seed": 51001
+    },
+    {
+      "id": "IMG-CH01-NAV-CONSOLE",
+      "slug": "nav-console",
+      "prompt": "old spacecraft navigation console, compact investigation-like control station, dim terminal glow, physical switches and worn keys, signal comparison sheet beside the screen, archive slot, amber warning lamps, constrained low-power interior, scratched console surface, procedural and quiet mood, high resolution realistic cinematic concept art, clear object boundaries for segmentation, legible spatial layout, physically plausible light, textured worn materials, no readable text, no logo, no watermark, sparse technical old human-used science fiction, not glossy, not heroic",
+      "negative": "no huge bridge, no holographic spectacle, no clean futuristic glass cockpit, no readable final answer, no city map, no cheerful UI, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, plastic futuristic gloss, heroic spectacle, crowded crew, explosion",
+      "seed": 51011
+    },
+    {
+      "id": "IMG-CH01-GRAY-HARBOR-LANDING",
+      "slug": "gray-harbor-landing",
+      "prompt": "abandoned old landing pad at a pale salt basin, weathered metal landing plates with white salt dust in the seams, empty failed harbor, small residual service robot or docking post off-center, distant central salt basin, muted daylight, wind-scoured ground, oxidized metal plates, abraded paint, quiet lonely archaeological sci-fi, high resolution realistic cinematic concept art, clear object boundaries for segmentation, legible spatial layout, physically plausible light, textured worn materials, no readable text, no logo, no watermark, sparse technical old human-used science fiction, not glossy, not heroic",
+      "negative": "no crowd, no active city, no welcome banner, no spaceship wreck exposed, no lush plants, no explosion, no heroic sunset, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, plastic futuristic gloss, heroic spectacle, crowded crew, explosion",
+      "seed": 51021
+    }
+  ],
+  "models": [],
+  "outputs": [
+    {
+      "scene_id": "IMG-CH01-WAKE-BAY",
+      "scene_slug": "wake-bay",
+      "model_id": "qwen-image-2512-fp8",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/qwen-image-2512-fp8/wake-bay/ch01_wake-bay_qwen2512_51001_00001_.png"
+    },
+    {
+      "scene_id": "IMG-CH01-NAV-CONSOLE",
+      "scene_slug": "nav-console",
+      "model_id": "qwen-image-2512-fp8",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/qwen-image-2512-fp8/nav-console/ch01_nav-console_qwen2512_51011_00001_.png"
+    },
+    {
+      "scene_id": "IMG-CH01-GRAY-HARBOR-LANDING",
+      "scene_slug": "gray-harbor-landing",
+      "model_id": "qwen-image-2512-fp8",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/qwen-image-2512-fp8/gray-harbor-landing/ch01_gray-harbor-landing_qwen2512_51021_00001_.png"
+    },
+    {
+      "scene_id": "IMG-CH01-WAKE-BAY",
+      "scene_slug": "wake-bay",
+      "model_id": "flux1-dev-fp8-checkpoint",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/flux1-dev-fp8-checkpoint/wake-bay/ch01_wake-bay_flux1dev_52001_00001_.png"
+    },
+    {
+      "scene_id": "IMG-CH01-NAV-CONSOLE",
+      "scene_slug": "nav-console",
+      "model_id": "flux1-dev-fp8-checkpoint",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/flux1-dev-fp8-checkpoint/nav-console/ch01_nav-console_flux1dev_52011_00001_.png"
+    },
+    {
+      "scene_id": "IMG-CH01-GRAY-HARBOR-LANDING",
+      "scene_slug": "gray-harbor-landing",
+      "model_id": "flux1-dev-fp8-checkpoint",
+      "path": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/flux1-dev-fp8-checkpoint/gray-harbor-landing/ch01_gray-harbor-landing_flux1dev_52021_00001_.png"
+    }
+  ],
+  "blocked": [],
+  "contact_sheet": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-3scene-model-audition/contact-sheet.png"
+}

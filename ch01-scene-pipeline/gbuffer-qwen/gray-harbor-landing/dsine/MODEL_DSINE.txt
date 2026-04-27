@@ -1,0 +1,4 @@
+repo=hugoycj/DSINE-hub
+input=ch01-scene-pipeline\input\gray-harbor-landing.png
+torch=2.5.1+cu121
+cuda=True

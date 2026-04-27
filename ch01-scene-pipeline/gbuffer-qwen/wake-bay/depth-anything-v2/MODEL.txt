@@ -1,0 +1,4 @@
+model=depth-anything/Depth-Anything-V2-Large-hf
+input=ch01-scene-pipeline\input\wake-bay.png
+device=cuda
+normal=derived from depth gradients, not a dedicated normal model
