@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAM2 Proposal Audition</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #070808;
+        --ink: #d7d4c7;
+        --muted: #8d8a7d;
+        --line: #2c2c28;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, #050606, var(--bg));
+        color: var(--ink);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      }
+
+      main {
+        width: min(96vw, 1500px);
+        margin: 0 auto;
+        padding: 24px 0 32px;
+        display: grid;
+        gap: 18px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.6fr);
+        gap: 18px;
+        align-items: end;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+        gap: 14px;
+      }
+
+      figure {
+        margin: 0;
+        display: grid;
+        gap: 8px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        image-rendering: pixelated;
+        background: #020202;
+        outline: 1px solid var(--line);
+      }
+
+      figcaption {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      strong {
+        color: var(--ink);
+        font-weight: 500;
+      }
+
+      @media (max-width: 860px) {
+        header {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>SAM2 Automatic Proposal Audition / drawers</h1>
+          <p>Goal: test whether whole-image proposal segmentation can expose a single drawer-level mask in the pixel scene.</p>
+        </div>
+        <p>Result: ROI 4x is the only route that starts to find drawer-like subparts. Full-image 1x/2x mostly returns desk edges, cabinet sides, and small texture fragments.</p>
+      </header>
+
+      <section class="grid" aria-label="proposal contact sheets">
+        <figure>
+          <img src="full-1x/contact-sheet.png" alt="Full image 1x SAM2 proposal contact sheet">
+          <figcaption><strong>Full image / 1x</strong><br>Weak baseline. It finds some cabinet edges, not a usable single drawer.</figcaption>
+        </figure>
+        <figure>
+          <img src="full-2x/contact-sheet.png" alt="Full image 2x SAM2 proposal contact sheet">
+          <figcaption><strong>Full image / 2x</strong><br>Still weak. Upscaling the entire image increases texture competition instead of isolating drawer panels.</figcaption>
+        </figure>
+        <figure>
+          <img src="drawers-roi-4x/contact-sheet.png" alt="Drawer ROI 4x SAM2 proposal contact sheet">
+          <figcaption><strong>Drawer ROI / 4x</strong><br>Best current route. Some candidates approach drawer subparts, but the masks are still not asset-grade.</figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>

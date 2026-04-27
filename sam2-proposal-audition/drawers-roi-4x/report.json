@@ -1,0 +1,687 @@
+{
+  "image": "C:\\Users\\10310\\mote-seg-work\\base.png",
+  "scale": 4,
+  "crop_roi": true,
+  "roi": [
+    45,
+    610,
+    320,
+    940
+  ],
+  "raw_mask_count": 195,
+  "kept_count": 32,
+  "candidates": [
+    {
+      "source": "m136",
+      "metrics": {
+        "score": 0.5249915540847124,
+        "area": 3561.0,
+        "roi_iou": 0.03897937738079601,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.2812281926029309,
+        "aspect": 1.5308641975308641,
+        "bbox": [
+          131,
+          705,
+          254,
+          785
+        ]
+      },
+      "sam_area": 56670.0,
+      "sam_predicted_iou": 0.9021424651145935,
+      "sam_stability_score": 0.8636535406112671,
+      "rank": 0
+    },
+    {
+      "source": "m10",
+      "metrics": {
+        "score": 0.4973491939579764,
+        "area": 2439.0,
+        "roi_iou": 0.026697753842112176,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.20977722772277227,
+        "aspect": 3.142857142857143,
+        "bbox": [
+          110,
+          640,
+          219,
+          674
+        ]
+      },
+      "sam_area": 38557.0,
+      "sam_predicted_iou": 0.9093624949455261,
+      "sam_stability_score": 0.8877031803131104,
+      "rank": 1
+    },
+    {
+      "source": "m173",
+      "metrics": {
+        "score": 0.49404240119528187,
+        "area": 2553.0,
+        "roi_iou": 0.027945619335347432,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.2201504069228392,
+        "aspect": 3.3783783783783785,
+        "bbox": [
+          95,
+          640,
+          219,
+          676
+        ]
+      },
+      "sam_area": 41076.0,
+      "sam_predicted_iou": 0.7827885746955872,
+      "sam_stability_score": 0.8480410575866699,
+      "rank": 2
+    },
+    {
+      "source": "m185",
+      "metrics": {
+        "score": 0.481639156883637,
+        "area": 1906.0,
+        "roi_iou": 0.0208634353518105,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.18851501963698122,
+        "aspect": 1.48,
+        "bbox": [
+          181,
+          723,
+          254,
+          772
+        ]
+      },
+      "sam_area": 30573.0,
+      "sam_predicted_iou": 0.7129884958267212,
+      "sam_stability_score": 0.8347810506820679,
+      "rank": 3
+    },
+    {
+      "source": "m120",
+      "metrics": {
+        "score": 0.47379187834424397,
+        "area": 1847.0,
+        "roi_iou": 0.02021761022811857,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.19467982409095785,
+        "aspect": 1.169811320754717,
+        "bbox": [
+          190,
+          778,
+          251,
+          830
+        ]
+      },
+      "sam_area": 29560.0,
+      "sam_predicted_iou": 0.6997715830802917,
+      "sam_stability_score": 0.8492444753646851,
+      "rank": 4
+    },
+    {
+      "source": "m192",
+      "metrics": {
+        "score": 0.4583987570504223,
+        "area": 1412.0,
+        "roi_iou": 0.015456018214457726,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.14583992407465993,
+        "aspect": 1.3448275862068966,
+        "bbox": [
+          127,
+          846,
+          204,
+          903
+        ]
+      },
+      "sam_area": 22630.0,
+      "sam_predicted_iou": 0.6939184665679932,
+      "sam_stability_score": 0.8440274596214294,
+      "rank": 5
+    },
+    {
+      "source": "m175",
+      "metrics": {
+        "score": 0.45713557002753225,
+        "area": 1404.0,
+        "roi_iou": 0.015368448706160515,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.14560033762397132,
+        "aspect": 1.3103448275862069,
+        "bbox": [
+          129,
+          846,
+          204,
+          903
+        ]
+      },
+      "sam_area": 22496.0,
+      "sam_predicted_iou": 0.7780591249465942,
+      "sam_stability_score": 0.8540916442871094,
+      "rank": 6
+    },
+    {
+      "source": "m94",
+      "metrics": {
+        "score": 0.45447491880074686,
+        "area": 846.0,
+        "roi_iou": 0.009260475502430053,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.061910747957259586,
+        "aspect": 2.3125,
+        "bbox": [
+          182,
+          701,
+          255,
+          732
+        ]
+      },
+      "sam_area": 13137.0,
+      "sam_predicted_iou": 0.7543678283691406,
+      "sam_stability_score": 0.8412960171699524,
+      "rank": 7
+    },
+    {
+      "source": "m71",
+      "metrics": {
+        "score": 0.4542541482118564,
+        "area": 834.0,
+        "roi_iou": 0.009129121239984238,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.06143201593458434,
+        "aspect": 2.3125,
+        "bbox": [
+          182,
+          701,
+          255,
+          732
+        ]
+      },
+      "sam_area": 12855.0,
+      "sam_predicted_iou": 0.9533492922782898,
+      "sam_stability_score": 0.9421299695968628,
+      "rank": 8
+    },
+    {
+      "source": "m46",
+      "metrics": {
+        "score": 0.4537672809226634,
+        "area": 1681.0,
+        "roi_iou": 0.018400542930951443,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.13417407483977672,
+        "aspect": 1.3396226415094339,
+        "bbox": [
+          131,
+          798,
+          201,
+          850
+        ]
+      },
+      "sam_area": 26817.0,
+      "sam_predicted_iou": 0.8909184336662292,
+      "sam_stability_score": 0.8761770129203796,
+      "rank": 9
+    },
+    {
+      "source": "m55",
+      "metrics": {
+        "score": 0.4454382924649061,
+        "area": 1672.0,
+        "roi_iou": 0.018302027234117082,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.13043926582800577,
+        "aspect": 1.1372549019607843,
+        "bbox": [
+          131,
+          800,
+          188,
+          850
+        ]
+      },
+      "sam_area": 26642.0,
+      "sam_predicted_iou": 0.8280885815620422,
+      "sam_stability_score": 0.8990799784660339,
+      "rank": 10
+    },
+    {
+      "source": "m58",
+      "metrics": {
+        "score": 0.44342840708831177,
+        "area": 1618.0,
+        "roi_iou": 0.017710933053110906,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.12405976300875837,
+        "aspect": 1.16,
+        "bbox": [
+          131,
+          801,
+          188,
+          850
+        ]
+      },
+      "sam_area": 25858.0,
+      "sam_predicted_iou": 0.7749702334403992,
+      "sam_stability_score": 0.8714425563812256,
+      "rank": 11
+    },
+    {
+      "source": "m21",
+      "metrics": {
+        "score": 0.4371587848620648,
+        "area": 1335.0,
+        "roi_iou": 0.01461316169709707,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.09085309516476747,
+        "aspect": 1.4042553191489362,
+        "bbox": [
+          131,
+          739,
+          196,
+          785
+        ]
+      },
+      "sam_area": 21086.0,
+      "sam_predicted_iou": 0.8600726127624512,
+      "sam_stability_score": 0.848514974117279,
+      "rank": 12
+    },
+    {
+      "source": "m82",
+      "metrics": {
+        "score": 0.4348051271454837,
+        "area": 483.0,
+        "roi_iou": 0.005287009063444109,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.017489069331667707,
+        "aspect": 2.5,
+        "bbox": [
+          195,
+          763,
+          254,
+          786
+        ]
+      },
+      "sam_area": 7501.0,
+      "sam_predicted_iou": 0.8434895277023315,
+      "sam_stability_score": 0.8510743975639343,
+      "rank": 13
+    },
+    {
+      "source": "m117",
+      "metrics": {
+        "score": 0.43304586747195684,
+        "area": 1808.0,
+        "roi_iou": 0.019790708875169667,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.08382253873544414,
+        "aspect": 1.3461538461538463,
+        "bbox": [
+          182,
+          818,
+          251,
+          869
+        ]
+      },
+      "sam_area": 29066.0,
+      "sam_predicted_iou": 0.850088357925415,
+      "sam_stability_score": 0.8378567099571228,
+      "rank": 14
+    },
+    {
+      "source": "m130",
+      "metrics": {
+        "score": 0.4328381658578734,
+        "area": 1833.0,
+        "roi_iou": 0.02006436358859845,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.03991773394409648,
+        "aspect": 1.8918918918918919,
+        "bbox": [
+          45,
+          646,
+          114,
+          682
+        ]
+      },
+      "sam_area": 29108.0,
+      "sam_predicted_iou": 0.9274279475212097,
+      "sam_stability_score": 0.9150092005729675,
+      "rank": 15
+    },
+    {
+      "source": "m164",
+      "metrics": {
+        "score": 0.4322472066168289,
+        "area": 1852.0,
+        "roi_iou": 0.020272341170804325,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.09173426033217459,
+        "aspect": 1.2203389830508475,
+        "bbox": [
+          181,
+          817,
+          252,
+          875
+        ]
+      },
+      "sam_area": 29437.0,
+      "sam_predicted_iou": 0.8324946165084839,
+      "sam_stability_score": 0.8357164859771729,
+      "rank": 16
+    },
+    {
+      "source": "m122",
+      "metrics": {
+        "score": 0.43119902787387854,
+        "area": 1801.0,
+        "roi_iou": 0.019714085555409606,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.03828512590096415,
+        "aspect": 1.864864864864865,
+        "bbox": [
+          45,
+          646,
+          113,
+          682
+        ]
+      },
+      "sam_area": 28718.0,
+      "sam_predicted_iou": 0.9555205702781677,
+      "sam_stability_score": 0.924872636795044,
+      "rank": 17
+    },
+    {
+      "source": "m106",
+      "metrics": {
+        "score": 0.4292721331932221,
+        "area": 318.0,
+        "roi_iou": 0.003480887954814134,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.4375,
+        "bbox": [
+          246,
+          902,
+          284,
+          917
+        ]
+      },
+      "sam_area": 5029.0,
+      "sam_predicted_iou": 0.9331808686256409,
+      "sam_stability_score": 0.9516160488128662,
+      "rank": 18
+    },
+    {
+      "source": "m182",
+      "metrics": {
+        "score": 0.42921509573223743,
+        "area": 102.0,
+        "roi_iou": 0.0011165112307894391,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.4285714285714284,
+        "bbox": [
+          181,
+          902,
+          197,
+          908
+        ]
+      },
+      "sam_area": 1683.0,
+      "sam_predicted_iou": 0.7207425832748413,
+      "sam_stability_score": 0.8979820609092712,
+      "rank": 19
+    },
+    {
+      "source": "m72",
+      "metrics": {
+        "score": 0.4288766210494394,
+        "area": 970.0,
+        "roi_iou": 0.010617802881036822,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.4814814814814814,
+        "bbox": [
+          163,
+          610,
+          229,
+          636
+        ]
+      },
+      "sam_area": 15599.0,
+      "sam_predicted_iou": 0.9392755627632141,
+      "sam_stability_score": 0.9546196460723877,
+      "rank": 20
+    },
+    {
+      "source": "m125",
+      "metrics": {
+        "score": 0.428843782483828,
+        "area": 950.0,
+        "roi_iou": 0.010398879110293796,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.4814814814814814,
+        "bbox": [
+          163,
+          610,
+          229,
+          636
+        ]
+      },
+      "sam_area": 15249.0,
+      "sam_predicted_iou": 0.9418710470199585,
+      "sam_stability_score": 0.9265161752700806,
+      "rank": 21
+    },
+    {
+      "source": "m16",
+      "metrics": {
+        "score": 0.4287615640514567,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0022602518566354536,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          131,
+          691,
+          137,
+          693
+        ]
+      },
+      "sam_area": 361.0,
+      "sam_predicted_iou": 0.8927144408226013,
+      "sam_stability_score": 0.988950252532959,
+      "rank": 22
+    },
+    {
+      "source": "m68",
+      "metrics": {
+        "score": 0.4287615640514567,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0022602518566354536,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          230,
+          666,
+          236,
+          668
+        ]
+      },
+      "sam_area": 333.0,
+      "sam_predicted_iou": 0.9586436152458191,
+      "sam_stability_score": 0.9940119981765747,
+      "rank": 23
+    },
+    {
+      "source": "m77",
+      "metrics": {
+        "score": 0.4287615640514567,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0022602518566354536,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          150,
+          736,
+          156,
+          738
+        ]
+      },
+      "sam_area": 374.0,
+      "sam_predicted_iou": 0.9113031029701233,
+      "sam_stability_score": 0.9027431607246399,
+      "rank": 24
+    },
+    {
+      "source": "m159",
+      "metrics": {
+        "score": 0.4287615640514567,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0022602518566354536,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          230,
+          666,
+          236,
+          668
+        ]
+      },
+      "sam_area": 412.0,
+      "sam_predicted_iou": 0.8467475175857544,
+      "sam_stability_score": 0.8834080696105957,
+      "rank": 25
+    },
+    {
+      "source": "m3",
+      "metrics": {
+        "score": 0.4285405452831979,
+        "area": 40.0,
+        "roi_iou": 0.00043784754148605456,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0043052416316865785,
+        "aspect": 2.5,
+        "bbox": [
+          102,
+          694,
+          111,
+          697
+        ]
+      },
+      "sam_area": 675.0,
+      "sam_predicted_iou": 0.9580476880073547,
+      "sam_stability_score": 1.0,
+      "rank": 26
+    },
+    {
+      "source": "m12",
+      "metrics": {
+        "score": 0.4285405452831979,
+        "area": 40.0,
+        "roi_iou": 0.00043784754148605456,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0043052416316865785,
+        "aspect": 2.5,
+        "bbox": [
+          147,
+          790,
+          156,
+          793
+        ]
+      },
+      "sam_area": 633.0,
+      "sam_predicted_iou": 0.9069351553916931,
+      "sam_stability_score": 0.9735202789306641,
+      "rank": 27
+    },
+    {
+      "source": "m111",
+      "metrics": {
+        "score": 0.4284898962193949,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0016134236850596966,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          246,
+          813,
+          252,
+          815
+        ]
+      },
+      "sam_area": 345.0,
+      "sam_predicted_iou": 0.9130794405937195,
+      "sam_stability_score": 0.9411764740943909,
+      "rank": 28
+    },
+    {
+      "source": "m141",
+      "metrics": {
+        "score": 0.4278569708456087,
+        "area": 1595.0,
+        "roi_iou": 0.017459170716756425,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.5428571428571427,
+        "bbox": [
+          157,
+          906,
+          245,
+          940
+        ]
+      },
+      "sam_area": 25440.0,
+      "sam_predicted_iou": 0.8858075141906738,
+      "sam_stability_score": 0.8724125027656555,
+      "rank": 29
+    },
+    {
+      "source": "m73",
+      "metrics": {
+        "score": 0.4278122582716698,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          262,
+          659,
+          268,
+          661
+        ]
+      },
+      "sam_area": 335.0,
+      "sam_predicted_iou": 0.9297216534614563,
+      "sam_stability_score": 0.9970149397850037,
+      "rank": 30
+    },
+    {
+      "source": "m163",
+      "metrics": {
+        "score": 0.4278122582716698,
+        "area": 21.0,
+        "roi_iou": 0.00022986995928017865,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.3333333333333335,
+        "bbox": [
+          150,
+          618,
+          156,
+          620
+        ]
+      },
+      "sam_area": 361.0,
+      "sam_predicted_iou": 0.8325733542442322,
+      "sam_stability_score": 0.9722991585731506,
+      "rank": 31
+    }
+  ]
+}

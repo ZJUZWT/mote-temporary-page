@@ -1,0 +1,204 @@
+{
+  "image": "C:\\Users\\10310\\mote-seg-work\\base.png",
+  "scale": 1,
+  "crop_roi": false,
+  "roi": [
+    45,
+    610,
+    320,
+    940
+  ],
+  "raw_mask_count": 108,
+  "kept_count": 9,
+  "candidates": [
+    {
+      "source": "m101",
+      "metrics": {
+        "score": 0.4268218446516422,
+        "area": 2403.0,
+        "roi_iou": 0.02609028727770178,
+        "roi_containment": 0.992093216812318,
+        "best_single_iou": 0.0,
+        "aspect": 2.27027027027027,
+        "bbox": [
+          81,
+          609,
+          164,
+          645
+        ]
+      },
+      "sam_area": 2403.0,
+      "sam_predicted_iou": 0.7601088881492615,
+      "sam_stability_score": 0.9084786176681519,
+      "rank": 0
+    },
+    {
+      "source": "m27",
+      "metrics": {
+        "score": 0.42554840404571126,
+        "area": 334.0,
+        "roi_iou": 0.0036560269714085557,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 2.25,
+        "bbox": [
+          249,
+          902,
+          284,
+          917
+        ]
+      },
+      "sam_area": 334.0,
+      "sam_predicted_iou": 0.7854626774787903,
+      "sam_stability_score": 0.9065155982971191,
+      "rank": 1
+    },
+    {
+      "source": "m26",
+      "metrics": {
+        "score": 0.4217210936235821,
+        "area": 525.0,
+        "roi_iou": 0.005746748982004466,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.056506296415886344,
+        "aspect": 1.4137931034482758,
+        "bbox": [
+          166,
+          739,
+          206,
+          767
+        ]
+      },
+      "sam_area": 525.0,
+      "sam_predicted_iou": 0.8309898376464844,
+      "sam_stability_score": 0.8933092355728149,
+      "rank": 2
+    },
+    {
+      "source": "m24",
+      "metrics": {
+        "score": 0.3883640564736728,
+        "area": 1426.0,
+        "roi_iou": 0.015609264853977844,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.07470918572001604,
+        "aspect": 0.13934426229508196,
+        "bbox": [
+          96,
+          758,
+          112,
+          879
+        ]
+      },
+      "sam_area": 1426.0,
+      "sam_predicted_iou": 0.9087616801261902,
+      "sam_stability_score": 0.9595336318016052,
+      "rank": 3
+    },
+    {
+      "source": "m88",
+      "metrics": {
+        "score": 0.3562384230885672,
+        "area": 2171.0,
+        "roi_iou": 0.02376417531415561,
+        "roi_containment": 1.0,
+        "best_single_iou": 0.0,
+        "aspect": 0.08021390374331551,
+        "bbox": [
+          260,
+          698,
+          274,
+          884
+        ]
+      },
+      "sam_area": 2171.0,
+      "sam_predicted_iou": 0.8582054376602173,
+      "sam_stability_score": 0.9102112650871277,
+      "rank": 4
+    },
+    {
+      "source": "m25",
+      "metrics": {
+        "score": 0.307359321886184,
+        "area": 2720.0,
+        "roi_iou": 0.018866289774081054,
+        "roi_containment": 0.6404411764705882,
+        "best_single_iou": 0.02491680177489547,
+        "aspect": 2.7027027027027026,
+        "bbox": [
+          0,
+          646,
+          99,
+          682
+        ]
+      },
+      "sam_area": 2720.0,
+      "sam_predicted_iou": 0.8702147006988525,
+      "sam_stability_score": 0.9072129130363464,
+      "rank": 5
+    },
+    {
+      "source": "m23",
+      "metrics": {
+        "score": 0.28258823475593525,
+        "area": 3131.0,
+        "roi_iou": 0.02240953947368421,
+        "roi_containment": 0.6614500159693388,
+        "best_single_iou": 0.0,
+        "aspect": 3.3684210526315788,
+        "bbox": [
+          209,
+          597,
+          336,
+          634
+        ]
+      },
+      "sam_area": 3131.0,
+      "sam_predicted_iou": 0.9193721413612366,
+      "sam_stability_score": 0.9331889748573303,
+      "rank": 6
+    },
+    {
+      "source": "m78",
+      "metrics": {
+        "score": 0.19327930640092017,
+        "area": 28844.0,
+        "roi_iou": 0.12220033423271186,
+        "roi_containment": 0.45378588267924,
+        "best_single_iou": 0.015173698921868761,
+        "aspect": 0.29253731343283584,
+        "bbox": [
+          0,
+          672,
+          97,
+          1006
+        ]
+      },
+      "sam_area": 28844.0,
+      "sam_predicted_iou": 0.9163526296615601,
+      "sam_stability_score": 0.9568687677383423,
+      "rank": 7
+    },
+    {
+      "source": "m84",
+      "metrics": {
+        "score": 0.18578690178082014,
+        "area": 28572.0,
+        "roi_iou": 0.11968181945494777,
+        "roi_containment": 0.44865602687946243,
+        "best_single_iou": 0.013734939759036145,
+        "aspect": 0.15109034267912771,
+        "bbox": [
+          0,
+          365,
+          96,
+          1006
+        ]
+      },
+      "sam_area": 28572.0,
+      "sam_predicted_iou": 0.8903315663337708,
+      "sam_stability_score": 0.9370311498641968,
+      "rank": 8
+    }
+  ]
+}
