@@ -1,126 +1,95 @@
 [
   {
     "manual": "drawer-top-hand.png",
-    "area": 7887,
+    "area": 6833,
     "best": [
-      [
-        0.1984846745494203,
-        0.2192215037403322,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-02.png"
-      ],
-      [
-        0.18648741813167874,
-        0.20578166603271206,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-01.png"
-      ],
-      [
-        0.12133432267638804,
-        0.47686065677697476,
-        "mask-model-audition/drawers/ben2_crop.png"
-      ],
-      [
-        0.11276647460002001,
-        1.0,
-        "mask-model-audition/drawers/vitmatte_crop.png"
-      ],
-      [
-        0.10214204309987568,
-        1.0,
-        "mask-model-audition/drawers/sam2_strict.png"
-      ]
+      {
+        "iou": 0.41549775296200464,
+        "coverage": 0.4465095858334553,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-00.png"
+      },
+      {
+        "iou": 0.21916852678571427,
+        "coverage": 0.2299136543246012,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-03.png"
+      },
+      {
+        "iou": 0.17440690150970525,
+        "coverage": 0.17752085467583784,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-12.png"
+      },
+      {
+        "iou": 0.1655378379819743,
+        "coverage": 0.9085321235182204,
+        "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
+      },
+      {
+        "iou": 0.09769663001672839,
+        "coverage": 1.0,
+        "candidate": "mask-model-audition/drawers/vitmatte_crop.png"
+      }
     ]
   },
   {
-    "manual": "drawer-upper-middle-hand.png",
-    "area": 8146,
+    "manual": "drawer-middle-hand.png",
+    "area": 9289,
     "best": [
-      [
-        0.31465468837731614,
-        0.34397250184139455,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-00.png"
-      ],
-      [
-        0.20889957907396273,
-        0.21323348882887308,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-03.png"
-      ],
-      [
-        0.16251387848898757,
-        0.7726491529585072,
-        "mask-model-audition/drawers/hq_sam2_core.png"
-      ],
-      [
-        0.11646959580217613,
-        1.0,
-        "mask-model-audition/drawers/vitmatte_crop.png"
-      ],
-      [
-        0.10549627020306672,
-        1.0,
-        "mask-model-audition/drawers/sam2_strict.png"
-      ]
+      {
+        "iou": 0.2121196208680127,
+        "coverage": 0.8697384002583701,
+        "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
+      },
+      {
+        "iou": 0.18096673484766929,
+        "coverage": 0.18096673484766929,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-09.png"
+      },
+      {
+        "iou": 0.17999784691570675,
+        "coverage": 0.17999784691570675,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-10.png"
+      },
+      {
+        "iou": 0.17418451932393153,
+        "coverage": 0.17418451932393153,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-11.png"
+      },
+      {
+        "iou": 0.16145181476846057,
+        "coverage": 0.16664872429755626,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-04.png"
+      }
     ]
   },
   {
     "manual": "drawer-bottom-hand.png",
-    "area": 6401,
+    "area": 10092,
     "best": [
-      [
-        0.15973254086181277,
-        0.16794250898297142,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-06.png"
-      ],
-      [
-        0.1595428910655981,
-        0.16794250898297142,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-05.png"
-      ],
-      [
-        0.1268258390397584,
-        0.76097484768005,
-        "mask-model-audition/drawers/hq_sam2_core.png"
-      ],
-      [
-        0.0824767625508117,
-        0.995313232307452,
-        "mask-model-audition/drawers/sam2_strict.png"
-      ],
-      [
-        0.0814912191137431,
-        0.9975003905639743,
-        "mask-model-audition/drawers/sam2_raw.png"
-      ]
-    ]
-  },
-  {
-    "manual": "drawer-lower-middle-hand.png",
-    "area": 7686,
-    "best": [
-      [
-        0.18031754032258066,
-        0.18618266978922718,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-09.png"
-      ],
-      [
-        0.17666289450521816,
-        0.18279989591465,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-10.png"
-      ],
-      [
-        0.16990890236538814,
-        0.8420504813947437,
-        "mask-model-audition/drawers/hq_sam2_core.png"
-      ],
-      [
-        0.1686973998241427,
-        0.17473328129065835,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-11.png"
-      ],
-      [
-        0.1300379326695116,
-        0.14272703616965912,
-        "sam2-proposal-audition/drawers-roi-4x/candidate-04.png"
-      ]
+      {
+        "iou": 0.17293477175107383,
+        "coverage": 0.6861870788743559,
+        "candidate": "mask-model-audition/drawers/hq_sam2_core.png"
+      },
+      {
+        "iou": 0.1357488399644585,
+        "coverage": 0.13624653190646055,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-05.png"
+      },
+      {
+        "iou": 0.13484698914116486,
+        "coverage": 0.13535473642489101,
+        "candidate": "sam2-proposal-audition/drawers-roi-4x/candidate-06.png"
+      },
+      {
+        "iou": 0.11686255980154746,
+        "coverage": 0.9802814110186286,
+        "candidate": "mask-model-audition/drawers/inspyrenet_crop.png"
+      },
+      {
+        "iou": 0.11493023184728951,
+        "coverage": 0.7451446690447879,
+        "candidate": "mask-model-audition/drawers/depth_cut.png"
+      }
     ]
   }
 ]

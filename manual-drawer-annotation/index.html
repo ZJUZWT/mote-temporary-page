@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Manual Drawer Annotation Reference</title>
+    <title>Lower-left Drawer Manual Reference</title>
     <style>
       :root { color-scheme: dark; --bg: #070808; --ink: #d7d4c7; --muted: #8d8a7d; --line: #2c2c28; }
       * { box-sizing: border-box; }
@@ -20,20 +20,19 @@
   <body>
     <main>
       <header>
-        <h1>Manual Drawer Annotation Reference</h1>
-        <p>Hand reference for drawer cabinet and individual drawer faces. This is not model output.</p>
+        <h1>Lower-left Drawer Manual Reference</h1>
+        <p>Corrected hand reference for the lower-left drawer cabinet. This is not model output and is still a coarse annotation, not final asset-grade segmentation.</p>
       </header>
       <section class="cols">
-        <img src="contact-sheet.png" alt="Manual drawer annotation contact sheet">
+        <img src="contact-sheet.png" alt="Lower-left drawer manual annotation contact sheet">
         <div>
-          <p>Best automatic match against these hand masks is still weak:</p>
+          <p>Automatic candidates remain weak against the corrected target:</p>
           <ul>
-            <li><code>drawer-top-hand</code>: best IoU 0.198</li>
-            <li><code>drawer-upper-middle-hand</code>: best IoU 0.315</li>
-            <li><code>drawer-lower-middle-hand</code>: best IoU 0.180</li>
-            <li><code>drawer-bottom-hand</code>: best IoU 0.160</li>
+            <li><code>drawer-top-hand.png</code>: best IoU 0.415 against <code>sam2-proposal-audition/drawers-roi-4x/candidate-00.png</code></li>
+<li><code>drawer-middle-hand.png</code>: best IoU 0.212 against <code>mask-model-audition/drawers/hq_sam2_core.png</code></li>
+<li><code>drawer-bottom-hand.png</code>: best IoU 0.173 against <code>mask-model-audition/drawers/hq_sam2_core.png</code></li>
           </ul>
-          <p>Interpretation: the current automatic route can find nearby fragments, but it does not recover human-intended drawer faces.</p>
+          <p>Interpretation: blind automatic segmentation does not recover the intended drawer faces reliably. Use guided masks or manual annotation for this class of object.</p>
         </div>
       </section>
     </main>
