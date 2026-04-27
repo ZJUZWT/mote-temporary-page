@@ -194,15 +194,15 @@
       <section class="lanes" aria-label="main review lanes">
         <article class="lane primary">
           <h2>CH01 Scene Pipeline</h2>
-          <p>三张第一章场景的多模型审查：先选生图模型，再选分割模型。灰港已重跑为更明确的太空/外星表面设定。</p>
+          <p>三张第一章场景的无人物多模型审查：先选生图模型，再选分割/光照路线。每张图现在包含 SAM2、depth、normal preview、material、packed lightmap 和 composite。</p>
           <div class="stack">
             <span>generation: Qwen / FLUX.1 / SDXL / SDXL pixel LoRA</span>
             <span>segmentation: SAM2 whole-scene proposal</span>
-            <span>views: original / overlay / id map / proposal / stylized pixel</span>
+            <span>lighting: Depth Anything + derived normal + draft packed lightmap</span>
           </div>
           <div class="actions">
-            <a class="button primary" href="ch01-scene-pipeline/">Open selector</a>
-            <a class="button" href="ch01-scene-pipeline/multimodel-generation-contact-sheet.png">Open contact sheet</a>
+            <a class="button primary" href="ch01-noperson-lightmap-review/">Open lightmap review</a>
+            <a class="button" href="ch01-noperson-lightmap-review/noperson-generation-contact-sheet.png">Open contact sheet</a>
           </div>
         </article>
 
@@ -236,6 +236,10 @@
         <a href="ch01-qwen-full-layer-archive/qwen-pipeline-full-review.html">
           <strong>CH01 Qwen Full Layers</strong>
           <span>previous Qwen-only depth / normal / material review</span>
+        </a>
+        <a href="ch01-scene-pipeline/">
+          <strong>CH01 Multimodel Archive</strong>
+          <span>previous multimodel selector without lightmap outputs</span>
         </a>
         <a href="sam2-scene-segmentation/full-2x/scene-overlay.png">
           <strong>SAM2 Scene Segmentation</strong>

@@ -1,0 +1,4 @@
+model=depth-anything/Depth-Anything-V2-Large-hf
+input=C:\Users\10310\mote-seg-work\ch01-noperson-lightmap-v1\generations\sdxl-turbo\nav-console\noperson_nav-console_sdxlturbo_73011_00001_.png
+device=cuda
+normal=derived from depth gradients, not a dedicated normal model

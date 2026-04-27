@@ -1,0 +1,4 @@
+model=depth-anything/Depth-Anything-V2-Large-hf
+input=C:\Users\10310\mote-seg-work\ch01-noperson-lightmap-v1\generations\flux1-dev-fp8\wake-bay\noperson_wake-bay_flux1dev_72001_00001_.png
+device=cuda
+normal=derived from depth gradients, not a dedicated normal model

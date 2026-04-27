@@ -1,0 +1,638 @@
+{
+  "qwen-image-2512-fp8/wake-bay": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/qwen-image-2512-fp8/wake-bay/noperson_wake-bay_qwen2512_71001_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/qwen-image-2512-fp8/wake-bay",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/wake-bay/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/wake-bay/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-02",
+        "kind": "bright-component",
+        "area": 8072,
+        "bbox": [
+          184,
+          258,
+          354,
+          368
+        ],
+        "bright_score": 0.9924603700637817
+      },
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 10206,
+        "bbox": [
+          173,
+          572,
+          386,
+          682
+        ],
+        "bright_score": 0.8651905655860901
+      },
+      {
+        "id": "bright-05",
+        "kind": "bright-component",
+        "area": 1950,
+        "bbox": [
+          637,
+          82,
+          700,
+          128
+        ],
+        "bright_score": 0.989115834236145
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "qwen-image-2512-fp8/nav-console": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/qwen-image-2512-fp8/nav-console/noperson_nav-console_qwen2512_71011_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/qwen-image-2512-fp8/nav-console",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/nav-console/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/nav-console/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 15267,
+        "bbox": [
+          385,
+          0,
+          658,
+          109
+        ],
+        "bright_score": 0.972816526889801
+      },
+      {
+        "id": "bright-03",
+        "kind": "bright-component",
+        "area": 4292,
+        "bbox": [
+          931,
+          86,
+          1020,
+          168
+        ],
+        "bright_score": 0.972196102142334
+      },
+      {
+        "id": "bright-05",
+        "kind": "bright-component",
+        "area": 1118,
+        "bbox": [
+          298,
+          215,
+          334,
+          255
+        ],
+        "bright_score": 0.9815465807914734
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "qwen-image-2512-fp8/gray-harbor-landing": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/qwen-image-2512-fp8/gray-harbor-landing/noperson_gray-harbor-landing_qwen2512_71021_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/gray-harbor-landing/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/qwen-image-2512-fp8/gray-harbor-landing/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 3881,
+        "bbox": [
+          0,
+          772,
+          110,
+          870
+        ],
+        "bright_score": 0.9341843128204346
+      },
+      {
+        "id": "bright-04",
+        "kind": "bright-component",
+        "area": 2770,
+        "bbox": [
+          672,
+          946,
+          765,
+          1023
+        ],
+        "bright_score": 0.9593843221664429
+      },
+      {
+        "id": "bright-03",
+        "kind": "bright-component",
+        "area": 2969,
+        "bbox": [
+          413,
+          929,
+          483,
+          1023
+        ],
+        "bright_score": 0.950990617275238
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "flux1-dev-fp8/wake-bay": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/flux1-dev-fp8/wake-bay/noperson_wake-bay_flux1dev_72001_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/flux1-dev-fp8/wake-bay",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/wake-bay/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/wake-bay/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 36330,
+        "bbox": [
+          346,
+          704,
+          708,
+          836
+        ],
+        "bright_score": 0.9068698287010193
+      },
+      {
+        "id": "bright-02",
+        "kind": "bright-component",
+        "area": 2090,
+        "bbox": [
+          486,
+          82,
+          550,
+          126
+        ],
+        "bright_score": 0.9876847267150879
+      },
+      {
+        "id": "bright-03",
+        "kind": "bright-component",
+        "area": 942,
+        "bbox": [
+          488,
+          211,
+          534,
+          239
+        ],
+        "bright_score": 0.9857498407363892
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "flux1-dev-fp8/nav-console": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/flux1-dev-fp8/nav-console/noperson_nav-console_flux1dev_72011_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/flux1-dev-fp8/nav-console",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/nav-console/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/nav-console/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 321,
+        "bbox": [
+          500,
+          496,
+          524,
+          516
+        ],
+        "bright_score": 0.855270504951477
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "flux1-dev-fp8/gray-harbor-landing": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/flux1-dev-fp8/gray-harbor-landing/noperson_gray-harbor-landing_flux1dev_72021_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/flux1-dev-fp8/gray-harbor-landing",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/gray-harbor-landing/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/gray-harbor-landing/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 16524,
+        "bbox": [
+          0,
+          804,
+          146,
+          1023
+        ],
+        "bright_score": 0.9821317791938782
+      },
+      {
+        "id": "bright-02",
+        "kind": "bright-component",
+        "area": 10602,
+        "bbox": [
+          889,
+          881,
+          1023,
+          1023
+        ],
+        "bright_score": 0.9821317791938782
+      },
+      {
+        "id": "bright-04",
+        "kind": "bright-component",
+        "area": 4623,
+        "bbox": [
+          0,
+          689,
+          102,
+          793
+        ],
+        "bright_score": 0.9874579906463623
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo/wake-bay": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo/wake-bay/noperson_wake-bay_sdxlturbo_73001_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo/wake-bay",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/wake-bay/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/wake-bay/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-06",
+        "kind": "bright-component",
+        "area": 457,
+        "bbox": [
+          309,
+          186,
+          345,
+          202
+        ],
+        "bright_score": 0.9806337356567383
+      },
+      {
+        "id": "bright-03",
+        "kind": "bright-component",
+        "area": 1001,
+        "bbox": [
+          161,
+          145,
+          220,
+          167
+        ],
+        "bright_score": 0.9638000130653381
+      },
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 2807,
+        "bbox": [
+          194,
+          0,
+          347,
+          18
+        ],
+        "bright_score": 0.9108690023422241
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo/nav-console": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo/nav-console/noperson_nav-console_sdxlturbo_73011_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo/nav-console",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/nav-console/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/nav-console/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-06",
+        "kind": "bright-component",
+        "area": 771,
+        "bbox": [
+          451,
+          145,
+          495,
+          213
+        ],
+        "bright_score": 0.8092048764228821
+      },
+      {
+        "id": "bright-07",
+        "kind": "bright-component",
+        "area": 556,
+        "bbox": [
+          224,
+          43,
+          245,
+          74
+        ],
+        "bright_score": 0.8046916127204895
+      },
+      {
+        "id": "bright-18",
+        "kind": "bright-component",
+        "area": 215,
+        "bbox": [
+          53,
+          235,
+          72,
+          261
+        ],
+        "bright_score": 0.7946432828903198
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo/gray-harbor-landing": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo/gray-harbor-landing/noperson_gray-harbor-landing_sdxlturbo_73021_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo/gray-harbor-landing",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/gray-harbor-landing/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo/gray-harbor-landing/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 7502,
+        "bbox": [
+          139,
+          249,
+          336,
+          308
+        ],
+        "bright_score": 0.8438459634780884
+      },
+      {
+        "id": "bright-02",
+        "kind": "bright-component",
+        "area": 1352,
+        "bbox": [
+          283,
+          20,
+          325,
+          61
+        ],
+        "bright_score": 0.9523748755455017
+      },
+      {
+        "id": "bright-04",
+        "kind": "bright-component",
+        "area": 518,
+        "bbox": [
+          160,
+          233,
+          206,
+          261
+        ],
+        "bright_score": 0.9695236086845398
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo-pixel-lora/wake-bay": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo-pixel-lora/wake-bay/noperson_wake-bay_sdxlpixellora_74001_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/wake-bay/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/wake-bay/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 3183,
+        "bbox": [
+          206,
+          79,
+          329,
+          104
+        ],
+        "bright_score": 0.9407449960708618
+      },
+      {
+        "id": "bright-02",
+        "kind": "bright-component",
+        "area": 1176,
+        "bbox": [
+          214,
+          111,
+          322,
+          121
+        ],
+        "bright_score": 0.9664980173110962
+      },
+      {
+        "id": "bright-24",
+        "kind": "bright-component",
+        "area": 167,
+        "bbox": [
+          351,
+          151,
+          361,
+          168
+        ],
+        "bright_score": 0.971289336681366
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo-pixel-lora/nav-console": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo-pixel-lora/nav-console/noperson_nav-console_sdxlpixellora_74011_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo-pixel-lora/nav-console",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/nav-console/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/nav-console/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-08",
+        "kind": "bright-component",
+        "area": 411,
+        "bbox": [
+          495,
+          343,
+          511,
+          375
+        ],
+        "bright_score": 0.8324862718582153
+      },
+      {
+        "id": "bright-23",
+        "kind": "bright-component",
+        "area": 200,
+        "bbox": [
+          207,
+          102,
+          225,
+          113
+        ],
+        "bright_score": 0.8162010908126831
+      },
+      {
+        "id": "bright-21",
+        "kind": "bright-component",
+        "area": 203,
+        "bbox": [
+          440,
+          134,
+          457,
+          146
+        ],
+        "bright_score": 0.8076010346412659
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  },
+  "sdxl-turbo-pixel-lora/gray-harbor-landing": {
+    "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/sdxl-turbo-pixel-lora/gray-harbor-landing/noperson_gray-harbor-landing_sdxlpixellora_74021_00001_.png",
+    "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing",
+    "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/gray-harbor-landing/depth-anything-v2-depth.png",
+    "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/sdxl-turbo-pixel-lora/gray-harbor-landing/depth-derived-normal-preview.png",
+    "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+    "emitters": [
+      {
+        "id": "bright-21",
+        "kind": "bright-component",
+        "area": 87,
+        "bbox": [
+          455,
+          96,
+          465,
+          104
+        ],
+        "bright_score": 0.9604058861732483
+      },
+      {
+        "id": "bright-17",
+        "kind": "bright-component",
+        "area": 185,
+        "bbox": [
+          269,
+          196,
+          289,
+          208
+        ],
+        "bright_score": 0.9315534234046936
+      },
+      {
+        "id": "bright-01",
+        "kind": "bright-component",
+        "area": 3671,
+        "bbox": [
+          77,
+          207,
+          212,
+          249
+        ],
+        "bright_score": 0.7897098660469055
+      }
+    ],
+    "outputs": {
+      "channel1": "channel-1-influence.png",
+      "channel2": "channel-2-influence.png",
+      "channel3": "channel-3-influence.png",
+      "packed": "packed-lightmap-rgb.png",
+      "composite": "lightmap-composite-preview.png",
+      "material": "material-map-rgb.png",
+      "normal_overlay": "material-normal-overlay.png",
+      "contact_sheet": "review-contact-sheet.png"
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "models": [
+    {
+      "id": "qwen-image-2512-fp8",
+      "label": "Qwen Image 2512 fp8"
+    },
+    {
+      "id": "flux1-dev-fp8",
+      "label": "FLUX.1 dev fp8"
+    },
+    {
+      "id": "sdxl-turbo",
+      "label": "SDXL Turbo"
+    },
+    {
+      "id": "sdxl-turbo-pixel-lora",
+      "label": "SDXL Turbo + Pixel LoRA"
+    }
+  ],
+  "scenes": [
+    {
+      "id": "IMG-CH01-WAKE-BAY",
+      "slug": "wake-bay",
+      "seed": 71001,
+      "prompt": "empty cryogenic wake bay inside an old slow transfer spacecraft in deep space, opened cryo pod with no occupant, folded blanket and frost trace where someone was, manual door control visible, dim status lamps, frost and condensation, narrow service floor, dark inactive ship corners, pressure doors and utility conduits, no windows, lonely low-power spacecraft interior, no person present, no character present, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark, empty scene, no people, no human characters, no astronaut, no body, no face, no silhouette, no figure",
+      "negative": "occupied pod, visible person, sleeping person, standing person, astronaut, pilot, crew member, face, body, hands, corpse, mannequin, person, people, human, character, astronaut, pilot, crew, body, face, hands, silhouette, figure, crowd, monster, action explosion, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, cheerful poster lighting"
+    },
+    {
+      "id": "IMG-CH01-NAV-CONSOLE",
+      "slug": "nav-console",
+      "seed": 71011,
+      "prompt": "empty old spacecraft navigation console in a compact deep-space control alcove, terminal glow, physical switches and worn keys, signal comparison sheet beside the screen, archive slot, amber warning lamps, pressure hull panels, constrained low-power ship interior, procedural quiet mood, not a panoramic bridge, no chair occupant, no person present, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark, empty scene, no people, no human characters, no astronaut, no body, no face, no silhouette, no figure",
+      "negative": "person at console, pilot, crew member, hands on controls, face reflected in screen, huge bridge, transparent hologram spectacle, clean futuristic glass cockpit, city map, cheerful UI, readable final answer, person, people, human, character, astronaut, pilot, crew, body, face, hands, silhouette, figure, crowd, monster, action explosion, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, cheerful poster lighting"
+    },
+    {
+      "id": "IMG-CH01-GRAY-HARBOR-LANDING",
+      "slug": "gray-harbor-landing",
+      "seed": 71021,
+      "prompt": "empty abandoned extraterrestrial landing pad on an airless pale salt-regolith world, black upper sky with faint stars and a distant planetary arc, vacuum-rated weathered landing plates, docking pylons and low service beacons, white mineral dust in panel seams, no water, no shoreline, no Earth desert, no vegetation, failed old space harbor, quiet archaeological science fiction surface outpost, no person present, no astronaut present, high resolution concept art, clear object boundaries for segmentation, readable spatial layout, old human-used technology, worn materials, restrained cinematic composition, no readable text, no logo, no watermark, empty scene, no people, no human characters, no astronaut, no body, no face, no silhouette, no figure",
+      "negative": "person, astronaut, explorer, footprints with person, vehicle crew, lake, ocean, shoreline, Earth desert, sunny beach, blue daytime Earth sky, city skyline, active spaceport, welcome banner, spaceship wreck exposed, lush plants, heroic sunset, person, people, human, character, astronaut, pilot, crew, body, face, hands, silhouette, figure, crowd, monster, action explosion, low resolution, blurry, waxy, deformed geometry, messy composition, readable letters, watermark, logo, anime, glossy heroic sci-fi, cheerful poster lighting"
+    }
+  ],
+  "records": {
+    "qwen-image-2512-fp8": {
+      "wake-bay": {
+        "original": "generations/qwen-image-2512-fp8/wake-bay/noperson_wake-bay_qwen2512_71001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/wake-bay/top-instances-contact-sheet.png",
+        "depth": "gbuffer/qwen-image-2512-fp8/wake-bay/depth-anything-v2-depth.png",
+        "normal": "gbuffer/qwen-image-2512-fp8/wake-bay/depth-derived-normal-preview.png",
+        "material": "lightmaps/qwen-image-2512-fp8/wake-bay/material-map-rgb.png",
+        "channel1": "lightmaps/qwen-image-2512-fp8/wake-bay/channel-1-influence.png",
+        "channel2": "lightmaps/qwen-image-2512-fp8/wake-bay/channel-2-influence.png",
+        "channel3": "lightmaps/qwen-image-2512-fp8/wake-bay/channel-3-influence.png",
+        "packedLightmap": "lightmaps/qwen-image-2512-fp8/wake-bay/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/qwen-image-2512-fp8/wake-bay/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/qwen-image-2512-fp8/wake-bay/review-contact-sheet.png",
+        "report": "lightmaps/qwen-image-2512-fp8/wake-bay/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "nav-console": {
+        "original": "generations/qwen-image-2512-fp8/nav-console/noperson_nav-console_qwen2512_71011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/nav-console/top-instances-contact-sheet.png",
+        "depth": "gbuffer/qwen-image-2512-fp8/nav-console/depth-anything-v2-depth.png",
+        "normal": "gbuffer/qwen-image-2512-fp8/nav-console/depth-derived-normal-preview.png",
+        "material": "lightmaps/qwen-image-2512-fp8/nav-console/material-map-rgb.png",
+        "channel1": "lightmaps/qwen-image-2512-fp8/nav-console/channel-1-influence.png",
+        "channel2": "lightmaps/qwen-image-2512-fp8/nav-console/channel-2-influence.png",
+        "channel3": "lightmaps/qwen-image-2512-fp8/nav-console/channel-3-influence.png",
+        "packedLightmap": "lightmaps/qwen-image-2512-fp8/nav-console/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/qwen-image-2512-fp8/nav-console/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/qwen-image-2512-fp8/nav-console/review-contact-sheet.png",
+        "report": "lightmaps/qwen-image-2512-fp8/nav-console/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "gray-harbor-landing": {
+        "original": "generations/qwen-image-2512-fp8/gray-harbor-landing/noperson_gray-harbor-landing_qwen2512_71021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/qwen-image-2512-fp8/gray-harbor-landing/top-instances-contact-sheet.png",
+        "depth": "gbuffer/qwen-image-2512-fp8/gray-harbor-landing/depth-anything-v2-depth.png",
+        "normal": "gbuffer/qwen-image-2512-fp8/gray-harbor-landing/depth-derived-normal-preview.png",
+        "material": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/material-map-rgb.png",
+        "channel1": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/channel-1-influence.png",
+        "channel2": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/channel-2-influence.png",
+        "channel3": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/channel-3-influence.png",
+        "packedLightmap": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/review-contact-sheet.png",
+        "report": "lightmaps/qwen-image-2512-fp8/gray-harbor-landing/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      }
+    },
+    "flux1-dev-fp8": {
+      "wake-bay": {
+        "original": "generations/flux1-dev-fp8/wake-bay/noperson_wake-bay_flux1dev_72001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/wake-bay/top-instances-contact-sheet.png",
+        "depth": "gbuffer/flux1-dev-fp8/wake-bay/depth-anything-v2-depth.png",
+        "normal": "gbuffer/flux1-dev-fp8/wake-bay/depth-derived-normal-preview.png",
+        "material": "lightmaps/flux1-dev-fp8/wake-bay/material-map-rgb.png",
+        "channel1": "lightmaps/flux1-dev-fp8/wake-bay/channel-1-influence.png",
+        "channel2": "lightmaps/flux1-dev-fp8/wake-bay/channel-2-influence.png",
+        "channel3": "lightmaps/flux1-dev-fp8/wake-bay/channel-3-influence.png",
+        "packedLightmap": "lightmaps/flux1-dev-fp8/wake-bay/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/flux1-dev-fp8/wake-bay/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/flux1-dev-fp8/wake-bay/review-contact-sheet.png",
+        "report": "lightmaps/flux1-dev-fp8/wake-bay/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "nav-console": {
+        "original": "generations/flux1-dev-fp8/nav-console/noperson_nav-console_flux1dev_72011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/nav-console/top-instances-contact-sheet.png",
+        "depth": "gbuffer/flux1-dev-fp8/nav-console/depth-anything-v2-depth.png",
+        "normal": "gbuffer/flux1-dev-fp8/nav-console/depth-derived-normal-preview.png",
+        "material": "lightmaps/flux1-dev-fp8/nav-console/material-map-rgb.png",
+        "channel1": "lightmaps/flux1-dev-fp8/nav-console/channel-1-influence.png",
+        "channel2": "lightmaps/flux1-dev-fp8/nav-console/channel-2-influence.png",
+        "channel3": "lightmaps/flux1-dev-fp8/nav-console/channel-3-influence.png",
+        "packedLightmap": "lightmaps/flux1-dev-fp8/nav-console/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/flux1-dev-fp8/nav-console/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/flux1-dev-fp8/nav-console/review-contact-sheet.png",
+        "report": "lightmaps/flux1-dev-fp8/nav-console/report.json",
+        "sam2KeptCount": 1,
+        "emitterCount": 1
+      },
+      "gray-harbor-landing": {
+        "original": "generations/flux1-dev-fp8/gray-harbor-landing/noperson_gray-harbor-landing_flux1dev_72021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/flux1-dev-fp8/gray-harbor-landing/top-instances-contact-sheet.png",
+        "depth": "gbuffer/flux1-dev-fp8/gray-harbor-landing/depth-anything-v2-depth.png",
+        "normal": "gbuffer/flux1-dev-fp8/gray-harbor-landing/depth-derived-normal-preview.png",
+        "material": "lightmaps/flux1-dev-fp8/gray-harbor-landing/material-map-rgb.png",
+        "channel1": "lightmaps/flux1-dev-fp8/gray-harbor-landing/channel-1-influence.png",
+        "channel2": "lightmaps/flux1-dev-fp8/gray-harbor-landing/channel-2-influence.png",
+        "channel3": "lightmaps/flux1-dev-fp8/gray-harbor-landing/channel-3-influence.png",
+        "packedLightmap": "lightmaps/flux1-dev-fp8/gray-harbor-landing/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/flux1-dev-fp8/gray-harbor-landing/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/flux1-dev-fp8/gray-harbor-landing/review-contact-sheet.png",
+        "report": "lightmaps/flux1-dev-fp8/gray-harbor-landing/report.json",
+        "sam2KeptCount": 6,
+        "emitterCount": 3
+      }
+    },
+    "sdxl-turbo": {
+      "wake-bay": {
+        "original": "generations/sdxl-turbo/wake-bay/noperson_wake-bay_sdxlturbo_73001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/wake-bay/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo/wake-bay/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo/wake-bay/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo/wake-bay/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo/wake-bay/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo/wake-bay/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo/wake-bay/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo/wake-bay/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo/wake-bay/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo/wake-bay/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo/wake-bay/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "nav-console": {
+        "original": "generations/sdxl-turbo/nav-console/noperson_nav-console_sdxlturbo_73011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/nav-console/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo/nav-console/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo/nav-console/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo/nav-console/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo/nav-console/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo/nav-console/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo/nav-console/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo/nav-console/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo/nav-console/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo/nav-console/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo/nav-console/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "gray-harbor-landing": {
+        "original": "generations/sdxl-turbo/gray-harbor-landing/noperson_gray-harbor-landing_sdxlturbo_73021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo/gray-harbor-landing/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo/gray-harbor-landing/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo/gray-harbor-landing/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo/gray-harbor-landing/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo/gray-harbor-landing/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo/gray-harbor-landing/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo/gray-harbor-landing/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo/gray-harbor-landing/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo/gray-harbor-landing/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo/gray-harbor-landing/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo/gray-harbor-landing/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      }
+    },
+    "sdxl-turbo-pixel-lora": {
+      "wake-bay": {
+        "original": "generations/sdxl-turbo-pixel-lora/wake-bay/noperson_wake-bay_sdxlpixellora_74001_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/wake-bay/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo-pixel-lora/wake-bay/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo-pixel-lora/wake-bay/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo-pixel-lora/wake-bay/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "nav-console": {
+        "original": "generations/sdxl-turbo-pixel-lora/nav-console/noperson_nav-console_sdxlpixellora_74011_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/nav-console/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo-pixel-lora/nav-console/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo-pixel-lora/nav-console/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo-pixel-lora/nav-console/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo-pixel-lora/nav-console/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo-pixel-lora/nav-console/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo-pixel-lora/nav-console/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo-pixel-lora/nav-console/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo-pixel-lora/nav-console/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo-pixel-lora/nav-console/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo-pixel-lora/nav-console/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      },
+      "gray-harbor-landing": {
+        "original": "generations/sdxl-turbo-pixel-lora/gray-harbor-landing/noperson_gray-harbor-landing_sdxlpixellora_74021_00001_.png",
+        "sam2Overlay": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/scene-overlay.png",
+        "sam2IdMap": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/scene-id-map.png",
+        "sam2Proposals": "segmentations/sam2/sdxl-turbo-pixel-lora/gray-harbor-landing/top-instances-contact-sheet.png",
+        "depth": "gbuffer/sdxl-turbo-pixel-lora/gray-harbor-landing/depth-anything-v2-depth.png",
+        "normal": "gbuffer/sdxl-turbo-pixel-lora/gray-harbor-landing/depth-derived-normal-preview.png",
+        "material": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/material-map-rgb.png",
+        "channel1": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/channel-1-influence.png",
+        "channel2": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/channel-2-influence.png",
+        "channel3": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/channel-3-influence.png",
+        "packedLightmap": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/packed-lightmap-rgb.png",
+        "lightmapComposite": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/lightmap-composite-preview.png",
+        "reviewSheet": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/review-contact-sheet.png",
+        "report": "lightmaps/sdxl-turbo-pixel-lora/gray-harbor-landing/report.json",
+        "sam2KeptCount": 80,
+        "emitterCount": 3
+      }
+    }
+  },
+  "contactSheet": "noperson-generation-contact-sheet.png",
+  "status": "no-person generation plus SAM2, Depth Anything, derived normals, and draft lightmap review layers"
+}

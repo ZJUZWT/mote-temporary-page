@@ -1,0 +1,82 @@
+{
+  "image": "C:\\Users\\10310\\mote-seg-work\\ch01-noperson-lightmap-v1\\generations\\flux1-dev-fp8\\gray-harbor-landing\\noperson_gray-harbor-landing_flux1dev_72021_00001_.png",
+  "scale": 1,
+  "raw_mask_count": 7,
+  "kept_count": 6,
+  "min_area": 96,
+  "max_area_ratio": 0.65,
+  "instances": [
+    {
+      "id": 1,
+      "area": 482114,
+      "bbox": [
+        0,
+        0,
+        1023,
+        521
+      ],
+      "predicted_iou": 0.97236168384552,
+      "stability_score": 0.9108057022094727
+    },
+    {
+      "id": 2,
+      "area": 307778,
+      "bbox": [
+        0,
+        674,
+        1023,
+        1020
+      ],
+      "predicted_iou": 0.9787780046463013,
+      "stability_score": 0.9353837966918945
+    },
+    {
+      "id": 3,
+      "area": 3443,
+      "bbox": [
+        0,
+        692,
+        110,
+        752
+      ],
+      "predicted_iou": 0.9193367958068848,
+      "stability_score": 0.9339144825935364
+    },
+    {
+      "id": 4,
+      "area": 3077,
+      "bbox": [
+        922,
+        694,
+        1023,
+        746
+      ],
+      "predicted_iou": 0.819778323173523,
+      "stability_score": 0.9152383804321289
+    },
+    {
+      "id": 5,
+      "area": 1640,
+      "bbox": [
+        476,
+        670,
+        560,
+        697
+      ],
+      "predicted_iou": 0.7058882117271423,
+      "stability_score": 0.8663253784179688
+    },
+    {
+      "id": 6,
+      "area": 340,
+      "bbox": [
+        501,
+        692,
+        538,
+        706
+      ],
+      "predicted_iou": 0.6865360140800476,
+      "stability_score": 0.9005681872367859
+    }
+  ]
+}

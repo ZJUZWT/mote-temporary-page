@@ -1,0 +1,55 @@
+{
+  "image": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/generations/flux1-dev-fp8/wake-bay/noperson_wake-bay_flux1dev_72001_00001_.png",
+  "segmentation": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/segmentations/sam2/flux1-dev-fp8/wake-bay",
+  "depth": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/wake-bay/depth-anything-v2-depth.png",
+  "normal": "/Users/swannzhang/Workspace/AIProjects/TheMoteInTheDust/tools/imagery/mote-comfy-client/assets/generated/ch01-scene-pipeline/run-20260427-noperson-lightmap-v1/gbuffer/flux1-dev-fp8/wake-bay/depth-derived-normal-preview.png",
+  "status": "review probe: depth-derived normals, SAM2/bright emitter candidates, not final light transport",
+  "emitters": [
+    {
+      "id": "bright-01",
+      "kind": "bright-component",
+      "area": 36330,
+      "bbox": [
+        346,
+        704,
+        708,
+        836
+      ],
+      "bright_score": 0.9068698287010193
+    },
+    {
+      "id": "bright-02",
+      "kind": "bright-component",
+      "area": 2090,
+      "bbox": [
+        486,
+        82,
+        550,
+        126
+      ],
+      "bright_score": 0.9876847267150879
+    },
+    {
+      "id": "bright-03",
+      "kind": "bright-component",
+      "area": 942,
+      "bbox": [
+        488,
+        211,
+        534,
+        239
+      ],
+      "bright_score": 0.9857498407363892
+    }
+  ],
+  "outputs": {
+    "channel1": "channel-1-influence.png",
+    "channel2": "channel-2-influence.png",
+    "channel3": "channel-3-influence.png",
+    "packed": "packed-lightmap-rgb.png",
+    "composite": "lightmap-composite-preview.png",
+    "material": "material-map-rgb.png",
+    "normal_overlay": "material-normal-overlay.png",
+    "contact_sheet": "review-contact-sheet.png"
+  }
+}
