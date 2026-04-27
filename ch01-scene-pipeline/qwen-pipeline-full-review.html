@@ -41,19 +41,19 @@ a { color:var(--accent); text-decoration:none; }
 <main>
   <section class='review'>
     <aside class='controls'>
-      <label>1. scene
-        <select id='sceneSelect'></select>
-      </label>
-      <label>2. generation model
+      <label>1. generation model
         <select id='modelSelect'></select>
       </label>
-      <label>3. segmentation model
+      <label>2. segmentation model
         <select id='segModelSelect'>
           <option value='none'>none / original image</option>
           <option value='sam2'>SAM2 whole-scene proposal</option>
         </select>
       </label>
-      <label>4. segmentation view
+      <label>3. scene
+        <select id='sceneSelect'></select>
+      </label>
+      <label>4. view
         <select id='viewSelect'>
           <option value='original'>original</option>
           <option value='sam2Overlay'>SAM2 overlay</option>
